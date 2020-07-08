@@ -64,7 +64,7 @@
                     <div class="float-right">
                         <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
                             <li class="has-submenu">
-                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
+                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{phone}}</a><span class="menu-arrow"></span>
                                 <ul class="submenu" v-if="name === '未登录'">
                                     <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
                                     <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
@@ -397,11 +397,12 @@
     </script>
     <script>
         function toSubmit() {
-            app.insert();
+            app.update();
         }
         var app = new Vue({
             el: '#app',
             data: {
+                info : {},
                 phone: '',
                 username: '',
                 companynature: '',
@@ -411,7 +412,6 @@
                 companytype: '',
                 personphone: '',
                 email: '',
-                copyMailbox: '',
                 simpletro: '',
                 introduce: '',
                 listed: "",
@@ -430,6 +430,34 @@
                 disable: true
             },
             methods: {
+                update : function(){
+                    var self = this;
+                    axios
+                        .put('/update', {
+                            phone : self.phone,
+                            username : self.username,
+                            companynature : self.companynature,
+                            companysize : self.companysize,
+                            place : self.place,
+                            fund : self.fund,
+                            companytype : self.companytype,
+                            personphone : self.personphone,
+                            email : self.email,
+                            simpletro : self.simpletro,
+                            introduce : self.introduce,
+                            listed : self.listed,
+                            website : self.website,
+                            headquarters : self. headquarters,
+                        })
+                        .then(function (response) {
+                            if (response.data == "error"){
+                                console.log("更新时出现了错误");
+                            }else if (response.data == "success"){
+                                alert("更新成功");
+                                window.location.href = "enterpriseCenter.html";
+                            }
+                        })
+                },
                 send: function() {
                     sendValidateCode()
                 },
@@ -510,38 +538,31 @@
             mounted() {
                 var self = this
                 axios.post('/bussiness', {
-                        code: "1014"
+                        code: "1018",
                     })
                     .then(function(response) {
-
+                        console.log(response.data);
+                        self.info = response.data[0];
+                        console.log(self.info);
+                        self.phone = self.info.phone;
+                        self.username = self.info.username;
+                        self.companynature = self.info.companynature;
+                        self.companysize = self.info.companysize;
+                        self.place = self.info.place;
+                        self.fund = self.info.fund;
+                        self.companytype = self.info.companytype;
+                        self.personphone = self.info.personphone;
+                        self.email = self.info.email;
+                        self.simpletro = self.info.simpletro;
+                        self.introduce = self.info.introduce;
+                        self.listed = self.info.listed;
+                        self.website = self.info.website;
+                        self.headquarters = self.info.headquarters;
+                        console.log(self.headquarters);
                     })
                     .catch(function(error) {
                         console.log(error);
                     });
-                axios.post('/users', {
-                        code: "1005",
-                    })
-                    .then(function(response) {
-                        self.phone = response.data.phone
-                        self.name = response.data.username
-                        self.companynature = response.data.companynature
-                        self.companysize = response.data.companysize
-                        self.place = response.data.place
-                        self.fund = response.data.fund
-                        self.companytype = response.data.companytype
-                        self.personphone = response.data.personphone
-                        self.email = response.data.email
-                        self.copyMailbox = response.data.email
-                        self.simpletro = response.data.simpletro
-                        self.introduce = response.data.introduce
-                        self.listed = response.data.listed
-                        self.website = response.data.website
-                        self.headquarters = response.data.headquarters
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
-
             },
         })
     </script>
