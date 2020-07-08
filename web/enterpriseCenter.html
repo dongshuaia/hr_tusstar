@@ -249,6 +249,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">历史记录</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-job-tab" data-toggle="pill" href="#pills-job" role="tab" aria-controls="pills-job" aria-selected="false">已发布的岗位</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="tab-content" id="pills-tabContent">
@@ -340,6 +343,50 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
+                      <div class="row">
+                        <div class="col-lg-12 mt-4 pt-2" v-for="job in joblist">
+                          <div class="job-list-box border rounded" @click="Jump(job.companyname)" style="cursor: pointer">
+                            <div class="p-3">
+                              <div class="row align-items-center">
+                                <div class="col-lg-2">
+                                  <div class="company-logo-img">
+                                    <img src="images/featured-job/img-1.png" alt="" class="img-fluid mx-auto d-block">
+                                  </div>
+                                </div>
+                                <div class="col-lg-7 col-md-9">
+                                  <div class="job-list-desc">
+                                    <h6 class="mb-2"><a href="#" class="text-dark">{{job.companyname}}</a>
+                                    </h6>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>{{job.company}}</p>
+                                    <ul class="list-inline mb-0">
+                                      <li class="list-inline-item mr-3">
+                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{job.place}}
+                                        </p>
+                                      </li>
+
+                                      <li class="list-inline-item">
+                                        <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>{{job.time}}</p>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3">
+                                  <div class="job-list-button-sm text-right">
+                                    <span class="badge badge-success">{{job.worktype}}</span>
+
+                                    <div class="mt-3">
+                                      <a :href="'/job-details.html?name=' + job.companyname" class="btn btn-sm btn-primary">查看详情</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -434,6 +481,7 @@
             data: {
                 info: [],
                 infoList: [],
+                joblist: [],
                 name: '',
                 newlin: '',
                 photoAddress: "",
@@ -449,29 +497,6 @@
                         //console.log(response.data)
                         self.info = response.data[0];
                         self.infoList = response.data[1]
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
-                axios.post('/users', {
-                        code: "1005",
-                    })
-                    .then(function(response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                        } else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
-                        }
                     })
                     .catch(function(error) {
                         console.log(error);
@@ -514,26 +539,55 @@
                     window.location = "candidates-profile.html?phone=" + item.phone;
                 }
             },
-            mounted() {
+            async mounted() {
                 var self = this
                 axios
-                    .post('/searchPhoto', {
+                  .post('/searchPhoto', {
+                  })
+                  .then(function(response) {
+                      console.log("返回的头像地址：" + response.data[0].imgadress);
+                      if (response.data == "error") {
+                          console.log("头像查询时出现错误");
+                      } else if (response.data == "noPhoto") {
+                          self.photoAddress = "images/employers/img-3.jpg";
+                      } else {
+                          self.photoAddress = response.data[0].imgadress;
+                      }
+                      console.log(self.photoAddress);
+                  })
+                  .catch(function(error) {
+                      console.log(error);
+                  })
 
-                    })
-                    .then(function(response) {
-                        console.log("返回的头像地址：" + response.data[0].imgadress);
-                        if (response.data == "error") {
-                            console.log("头像查询时出现错误");
-                        } else if (response.data == "noPhoto") {
-                            self.photoAddress = "images/employers/img-3.jpg";
-                        } else {
-                            self.photoAddress = response.data[0].imgadress;
-                        }
-                        console.log(self.photoAddress);
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    })
+                await axios
+                  .post('/users', {
+                    code: "1005",
+                  })
+                  .then(function(response) {
+                    if (response.data == "nouser") {
+                      self.name = "未登录"
+                    } else {
+                      self.name = response.data.username
+                      self.isadmin = response.data.studentisadmin
+                      self.phone = response.data.phone
+                      self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                    }
+                  })
+                  .catch(function(error) {
+                    console.log(error);
+                  });
+
+                axios
+                  .post('/bussiness',{
+                    code: "1011",
+                    phone: self.phone
+                  })
+                  .then(function (response) {
+                    self.joblist = response.data
+                  })
+                  .catch(function (error) {
+                    console.log(error.message)
+                  })
             },
         })
     </script>

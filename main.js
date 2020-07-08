@@ -710,6 +710,7 @@ app.use('/bussiness', function (request, response) {
         })
     }
     else if (request.body.code == "1011") {//job-detil中的企业列表
+        console.log("hhhh: " + request.body.phone)
         var selectjoblist = "select * from job where company = " + " '" + request.body.phone + "' "
         query(selectjoblist, function (err, result) {
             if (err) {
