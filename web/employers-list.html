@@ -228,7 +228,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-6">
                                             <div class="registration-form-box">
-                                                <input type="submit" id="submit" class="submitBnt btn btn-primary btn-block" value="立即查询" v-on:click="query1">
+                                                <input type="submit" id="submit" class="submitBnt btn btn-primary btn-block" value="立即查询" @click="query1">
                                             </div>
                                         </div>
                                     </div>
@@ -256,38 +256,33 @@
                                     <div id="collapsetwo" class="collapse show" aria-labelledby="headingtwo">
                                         <div class="card-body p-0">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck7">1-50人</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1" value="2000人以上" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck1">2000人以上</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck8">51-100人</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2" value="500-2000人" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck2">500-2000人</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck9">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck9">101-150人</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck3" value="200-500人" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck3">200-500人</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck10">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck10">151-200人</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck4" value="50-200人" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck4">50-200人</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck11">201-250人</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck5" value="15-50人" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck5">15-50人</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck12">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck12">251-300人</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck13">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck13">300人以上</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck6" value="1-15人" v-model="sizeTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customCheck6">1-15人</label>
                                             </div>
                                         </div>
                                     </div>
@@ -302,38 +297,38 @@
                                     <div id="collapsethree" class="collapse show" aria-labelledby="headingthree">
                                         <div class="card-body p-0">
                                             <div class="custom-control custom-radio">
-                                              <input type="radio" checked="checked" id="customRadio7" name="customRadio1" class="custom-control-input">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio7">全部</label>
+                                              <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" value="全部" v-model="natureTicked" @change="criteriaQuery()">
+                                              <label class="custom-control-label ml-1 text-muted" for="customRadio2">全部</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio8">互联网/游戏/软件</label>
+                                                <input type="radio" id="customRadio3" name="customRadio1" class="custom-control-input" value="互联网/游戏/软件" v-model="natureTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customRadio3">互联网/游戏/软件</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio9" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio9">互联网/游戏/软件</label>
+                                                <input type="radio" id="customRadio4" name="customRadio1" class="custom-control-input" value="广告/传媒/公关/展览" v-model="natureTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customRadio4">广告/传媒/公关/展览</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio10" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio10">房产/家居/物业/建筑</label>
+                                                <input type="radio" id="customRadio5" name="customRadio1" class="custom-control-input" value="房产/家居/物业/建筑" v-model="natureTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customRadio5">房产/家居/物业/建筑</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio11" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio11">教育/培训</label>
+                                                <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" value="教育/培训" v-model="natureTicked" @change="criteriaQuery()">
+                                                <label class="custom-control-label ml-1 text-muted" for="customRadio6">教育/培训</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                              <input type="radio" id="customRadio12" name="customRadio1" class="custom-control-input">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio12">农林牧渔</label>
+                                              <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input" value="农林牧渔" v-model="natureTicked" @change="criteriaQuery()">
+                                              <label class="custom-control-label ml-1 text-muted" for="customRadio7">农林牧渔</label>
                                             </div>
 
                                             <div class="custom-control custom-radio">
-                                              <input type="radio" id="customRadio13" name="customRadio1" class="custom-control-input">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio13">其他</label>
+                                              <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input" value="其他" v-model="natureTicked" @change="criteriaQuery()">
+                                              <label class="custom-control-label ml-1 text-muted" for="customRadio8">其他</label>
                                             </div>
                                         </div>
                                     </div>
@@ -386,14 +381,12 @@
                           </div>
                         </div>
                       </div>
-
-
-                      <div style="margin: 30px auto 0px">
-                        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                       :current-page="currentPage" :page-sizes="[9,27]" :page-size="9"
-                                       layout="prev, pager, next, jumper,sizes, total " :total="this.infos.length">
-                        </el-pagination>
-                      </div>
+                    </div>
+                    <div style="margin: 30px auto 0px">
+                      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                     :current-page="currentPage" :page-sizes="[9,27]" :page-size="9"
+                                     layout="prev, pager, next, jumper,sizes, total " :total="this.infos.length">
+                      </el-pagination>
                     </div>
                   </div>
                 </div>
@@ -477,7 +470,7 @@
     <script src="js/app.js"></script>
 
     <script type="text/javascript">
-        new Vue({
+        var app = new Vue({
             el: '#app',
             data: {
                 infos: [],
@@ -491,7 +484,9 @@
                 phone: "",
                 enterpriseKeyWord: "",
                 companyAddress: "",
-                companyType: ""
+                companyType: "",
+                sizeTicked: [],
+                natureTicked: "全部"
             },
             mounted() {
                 var self = this
@@ -511,7 +506,6 @@
                     tmp.companyType = companyType;
                     self.companyType = companyType;
                 }
-                console.log(tmp);
                 if (tmp.enterpriseKeyWord != undefined || tmp.companyAddress != undefined || tmp.companyType != undefined) {
                     axios
                         .post('/bussiness', {
@@ -536,7 +530,6 @@
                         })
                         .then(function(response) {
                             self.infos = response.data
-                            console.log(response);
                         })
                         .catch(function(error) {
                             console.log(error);
@@ -546,7 +539,6 @@
                         code: "1005",
                     })
                     .then(function(response) {
-                        console.log(response)
                         if (response.data == "nouser") {
                             self.name = "未登录"
                         } else {
@@ -555,14 +547,12 @@
                             self.phone = response.data.phone
                             if (self.isadmin == "2") {
                                 self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(self.newlin)
                                 self.showtype = "发布一个岗位"
                                 self.turntype = "/post-a-job.html"
                                 console.log("此用户是企业用户")
                             }
                             if (self.isadmin == "0") {
                                 self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(self.newlin)
                                 self.showtype = "完善简历"
                                 self.turntype = "/create-resume.html"
                                 console.log("此用户是普通用户")
@@ -609,10 +599,7 @@
                 },
                 getQueryVariable: function(variable) {
                     var query = window.location.search.substring(1);
-                    console.log(window.location.search) //?mingcheng=%E6%95%99%E5%B8%88%E5%AE%9E%E4%B9%A0&didian=&fenlei=
-                    console.log(query); //mingcheng=%E6%95%99%E5%B8%88%E5%AE%9E%E4%B9%A0&didian=&fenlei=
                     var vars = query.split("&");
-                    console.log(vars);
                     for (var i = 0; i < vars.length; i++) {
                         var pair = vars[i].split("=");
                         if (pair[0] == variable) {
@@ -620,6 +607,31 @@
                         }
                     }
                     return "";
+                },
+                // 条件查询
+                criteriaQuery: function () {
+                    var companySizeList = (this.sizeTicked.length === 0 ? null: this.sizeTicked);
+                    var companyNature = (this.natureTicked === "全部" ? null : this.natureTicked);
+
+                    axios
+                      .post('/bussiness', {
+                        code: '1017',
+                        enterpriseKeyWord: this.enterpriseKeyWord,
+                        companyAddress: this.companyAddress,
+                        companyType: this.companyType,
+                        companySizeList: companySizeList,
+                        companyNature: companyNature
+                      })
+                      .then(function(response) {
+                        if (response.data == "error") {
+                          console.log("企业查询返回错误");
+                          return;
+                        }
+                        app.infos = response.data;
+                      })
+                      .catch(function(error) {
+                        console.log("企业查询发生错误" + error);
+                      })
                 }
             }
         })
