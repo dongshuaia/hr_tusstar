@@ -13,10 +13,10 @@ const transporter = nodemailer.createTransport(config);
 
 module.exports = function (mail) {
     transporter.sendMail(mail, function (err, info) {
-        if (err){
+        if (err) {
             return console.log(err);
         }
-        console.log("mail sent:" , info.response);
+        console.log("mail sent:", info.response);
     });
 };
 

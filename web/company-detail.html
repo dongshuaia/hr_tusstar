@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>企业信息 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
     <script src="js/vue.min.js"></script>
     <script src="js/axios.min.js"></script>
@@ -18,548 +18,546 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id ="app">
-        <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<div id="app">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <!-- Loader -->
+    </div>
+    <!-- Loader -->
 
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- Tagline STart -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
                     </div>
-                    <div class="float-right">
-                      <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                </div>
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
                         <li class="has-submenu">
-                          <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                          <ul class="submenu" v-if="name === '未登录'">
-                            <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                            <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                          </ul>
-                          <ul class="submenu" v-else>
-                            <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                          </ul>
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
                         </li>
                         <li class="list-inline-item">
-                          <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- Tagline End -->
-
-            <!-- Menu Start -->
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button">
-                    <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
-                </div>
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                        class="submenu-arrow"></span>
-                                    <ul class="submenu">
-                                        <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                        <li><a href="create-resume.html">新建简历</a></li>
-                                    </ul>
-
-
-                                </li> -->
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a href="contact.html">联系我们</a>
-
-                        </li> -->
-                    </ul>
-                    <!--end navigation menu-->
-                </div>
-                <!--end navigation-->
-            </div>
-            <!--end container-->
-            <!--end end-->
-        </header>
-        <!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Start home -->
-        <section class="bg-half page-next-level">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-white">
-                            <h4 class="text-uppercase title mb-4">企业信息</h4>
-                            <ul class="page-next d-inline-block mb-0">
-                                <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-                                <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
-                                <li>
-                                    <span class="text-uppercase text-white font-weight-bold">企业信息</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end home -->
-
-        <!-- EMPLOYERS DETAILS START -->
-        <section class="section">
-            <div class="container" id="app">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-sm-center">
-                            <img src="images/featured-job/img-3.png" alt="" class="img-fluid mx-md-auto d-block">
-                            <h4 class="mt-3"><a href="#" class="text-dark">{{info.phone}}</a></h4>
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item mr-3">
-                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{info.place}}</p>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <p class="text-success mb-0"><i
-                                            class="mdi mdi-bookmark-check mdi-18px mr-2"></i>通过验证
-                                    </p>
-                                </li>
-                            </ul>
-
-                            <ul class="list-inline mb-2">
-                                <li class="list-inline-item mr-3 ">
-                                    <p class="text-muted"><i class="mdi mdi-earth mr-2"></i>{{info.web}}</p>
-                                </li>
-
-                                <li class="list-inline-item mr-3">
-                                    <p class="text-muted"><i class="mdi mdi-email mr-2"></i>{{info.email}}</p>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><i
-                                            class="mdi mdi-cellphone-iphone mr-2"></i>{{info.personphone}}
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="border-top border-bottom pt-4 pb-4">
-                            <div class="row justify-content-sm-center">
-                                <div class="col-lg-2 col-md-3 col-6">
-                                    <div class="text-sm-center m-14">
-                                        <h5 class="text-dark mb-2">企业规模</h5>
-                                        <p class="text-muted mb-0">{{info.companysize}}</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-2 col-md-3 col-6">
-                                    <div class="text-sm-center m-14">
-                                        <h5 class="text-dark mb-2">类型</h5>
-                                        <p class="text-muted mb-0">{{info.companytype}}</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-2 col-md-3 col-6">
-                                    <div class="text-sm-center m-14">
-                                        <h5 class="text-dark mb-2">发布职位</h5>
-                                        <p class="text-muted mb-0">{{num}}</p>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-lg-2 col-md-3 col-6">
-                                    <div class="text-sm-center m-14">
-                                        <h5 class="text-dark mb-2">累计简历投递</h5>
-                                        <p class="text-muted mb-0">{{resumenum}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12 mt-4 pt-2">
-                        <h4>公司简介 :</h4>
-                        <div class="rounded border p-4 mt-3">
-                            <p class="text-muted">{{info.simpletro}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 mt-4 pt-2">
-                        <h4>公司介绍 :</h4>
-                        <div class="rounded border p-4 mt-3">
-                            <p class="text-muted">{{info.introduce}}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12 mt-4 pt-2">
-                        <h4>已发布工作 :</h4>
-                        <div class="col-lg-12 mt-4 pt-2" v-for="inf in infos">
-                            <div class="job-list-box border rounded">
-                                <div class="p-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-2">
-                                            <div class="company-logo-img">
-                                                <img src="images/featured-job/img-1.png" alt=""
-                                                    class="img-fluid mx-auto d-block">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7 col-md-9">
-                                            <div class="job-list-desc">
-                                                <h6 class="mb-2"><a href="#" class="text-dark">{{inf.companyname}}</a>
-                                                </h6>
-                                                <p class="text-muted mb-0"><i
-                                                        class="mdi mdi-bank mr-2"></i>{{inf.company}}
-                                                </p>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item mr-3">
-                                                        <p class="text-muted mb-0"><i
-                                                                class="mdi mdi-map-marker mr-2"></i>{{inf.place}}</p>
-                                                    </li>
-
-                                                    <li class="list-inline-item">
-                                                        <p class="text-muted mb-0"><i
-                                                                class="mdi mdi-clock-outline mr-2"></i>发布于{{inf.time}}</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <div class="job-list-button-sm text-right">
-                                                <span class="badge badge-success">{{inf.worktype}}</span>
-
-                                                <div class="mt-3">
-                                                    <a :href="'/job-details.html?name=' + inf.companyname"
-                                                        class="btn btn-sm btn-primary">申请</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12 mt-4 pt-2">
-                            <h4>企业评价 :</h4>
-                        </div>
-
-                        <div class="col-lg-8 col-md-7">
-                            <div class="shadow rounded p-4 mt-4">
-                                <img src="images/employers/img-1.jpg" alt="" height="90"
-                                    class="float-left shadow rounded-pill mr-3">
-                                <div class="d-block overflow-hidden">
-                                    <h6 class="text-muted font-weight-light float-right mb-0"><i
-                                            class="mdi mdi-clock-outline mr-1"></i>32 分钟前</h6>
-                                    <h5 class="mb-1"><a href="#" class="text-dark">姓名</a></h5>
-                                    <small class="text-muted font-weight-bold">Web开发工程师</small>
-                                    <ul class="employers-icons list-inline mb-1">
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                    <p class="text-muted mb-0">暂未开放</p>
-                                </div>
-                            </div>
-
-                            <div class="shadow rounded p-4 mt-4">
-                                <img src="images/employers/img-2.jpg" alt="" height="90"
-                                    class="float-left shadow rounded-pill mr-3">
-                                <div class="d-block overflow-hidden">
-                                    <h6 class="text-muted font-weight-light float-right mb-0"><i
-                                            class="mdi mdi-clock-outline mr-1"></i>49 分钟前</h6>
-                                    <h5 class="mb-1"><a href="#" class="text-dark">姓名</a></h5>
-                                    <small class="text-muted font-weight-bold">Web开发工程师</small>
-                                    <ul class="employers-icons list-inline mb-1">
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                        <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                    <p class="text-muted mb-0">敬请期待</p>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-5 mt-4">
-                            <div class="p-4 rounded text-center shadow">
-                                <div class="map mt-3">
-                                    <iframe src="https://map.baidu.com/@11328368.865350053,4368838.354394489,19.15z"
-                                        class="rounded" style="border: 0" allowfullscreen=""></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-    </div>
-    <!-- EMPLOYERS DETAILS END -->
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
-                        方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
-                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
+        <!-- Tagline End -->
+
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button">
+                <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
                 </div>
             </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
+                                </ul>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
         </div>
         <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+    <!-- Start home -->
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">企业信息</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">企业信息</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <!-- EMPLOYERS DETAILS START -->
+    <section class="section">
+        <div class="container" id="app">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-sm-center">
+                        <img src="images/featured-job/img-3.png" alt="" class="img-fluid mx-md-auto d-block">
+                        <h4 class="mt-3"><a href="#" class="text-dark">{{info.phone}}</a></h4>
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item mr-3">
+                                <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{info.place}}</p>
+                            </li>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
+                            <li class="list-inline-item">
+                                <p class="text-success mb-0"><i
+                                        class="mdi mdi-bookmark-check mdi-18px mr-2"></i>通过验证
+                                </p>
+                            </li>
+                        </ul>
 
-    <script src="js/jquery.nice-select.min.js"></script>
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item mr-3 ">
+                                <p class="text-muted"><i class="mdi mdi-earth mr-2"></i>{{info.web}}</p>
+                            </li>
 
-    <script src="js/app.js"></script>
-    <script type="text/javascript">
-        new Vue({
-            el: '#app',
-            data: {
-                info: {},
-                infos: [],
-                num: "",
-                resumenum: '',
-                name: "",
-                newlin: ""
-            },
-            mounted() {
-                phone = this.getUrlKey("phone", window.location.href)
-                var self = this
-                axios.post('/bussiness', {
-                    code: "1009",
-                    phone: phone,
+                            <li class="list-inline-item mr-3">
+                                <p class="text-muted"><i class="mdi mdi-email mr-2"></i>{{info.email}}</p>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <p class="text-muted"><i
+                                        class="mdi mdi-cellphone-iphone mr-2"></i>{{info.personphone}}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="border-top border-bottom pt-4 pb-4">
+                        <div class="row justify-content-sm-center">
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <div class="text-sm-center m-14">
+                                    <h5 class="text-dark mb-2">企业规模</h5>
+                                    <p class="text-muted mb-0">{{info.companysize}}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <div class="text-sm-center m-14">
+                                    <h5 class="text-dark mb-2">类型</h5>
+                                    <p class="text-muted mb-0">{{info.companytype}}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <div class="text-sm-center m-14">
+                                    <h5 class="text-dark mb-2">发布职位</h5>
+                                    <p class="text-muted mb-0">{{num}}</p>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <div class="text-sm-center m-14">
+                                    <h5 class="text-dark mb-2">累计简历投递</h5>
+                                    <p class="text-muted mb-0">{{resumenum}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+                    <h4>公司简介 :</h4>
+                    <div class="rounded border p-4 mt-3">
+                        <p class="text-muted">{{info.simpletro}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+                    <h4>公司介绍 :</h4>
+                    <div class="rounded border p-4 mt-3">
+                        <p class="text-muted">{{info.introduce}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+                    <h4>已发布工作 :</h4>
+                    <div class="col-lg-12 mt-4 pt-2" v-for="inf in infos">
+                        <div class="job-list-box border rounded">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-2">
+                                        <div class="company-logo-img">
+                                            <img src="images/featured-job/img-1.png" alt=""
+                                                 class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h6 class="mb-2"><a href="#" class="text-dark">{{inf.companyname}}</a>
+                                            </h6>
+                                            <p class="text-muted mb-0"><i
+                                                    class="mdi mdi-bank mr-2"></i>{{inf.company}}
+                                            </p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i
+                                                            class="mdi mdi-map-marker mr-2"></i>{{inf.place}}</p>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <p class="text-muted mb-0"><i
+                                                            class="mdi mdi-clock-outline mr-2"></i>发布于{{inf.time}}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="job-list-button-sm text-right">
+                                            <span class="badge badge-success">{{inf.worktype}}</span>
+
+                                            <div class="mt-3">
+                                                <a :href="'/job-details.html?name=' + inf.companyname"
+                                                   class="btn btn-sm btn-primary">申请</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 mt-4 pt-2">
+                        <h4>企业评价 :</h4>
+                    </div>
+
+                    <div class="col-lg-8 col-md-7">
+                        <div class="shadow rounded p-4 mt-4">
+                            <img src="images/employers/img-1.jpg" alt="" height="90"
+                                 class="float-left shadow rounded-pill mr-3">
+                            <div class="d-block overflow-hidden">
+                                <h6 class="text-muted font-weight-light float-right mb-0"><i
+                                        class="mdi mdi-clock-outline mr-1"></i>32 分钟前</h6>
+                                <h5 class="mb-1"><a href="#" class="text-dark">姓名</a></h5>
+                                <small class="text-muted font-weight-bold">Web开发工程师</small>
+                                <ul class="employers-icons list-inline mb-1">
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                </ul>
+                                <p class="text-muted mb-0">暂未开放</p>
+                            </div>
+                        </div>
+
+                        <div class="shadow rounded p-4 mt-4">
+                            <img src="images/employers/img-2.jpg" alt="" height="90"
+                                 class="float-left shadow rounded-pill mr-3">
+                            <div class="d-block overflow-hidden">
+                                <h6 class="text-muted font-weight-light float-right mb-0"><i
+                                        class="mdi mdi-clock-outline mr-1"></i>49 分钟前</h6>
+                                <h5 class="mb-1"><a href="#" class="text-dark">姓名</a></h5>
+                                <small class="text-muted font-weight-bold">Web开发工程师</small>
+                                <ul class="employers-icons list-inline mb-1">
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                    <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
+                                </ul>
+                                <p class="text-muted mb-0">敬请期待</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-5 mt-4">
+                        <div class="p-4 rounded text-center shadow">
+                            <div class="map mt-3">
+                                <iframe src="https://map.baidu.com/@11328368.865350053,4368838.354394489,19.15z"
+                                        class="rounded" style="border: 0" allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<!-- EMPLOYERS DETAILS END -->
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
+
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
+
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
+
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
+
+<script src="js/jquery.nice-select.min.js"></script>
+
+<script src="js/app.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            info: {},
+            infos: [],
+            num: "",
+            resumenum: '',
+            name: "",
+            newlin: ""
+        },
+        mounted() {
+            phone = this.getUrlKey("phone", window.location.href)
+            var self = this
+            axios.post('/bussiness', {
+                code: "1009",
+                phone: phone,
+            })
+                .then(function (response) {
+                    self.info = response.data[0]
+                    console.log(response);
                 })
-                    .then(function (response) {
-                        self.info = response.data[0]
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/bussiness', {
-                    code: "1011",
-                    phone: phone,
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/bussiness', {
+                code: "1011",
+                phone: phone,
+            })
+                .then(function (response) {
+                    self.infos = response.data
+                    console.log(response);
                 })
-                    .then(function (response) {
-                        self.infos = response.data
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/bussiness', {
-                    code: "1012",
-                    phone: phone,
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/bussiness', {
+                code: "1012",
+                phone: phone,
+            })
+                .then(function (response) {
+                    self.num = response.data
+                    console.log(response);
                 })
-                    .then(function (response) {
-                        self.num = response.data
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/bussiness', {
-                    code: "1013",
-                    phone: phone,
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/bussiness', {
+                code: "1013",
+                phone: phone,
+            })
+                .then(function (response) {
+                    self.resumenum = response.data
+                    console.log(response);
                 })
-                    .then(function (response) {
-                        self.resumenum = response.data
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/users', {
-                    code: "1005",
-                })
-                    .then(function (response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
                         }
-                        else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
                         }
-                    })
-            },
-            methods: {
-                getUrlKey: function (name, url) {
-                    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(url) || [, ""])[1].replace(/\+/g, '%20')) || null
+                    }
+                })
+        },
+        methods: {
+            getUrlKey: function (name, url) {
+                return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(url) || [, ""])[1].replace(/\+/g, '%20')) || null
 
-                }
             }
-        })
-    </script>
+        }
+    })
+</script>
 </body>
 
 </html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
     <script src="js/vue.min.js"></script>
     <!-- selectize js -->
@@ -33,215 +33,237 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <!-- Loader -->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
+<!-- Loader -->
+<div id="preloader">
+    <div id="status">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
         </div>
     </div>
-    <!-- Loader -->
+</div>
+<!-- Loader -->
 
-    <div class="back-to-home rounded d-none d-sm-block">
-        <a href="index.html" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
-    </div>
+<div class="back-to-home rounded d-none d-sm-block">
+    <a href="index.html" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
+</div>
 
-    <!-- Hero Start -->
-    <section class="vh-100" style="background:  center center;">
-        <div class="home-center">
-            <div class="home-desc-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="login_page bg-white shadow rounded p-4" id='app'>
-                                <div class="text-center">
-                                    <h4 class="mb-4">注册</h4>
-                                </div>
-                                <div class="login-form">
-                                    <form action="javascript:app.insert()" method="post">
-                                      <div class="row">
+<!-- Hero Start -->
+<section class="vh-100" style="background:  center center;">
+    <div class="home-center">
+        <div class="home-desc-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="login_page bg-white shadow rounded p-4" id='app'>
+                            <div class="text-center">
+                                <h4 class="mb-4">注册</h4>
+                            </div>
+                            <div class="login-form">
+                                <form action="javascript:app.insert()" method="post">
+                                    <div class="row">
                                         <div class="col-md-6">
-                                          <div class="form-group position-relative">
-                                            <label>手机号（账号）<span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.phone}}</span></b>
-                                            <input type="tel" class="form-control" placeholder="" name="phone" required v-model='phone' @blur="tip.phone=checkAllNumber(phone,{minlength: 11, maxlength: 11})" minlength="11" maxlength="11">
-                                          </div>
+                                            <div class="form-group position-relative">
+                                                <label>手机号（账号）<span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.phone}}</span></b>
+                                                <input type="tel" class="form-control" placeholder="" name="phone"
+                                                       required v-model='phone'
+                                                       @blur="tip.phone=checkAllNumber(phone,{minlength: 11, maxlength: 11})"
+                                                       minlength="11" maxlength="11">
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                          <div class="form-group position-relative">
-                                            <label>真实姓名<span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.username}}</span></b>
-                                            <input required type="text" class="form-control" placeholder="" name="username" v-model='username' @blur="tip.username=checkChinese(username,{minlength: 2, maxlength: 5})" minlength="2" maxlength="5">
-                                          </div>
+                                            <div class="form-group position-relative">
+                                                <label>真实姓名<span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.username}}</span></b>
+                                                <input required type="text" class="form-control" placeholder=""
+                                                       name="username" v-model='username'
+                                                       @blur="tip.username=checkChinese(username,{minlength: 2, maxlength: 5})"
+                                                       minlength="2" maxlength="5">
+                                            </div>
                                         </div>
                                         <div class="col-md-12">
-                                          <div class="form-group position-relative">
-                                            <label>电子邮箱<span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.email}}</span></b>
-                                            <input required type="email" class="form-control" placeholder="" name="email" v-model='email' @blur="tip.email=checkEmail(email)" minlength="1" maxlength="50">
-                                            <input type="text" class="form-control phone-Captcha" placeholder="输入验证码" name="Captcha" required v-model.lazy="emailValidateCode">
-                                            <div class="but_w_h">
-                                              <input type="button" class="btn btn-primary btn-sm" id="verCodeBtn" onclick="sendValidateCode()" value="获取验证码">
+                                            <div class="form-group position-relative">
+                                                <label>电子邮箱<span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.email}}</span></b>
+                                                <input required type="email" class="form-control" placeholder=""
+                                                       name="email" v-model='email' @blur="tip.email=checkEmail(email)"
+                                                       minlength="1" maxlength="50">
+                                                <input type="text" class="form-control phone-Captcha"
+                                                       placeholder="输入验证码" name="Captcha" required
+                                                       v-model.lazy="emailValidateCode">
+                                                <div class="but_w_h">
+                                                    <input type="button" class="btn btn-primary btn-sm" id="verCodeBtn"
+                                                           onclick="sendValidateCode()" value="获取验证码">
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
 
                                         <div class="col-md-12">
-                                          <div class="form-group app-label">
-                                            <label>性别<span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.sex}}</span></b>
-                                            <div class="form-button">
-                                              <select required class="nice-select rounded" v-model="sex" name="sex">
-                                                <option value="男">男</option>
-                                                <option value="女">女</option>
-                                              </select>
+                                            <div class="form-group app-label">
+                                                <label>性别<span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.sex}}</span></b>
+                                                <div class="form-button">
+                                                    <select required class="nice-select rounded" v-model="sex"
+                                                            name="sex">
+                                                        <option value="男">男</option>
+                                                        <option value="女">女</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
 
                                         <div class="col-md-12">
-                                          <div class="form-group position-relative">
-                                            <label>登录密码 <span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.password}}</span></b>
-                                            <input required type="password" class="form-control" placeholder="" name="password" v-model='password' @blur="tip.password=checkPassword(password,{minlength: 6, maxlength: 20})" minlength="6" maxlength="20">
-                                          </div>
+                                            <div class="form-group position-relative">
+                                                <label>登录密码 <span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.password}}</span></b>
+                                                <input required type="password" class="form-control" placeholder=""
+                                                       name="password" v-model='password'
+                                                       @blur="tip.password=checkPassword(password,{minlength: 6, maxlength: 20})"
+                                                       minlength="6" maxlength="20">
+                                            </div>
                                         </div>
                                         <div class="col-md-12">
-                                          <div class="form-group position-relative">
-                                            <label>确认您的密码<span class="text-danger"> *</span></label>
-                                            <b><span style="color:red;font-size: 13px">{{tip.repassword}}</span></b>
-                                            <input required type="password" class="form-control" placeholder="" name='repassword' v-model='repassword' @blur="tip.repassword=checkPwdConfirm({password: password, repassword: repassword})" minlength="6" maxlength="20">
-                                          </div>
+                                            <div class="form-group position-relative">
+                                                <label>确认您的密码<span class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.repassword}}</span></b>
+                                                <input required type="password" class="form-control" placeholder=""
+                                                       name='repassword' v-model='repassword'
+                                                       @blur="tip.repassword=checkPwdConfirm({password: password, repassword: repassword})"
+                                                       minlength="6" maxlength="20">
+                                            </div>
                                         </div>
                                         <div class="col-md-12" style="height: 60px;">
-                                          <input type="text" class="form-control phone-Captcha input-val" placeholder="输入验证码" name="Captcha">
-                                          <canvas id="canvas" width="100" height="30" style="border: 1px solid rgb(100, 100, 248); margin: 0 0 -10px 0;"></canvas>
+                                            <input type="text" class="form-control phone-Captcha input-val"
+                                                   placeholder="输入验证码" name="Captcha">
+                                            <canvas id="canvas" width="100" height="30"
+                                                    style="border: 1px solid rgb(100, 100, 248); margin: 0 0 -10px 0;"></canvas>
                                         </div>
                                         <div class="col-md-12">
-                                          <div class="form-group">
-                                            <div class="custom-control m-0 custom-checkbox">
-                                              <input type="checkbox" class="custom-control-input" id="customCheck1" v-model.lazy="tick" @blur="tip.tick=checkTick(tick)">
-                                              <label class="custom-control-label" for="customCheck1">我同意
-                                                <a href="#" class="text-primary">《启迪之星服务条款》</a></label>
-                                              <b><span style="color:red;font-size: 13px">{{tip.tick}}</span></b>
+                                            <div class="form-group">
+                                                <div class="custom-control m-0 custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                           id="customCheck1" v-model.lazy="tick"
+                                                           @blur="tip.tick=checkTick(tick)">
+                                                    <label class="custom-control-label" for="customCheck1">我同意
+                                                        <a href="#" class="text-primary">《启迪之星服务条款》</a></label>
+                                                    <b><span style="color:red;font-size: 13px">{{tip.tick}}</span></b>
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
                                         <div class="col-md-12">
-                                          <button class="btn btn-primary w-100 ">注册</button>
+                                            <button class="btn btn-primary w-100 ">注册</button>
                                         </div>
                                         <div class="mx-auto">
-                                          <p class="mb-0 mt-3"><small class="text-dark mr-2">我已经有账号?</small>
-                                            <a href="login.html" class="text-dark font-weight-bold">登录</a></p>
+                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">我已经有账号?</small>
+                                                <a href="login.html" class="text-dark font-weight-bold">登录</a></p>
                                         </div>
-                                      </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <!--end col-->
                     </div>
-                    <!--end row-->
+                    <!--end col-->
                 </div>
-                <!--end container-->
+                <!--end row-->
             </div>
+            <!--end container-->
         </div>
-    </section>
-    <!--end section-->
-    <!-- Hero End -->
+    </div>
+</section>
+<!--end section-->
+<!-- Hero End -->
 
-    <!-- javascript -->
+<!-- javascript -->
 
 
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                phone: '',
-                username: '',
-                email: '',
-                sex: '',
-                password: "",
-                repassword: "",
-                tick: false,
-                imshow: "flash",
-                emailValidateCode: "",
-                rightCode: null,
-                tip: {
-                    phone: null,
-                    username: null,
-                    email: null,
-                    password: null,
-                    repassword: null,
-                    tick: null
-                }
-            },
-            methods: {
-                insert: function(response) {
-                    // 表单验证
-                    var flag = true;
-                    for (let i in this.tip) {
-                        if (this.tip[i] !== "") {
-                            flag = false;
-                            break;
-                        }
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            phone: '',
+            username: '',
+            email: '',
+            sex: '',
+            password: "",
+            repassword: "",
+            tick: false,
+            imshow: "flash",
+            emailValidateCode: "",
+            rightCode: null,
+            tip: {
+                phone: null,
+                username: null,
+                email: null,
+                password: null,
+                repassword: null,
+                tick: null
+            }
+        },
+        methods: {
+            insert: function (response) {
+                // 表单验证
+                var flag = true;
+                for (let i in this.tip) {
+                    if (this.tip[i] !== "") {
+                        flag = false;
+                        break;
                     }
-                    if (this.tick === false) flag = false;
-                    if (flag === true) {
-                        // 检查无误,执行下面的逻辑
-                        this.imshow = Compare_verification_codes()
-                        if (this.imshow === "flash") {
-                            alert('图形验证码错误');
-                        } else if (this.emailValidateCode !== self.rightCode) {
-                            alert('邮箱验证码错误');
-                        } else {
-                            axios
-                                .post('/users', {
-                                    code: '1001',
-                                    phone: this.phone,
-                                    username: this.username,
-                                    email: this.email,
-                                    sex: this.sex,
-                                    password: this.password,
-                                    isadmin: 0
-                                })
-                                .then(function(data) {
-                                    if (data.data == "success") {
-                                        alert('注册成功')
-                                        window.location = "/login.html"
-                                    } else if (data.data == "errortypeone") {
-                                        alert('用户已存在')
-                                        window.location.reload()
-                                    } else if (data.data == "error") {
-                                        alert('注册失败')
-                                        window.location.reload()
-                                    }
-                                })
-                                .catch(function(error) {
-                                    console.log('.....', error);
-                                })
-                        }
+                }
+                if (this.tick === false) flag = false;
+                if (flag === true) {
+                    // 检查无误,执行下面的逻辑
+                    this.imshow = Compare_verification_codes()
+                    if (this.imshow === "flash") {
+                        alert('图形验证码错误');
+                    } else if (this.emailValidateCode !== self.rightCode) {
+                        alert('邮箱验证码错误');
                     } else {
-                        alert("表单验证有误,请检查所有表单是否都符合要求!")
+                        axios
+                            .post('/users', {
+                                code: '1001',
+                                phone: this.phone,
+                                username: this.username,
+                                email: this.email,
+                                sex: this.sex,
+                                password: this.password,
+                                isadmin: 0
+                            })
+                            .then(function (data) {
+                                if (data.data == "success") {
+                                    alert('注册成功')
+                                    window.location = "/login.html"
+                                } else if (data.data == "errortypeone") {
+                                    alert('用户已存在')
+                                    window.location.reload()
+                                } else if (data.data == "error") {
+                                    alert('注册失败')
+                                    window.location.reload()
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log('.....', error);
+                            })
                     }
+                } else {
+                    alert("表单验证有误,请检查所有表单是否都符合要求!")
                 }
-            },
-        })
-    </script>
+            }
+        },
+    })
+</script>
 </body>
 
 </html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>企业信息 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
     <!--topbar js-->
     <script src="js/topbar.js"></script>
@@ -27,545 +27,581 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<div id="app">
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
+    </div>
 
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- Tagline STart -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
                     </div>
-                    <div class="float-right">
-                        <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                            <li class="has-submenu">
-                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{phone}}</a><span class="menu-arrow"></span>
-                                <ul class="submenu" v-if="name === '未登录'">
-                                    <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                                    <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                                </ul>
-                                <ul class="submenu" v-else>
-                                    <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                                </ul>
+                </div>
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{phone}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Tagline End -->
+
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button">
+                <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">企业信息</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
+                            <li>
+                                <span>个人中心</span>
+                            </li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">修改企业信息</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- Tagline End -->
+        </div>
+    </section>
 
-            <!-- Menu Start -->
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button">
-                    <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
-                </div>
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </header>
-
-        <section class="bg-half page-next-level">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-white">
-                            <h4 class="text-uppercase title mb-4">企业信息</h4>
-                            <ul class="page-next d-inline-block mb-0">
-                                <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-                                <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
-                                <li>
-                                    <span>个人中心</span>
-                                </li>
-                                <li>
-                                    <span class="text-uppercase text-white font-weight-bold">修改企业信息</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section style="background: url('') center center;">
-            <div class="home-center">
-                <div class="home-desc-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div>
-                                <div class="login_page bg-white shadow rounded p-4">
-                                    <div class="login-form">
-                                        <form action="javascript:toSubmit()" method="post">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>企业名称(企业用户名)<span class="text-danger"> *</span></label>
-                                                        <input type="text" class="form-control" placeholder="用于登录的企业用户名" name="phone" required v-model='phone' minlength="1" maxlength="100">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>企业简称</label>
-                                                        <input required type="text" class="form-control" placeholder="大家熟知的名字" name="username" v-model='username' minlength="1" maxlength="20">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group app-label mt-2">
-                                                        <label>企业类型<span class="text-danger"> *</span></label>
-                                                        <div class="form-button">
-                                                            <select required class="nice-select rounded" v-model="companytype">
-                                                    <option value="有限责任公司">有限责任公司</option>
-                                                    <option value="股份有限公司">股份有限公司</option>
-                                                  </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group app-label mt-2">
-                                                        <label>企业规模(人)<span class="text-danger"> *</span></label>
-                                                        <div class="form-button">
-                                                            <select required class="nice-select rounded" v-model="companysize">
-                                                    <option value="2000以上">2000以上</option>
-                                                    <option value="500-2000">500-2000</option>
-                                                    <option value="200-500">200-500</option>
-                                                    <option value="50-200">50-200</option>
-                                                    <option value="15-50">15-50</option>
-                                                    <option value="1-15">1-15</option>
-                                                  </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>所在地区<span class="text-danger"> *</span></label>
-                                                        <input type="text" class="form-control" placeholder="企业所在地区" name="place" required v-model='place' minlength="1" maxlength="50">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>注册资金(万元) <span class="text-danger"> *</span></label>
-                                                        <b><span style="color:red;font-size: 13px">{{tip.fund}}</span></b>
-                                                        <input type="text" class="form-control" placeholder="注册资金" required name="password" v-model.lazy='fund' @blur="check(fund,1,{minlength: 1, maxlength: 10})" minlength="1" maxlength="10">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>所属行业<span class="text-danger"> *</span></label>
-                                                        <div class="form-button">
-                                                            <select required class="nice-select rounded" v-model="companynature">
-                                                    <option value="互联网/游戏/软件">互联网/游戏/软件</option>
-                                                    <option value="农林牧渔">农林牧渔</option>
-                                                    <option value="教育/培训">教育/培训</option>
-                                                    <option value="房产/家居/物业/建筑">房产/家居/物业/建筑</option>
-                                                    <option value="广告/传媒/公关/展览">广告/传媒/公关/展览</option>
-                                                    <option value="其他">其他</option>
-                                                  </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group position-relative">
-                                                        <label>负责人手机号<span class="text-danger"> *</span> </label>
-                                                        <b><span style="color:red;font-size: 13px">{{tip.personphone}}</span></b>
-                                                        <input type="text" class="form-control" placeholder="负责人手机号" name="password" v-model.lazy='personphone' @blur="check(personphone,2,{minlength: 11, maxlength: 11})" minlength="11" maxlength="11">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group position-relative">
-                                                        <label>企业邮箱(如要更换，请先验证此邮箱) <span class="text-danger"> *</span></label>
-                                                        <b style="display:block;"><span style="color:red;font-size: 13px" >{{tip.email}}</span></b>
-                                                        <input type="email" class="form-control" placeholder="企业邮箱" required name="email" v-model.lazy='email' @blur="check(email,3,{minlength: 1, maxlength: 50})" minlength="1" maxlength="50" :disabled="disable" style="width: 48%;display: inline-block;">
-                                                        <input type="text" class="form-control phone-Captcha" placeholder="输入验证码" name="Captcha" v-model.lazy="emailValidateCode" @blur.prevent="changeCount()" style="width: 22%;margin: 0 0 0 36px;">
-                                                        <div class="but_w_h">
-                                                            <input type="button" class="btn btn-primary btn-sm" id="verCodeBtn" @click="send()" value="获取验证码">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group position-relative">
-                                                        <label>企业简介<span class="text-danger"> *</span></label>
-                                                        <input required class="form-control" placeholder="企业简介" name="password" v-model='simpletro' minlength="5" maxlength="800">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-group app-label">
-                                                        <label>企业介绍<span class="text-danger"> *</span></label>
-                                                        <textarea required id="addition-information-1" rows="4" class="form-control resume" placeholder="" v-model="introduce" minlength="10" maxlength="2000"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group app-label">
-                                                        <label>是否上市<span class="text-danger"> *</span></label>
-                                                        <div class="form-button">
-                                                            <select required class="nice-select rounded" v-model="listed">
-                                                    <option value="1">是</option>
-                                                    <option value="2">否</option>
-                                                  </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group app-label">
-                                                        <label>总部位置<span class="text-danger"> *</span></label>
-                                                        <input required class="form-control" placeholder="总部位置" v-model="headquarters" minlength="1" maxlength="50">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-12">
-                                                    <div class="form-group app-label">
-                                                        <label>企业官网(可填无)<span class="text-danger"> *</span></label>
-                                                        <input required class="form-control" placeholder="企业官网" v-model="website" minlength="1" maxlength="100">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6" style="margin: 0 auto;">
-                                                    <button class="btn btn-primary w-100" type="submit">确认修改</button>
+    <section style="background: url('') center center;">
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div>
+                            <div class="login_page bg-white shadow rounded p-4">
+                                <div class="login-form">
+                                    <form action="javascript:toSubmit()" method="post">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>企业名称(企业用户名)<span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control" placeholder="用于登录的企业用户名"
+                                                           name="phone" required v-model='phone' minlength="1"
+                                                           maxlength="100">
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>企业简称</label>
+                                                    <input required type="text" class="form-control"
+                                                           placeholder="大家熟知的名字" name="username" v-model='username'
+                                                           minlength="1" maxlength="20">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group app-label mt-2">
+                                                    <label>企业类型<span class="text-danger"> *</span></label>
+                                                    <div class="form-button">
+                                                        <select required class="nice-select rounded"
+                                                                v-model="companytype">
+                                                            <option value="有限责任公司">有限责任公司</option>
+                                                            <option value="股份有限公司">股份有限公司</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group app-label mt-2">
+                                                    <label>企业规模(人)<span class="text-danger"> *</span></label>
+                                                    <div class="form-button">
+                                                        <select required class="nice-select rounded"
+                                                                v-model="companysize">
+                                                            <option value="2000以上">2000以上</option>
+                                                            <option value="500-2000">500-2000</option>
+                                                            <option value="200-500">200-500</option>
+                                                            <option value="50-200">50-200</option>
+                                                            <option value="15-50">15-50</option>
+                                                            <option value="1-15">1-15</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>所在地区<span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control" placeholder="企业所在地区"
+                                                           name="place" required v-model='place' minlength="1"
+                                                           maxlength="50">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>注册资金(万元) <span class="text-danger"> *</span></label>
+                                                    <b><span style="color:red;font-size: 13px">{{tip.fund}}</span></b>
+                                                    <input type="text" class="form-control" placeholder="注册资金" required
+                                                           name="password" v-model.lazy='fund'
+                                                           @blur="check(fund,1,{minlength: 1, maxlength: 10})"
+                                                           minlength="1" maxlength="10">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>所属行业<span class="text-danger"> *</span></label>
+                                                    <div class="form-button">
+                                                        <select required class="nice-select rounded"
+                                                                v-model="companynature">
+                                                            <option value="互联网/游戏/软件">互联网/游戏/软件</option>
+                                                            <option value="农林牧渔">农林牧渔</option>
+                                                            <option value="教育/培训">教育/培训</option>
+                                                            <option value="房产/家居/物业/建筑">房产/家居/物业/建筑</option>
+                                                            <option value="广告/传媒/公关/展览">广告/传媒/公关/展览</option>
+                                                            <option value="其他">其他</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group position-relative">
+                                                    <label>负责人手机号<span class="text-danger"> *</span> </label>
+                                                    <b><span
+                                                            style="color:red;font-size: 13px">{{tip.personphone}}</span></b>
+                                                    <input type="text" class="form-control" placeholder="负责人手机号"
+                                                           name="password" v-model.lazy='personphone'
+                                                           @blur="check(personphone,2,{minlength: 11, maxlength: 11})"
+                                                           minlength="11" maxlength="11">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group position-relative">
+                                                    <label>企业邮箱(如要更换，请先验证此邮箱) <span
+                                                            class="text-danger"> *</span></label>
+                                                    <b style="display:block;"><span style="color:red;font-size: 13px">{{tip.email}}</span></b>
+                                                    <input type="email" class="form-control" placeholder="企业邮箱" required
+                                                           name="email" v-model.lazy='email'
+                                                           @blur="check(email,3,{minlength: 1, maxlength: 50})"
+                                                           minlength="1" maxlength="50" :disabled="disable"
+                                                           style="width: 48%;display: inline-block;">
+                                                    <input type="text" class="form-control phone-Captcha"
+                                                           placeholder="输入验证码" name="Captcha"
+                                                           v-model.lazy="emailValidateCode"
+                                                           @blur.prevent="changeCount()"
+                                                           style="width: 22%;margin: 0 0 0 36px;">
+                                                    <div class="but_w_h">
+                                                        <input type="button" class="btn btn-primary btn-sm"
+                                                               id="verCodeBtn" @click="send()" value="获取验证码">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group position-relative">
+                                                    <label>企业简介<span class="text-danger"> *</span></label>
+                                                    <input required class="form-control" placeholder="企业简介"
+                                                           name="password" v-model='simpletro' minlength="5"
+                                                           maxlength="800">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group app-label">
+                                                    <label>企业介绍<span class="text-danger"> *</span></label>
+                                                    <textarea required id="addition-information-1" rows="4"
+                                                              class="form-control resume" placeholder=""
+                                                              v-model="introduce" minlength="10"
+                                                              maxlength="2000"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group app-label">
+                                                    <label>是否上市<span class="text-danger"> *</span></label>
+                                                    <div class="form-button">
+                                                        <select required class="nice-select rounded" v-model="listed">
+                                                            <option value="1">是</option>
+                                                            <option value="2">否</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group app-label">
+                                                    <label>总部位置<span class="text-danger"> *</span></label>
+                                                    <input required class="form-control" placeholder="总部位置"
+                                                           v-model="headquarters" minlength="1" maxlength="50">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12">
+                                                <div class="form-group app-label">
+                                                    <label>企业官网(可填无)<span class="text-danger"> *</span></label>
+                                                    <input required class="form-control" placeholder="企业官网"
+                                                           v-model="website" minlength="1" maxlength="100">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6" style="margin: 0 auto;">
+                                                <button class="btn btn-primary w-100" type="submit">确认修改</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <!--end col-->
                         </div>
-                        <!--end row-->
+                        <!--end col-->
                     </div>
-                    <!--end container-->
+                    <!--end row-->
                 </div>
+                <!--end container-->
             </div>
-        </section>
+        </div>
+    </section>
 
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地 方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                              启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                              启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
 
-    <script>
-        $(function() {
-            $("[data-toggle='popover']").popover();
-        });
-    </script>
-    <script>
-        function toSubmit() {
-            app.update();
-        }
-        var app = new Vue({
-            el: '#app',
-            data: {
-                info : {},
-                phone: '',
-                username: '',
-                companynature: '',
-                companysize: '',
-                place: '',
-                fund: '',
-                companytype: '',
-                personphone: '',
-                email: '',
-                simpletro: '',
-                introduce: '',
-                listed: "",
-                website: "",
-                headquarters: "",
-                emailValidateCode: "",
-                photoAddress: "images/zhizhao.jpg",
-                rightCode: null,
-                tip: {
-                    fund: "",
-                    personphone: "",
-                    email: "",
-                    password: "",
-                    repassword: "",
-                },
-                disable: true
+<script>
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+</script>
+<script>
+    function toSubmit() {
+        app.update();
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            info: {},
+            phone: '',
+            username: '',
+            companynature: '',
+            companysize: '',
+            place: '',
+            fund: '',
+            companytype: '',
+            personphone: '',
+            email: '',
+            simpletro: '',
+            introduce: '',
+            listed: "",
+            website: "",
+            headquarters: "",
+            emailValidateCode: "",
+            photoAddress: "images/zhizhao.jpg",
+            rightCode: null,
+            tip: {
+                fund: "",
+                personphone: "",
+                email: "",
+                password: "",
+                repassword: "",
             },
-            methods: {
-                update : function(){
-                    var self = this;
-                    axios
-                        .put('/update', {
-                            phone : self.phone,
-                            username : self.username,
-                            companynature : self.companynature,
-                            companysize : self.companysize,
-                            place : self.place,
-                            fund : self.fund,
-                            companytype : self.companytype,
-                            personphone : self.personphone,
-                            email : self.email,
-                            simpletro : self.simpletro,
-                            introduce : self.introduce,
-                            listed : self.listed,
-                            website : self.website,
-                            headquarters : self. headquarters,
-                        })
-                        .then(function (response) {
-                            if (response.data == "error"){
-                                console.log("更新时出现了错误");
-                            }else if (response.data == "success"){
-                                alert("更新成功");
-                                window.location.href = "enterpriseCenter.html";
-                            }
-                        })
-                },
-                send: function() {
-                    sendValidateCode()
-                },
-                changeCount: function() {
-                    if (this.emailValidateCode === self.rightCode) {
-                        alert("验证成功")
-                        this.disable = false
-                    }
-                },
-                check: function(value, mode, params = null) {
-                    switch (mode) {
-                        case 1:
-                            this.tip.fund = checkFund(value);
-                            break;
-                        case 2:
-                            this.tip.personphone = checkAllNumber(value, params);
-                            break;
-                        case 3:
-                            this.tip.email = checkEmail(value);
-                            break;
-                        case 4:
-                            this.tip.password = checkPassword(value, params);
-                            break;
-                        case 5:
-                            this.tip.repassword = checkPwdConfirm(value);
-                            break;
-                        default:
-                    }
-                },
-                insert: function(response) {
-                    // 表单验证
-                    var flag = true;
-                    for (let i in this.tip) {
-                        if (this.tip[i] !== "") {
-                            flag = false;
-                            break;
+            disable: true
+        },
+        methods: {
+            update: function () {
+                var self = this;
+                axios
+                    .put('/update', {
+                        phone: self.phone,
+                        username: self.username,
+                        companynature: self.companynature,
+                        companysize: self.companysize,
+                        place: self.place,
+                        fund: self.fund,
+                        companytype: self.companytype,
+                        personphone: self.personphone,
+                        email: self.email,
+                        simpletro: self.simpletro,
+                        introduce: self.introduce,
+                        listed: self.listed,
+                        website: self.website,
+                        headquarters: self.headquarters,
+                    })
+                    .then(function (response) {
+                        if (response.data == "error") {
+                            console.log("更新时出现了错误");
+                        } else if (response.data == "success") {
+                            alert("更新成功");
+                            window.location.href = "enterpriseCenter.html";
                         }
-                    }
-                    if (flag === true) {
-                        // 检查无误,执行下面的逻辑
-                        axios
-                            .post('/bussiness', {
-                                code: '1008',
-                                phone: this.phone,
-                                username: this.username,
-                                companynature: this.companynature,
-                                companysize: this.companysize,
-                                place: this.place,
-                                fund: this.fund,
-                                companytype: this.companytype,
-                                personphone: this.personphone,
-                                email: this.email,
-                                simpletro: this.simpletro,
-                                introduce: this.introduce,
-                                listed: this.listed,
-                                website: this.website,
-                                headquarters: this.headquarters
-                            })
-                            .then(function(data) {
-                                if (data.data == "success") {
-                                    alert('修改成功')
-                                } else if (data.data == "errortypeone") {
-                                    alert('修改失败')
-                                } else if (data.data == "error") {
-                                    alert('修改失败')
-                                }
-                            })
-                            .catch(function(error) {
-                                console.log('.....', error);
-                            })
-
-                    } else {
-                        alert("表单验证有误,请检查所有表单是否都符合要求!")
-                    }
-
+                    })
+            },
+            send: function () {
+                sendValidateCode()
+            },
+            changeCount: function () {
+                if (this.emailValidateCode === self.rightCode) {
+                    alert("验证成功")
+                    this.disable = false
                 }
             },
-            mounted() {
-                var self = this
-                axios.post('/bussiness', {
-                        code: "1018",
-                    })
-                    .then(function(response) {
-                        console.log(response.data);
-                        self.info = response.data[0];
-                        console.log(self.info);
-                        self.phone = self.info.phone;
-                        self.username = self.info.username;
-                        self.companynature = self.info.companynature;
-                        self.companysize = self.info.companysize;
-                        self.place = self.info.place;
-                        self.fund = self.info.fund;
-                        self.companytype = self.info.companytype;
-                        self.personphone = self.info.personphone;
-                        self.email = self.info.email;
-                        self.simpletro = self.info.simpletro;
-                        self.introduce = self.info.introduce;
-                        self.listed = self.info.listed;
-                        self.website = self.info.website;
-                        self.headquarters = self.info.headquarters;
-                        console.log(self.headquarters);
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
+            check: function (value, mode, params = null) {
+                switch (mode) {
+                    case 1:
+                        this.tip.fund = checkFund(value);
+                        break;
+                    case 2:
+                        this.tip.personphone = checkAllNumber(value, params);
+                        break;
+                    case 3:
+                        this.tip.email = checkEmail(value);
+                        break;
+                    case 4:
+                        this.tip.password = checkPassword(value, params);
+                        break;
+                    case 5:
+                        this.tip.repassword = checkPwdConfirm(value);
+                        break;
+                    default:
+                }
             },
-        })
-    </script>
+            insert: function (response) {
+                // 表单验证
+                var flag = true;
+                for (let i in this.tip) {
+                    if (this.tip[i] !== "") {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag === true) {
+                    // 检查无误,执行下面的逻辑
+                    axios
+                        .post('/bussiness', {
+                            code: '1008',
+                            phone: this.phone,
+                            username: this.username,
+                            companynature: this.companynature,
+                            companysize: this.companysize,
+                            place: this.place,
+                            fund: this.fund,
+                            companytype: this.companytype,
+                            personphone: this.personphone,
+                            email: this.email,
+                            simpletro: this.simpletro,
+                            introduce: this.introduce,
+                            listed: this.listed,
+                            website: this.website,
+                            headquarters: this.headquarters
+                        })
+                        .then(function (data) {
+                            if (data.data == "success") {
+                                alert('修改成功')
+                            } else if (data.data == "errortypeone") {
+                                alert('修改失败')
+                            } else if (data.data == "error") {
+                                alert('修改失败')
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log('.....', error);
+                        })
+
+                } else {
+                    alert("表单验证有误,请检查所有表单是否都符合要求!")
+                }
+
+            }
+        },
+        mounted() {
+            var self = this
+            axios.post('/bussiness', {
+                code: "1018",
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                    self.info = response.data[0];
+                    console.log(self.info);
+                    self.phone = self.info.phone;
+                    self.username = self.info.username;
+                    self.companynature = self.info.companynature;
+                    self.companysize = self.info.companysize;
+                    self.place = self.info.place;
+                    self.fund = self.info.fund;
+                    self.companytype = self.info.companytype;
+                    self.personphone = self.info.personphone;
+                    self.email = self.info.email;
+                    self.simpletro = self.info.simpletro;
+                    self.introduce = self.info.introduce;
+                    self.listed = self.info.listed;
+                    self.website = self.info.website;
+                    self.headquarters = self.info.headquarters;
+                    console.log(self.headquarters);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+    })
+</script>
 
 
 </body>

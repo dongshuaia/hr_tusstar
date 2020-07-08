@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>常见问题 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <script src="js/vue.min.js"></script>
     <script src="js/axios.min.js"></script>
 
@@ -17,449 +17,449 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
-        <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<div id="app">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <!-- Loader -->
+    </div>
+    <!-- Loader -->
 
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- Tagline STart -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
                     </div>
-                    <div class="float-right">
-                      <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                </div>
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
                         <li class="has-submenu">
-                          <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                          <ul class="submenu" v-if="name === '未登录'">
-                            <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                            <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                          </ul>
-                          <ul class="submenu" v-else>
-                            <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                          </ul>
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
                         </li>
                         <li class="list-inline-item">
-                          <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- Tagline End -->
-
-            <!-- Menu Start -->
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button">
-                    <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
-                </div>
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                        class="submenu-arrow"></span>
-                                    <ul class="submenu">
-                                        <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                        <li><a href="create-resume.html">新建简历</a></li>
-                                    </ul>
-
-
-                                </li> -->
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a href="contact.html">联系我们</a>
-
-                        </li> -->
-                    </ul>
-                    <!--end navigation menu-->
-                </div>
-                <!--end navigation-->
-            </div>
-            <!--end container-->
-            <!--end end-->
-        </header>
-        <!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Start home -->
-        <section class="bg-half page-next-level">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-white">
-                            <h4 class="text-uppercase title mb-4">F.A.Q</h4>
-                            <ul class="page-next d-inline-block mb-0">
-                                <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-                                <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
-                                <li>
-                                    <span class="text-uppercase text-white font-weight-bold">常见问题</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end home -->
-
-        <!-- FAQ START -->
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="faq-content">
-                            <h4 class="text-dark">求职者问题:</h4>
-                            <div class="faq-content mt-3">
-                                <div class="accordion" id="accordionExample">
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapseOne" class="faq position-relative"
-                                            aria-expanded="true" aria-controls="collapseOne">
-                                            <div class="card-header bg-light p-3" id="headingOne">
-                                                <h4 class="title mb-0 faq-question">怎样添加简历?</h4>
-                                            </div>
-                                        </a>
-                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">首先注册一个账号，成为本站会员，然后在应聘者功能中新建一份属于自己的简历。
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapseTwo"
-                                            class="faq position-relative collapsed" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            <div class="card-header bg-light p-3" id="headingTwo">
-                                                <h4 class="title mb-0 faq-question">怎样投递简历? </h4>
-                                            </div>
-                                        </a>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">在建立了属于自己的简历之后，在企业栏里面选择你心仪的公司投递就可以啦！
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapsethree"
-                                            class="faq position-relative collapsed" aria-expanded="false"
-                                            aria-controls="collapsethree">
-                                            <div class="card-header bg-light p-3" id="headingthree">
-                                                <h4 class="title mb-0 faq-question">怎样让自己的简历更容易被接受? </h4>
-                                            </div>
-                                        </a>
-                                        <div id="collapsethree" class="collapse" aria-labelledby="headingthree"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">将你的简历所有选填项都填满，同时在附加栏里面将你的获奖信息都写上。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapsefour"
-                                            class="faq position-relative collapsed" aria-expanded="false"
-                                            aria-controls="collapsefour">
-                                            <div class="card-header bg-light p-3" id="headingfour">
-                                                <h4 class="title mb-0 faq-question">接到面试通知后应该怎么办? </h4>
-                                            </div>
-                                        </a>
-                                        <div id="collapsefour" class="collapse" aria-labelledby="headingfour"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">认真准备应聘岗位需要用到的知识，并且复习简历上设计到的知识。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card rounded shadow mb-0">
-                                        <a data-toggle="collapse" href="#collapsefive"
-                                            class="faq position-relative collapsed" aria-expanded="false"
-                                            aria-controls="collapsefive">
-                                            <div class="card-header bg-light p-3" id="headingfive">
-                                                <h4 class="title mb-0 faq-question">着重注意哪些问题? </h4>
-                                            </div>
-                                        </a>
-                                        <div id="collapsefive" class="collapse" aria-labelledby="headingfive"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">注意时间观念以及自己的言行举止！</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-content mt-5">
-                            <h4 class="text-dark">雇主企业问题:</h4>
-
-                            <div class="faq-content mt-3">
-                                <div class="accordion" id="accordionExample2">
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapsesix"
-                                            class="faq collapsed position-relative" aria-expanded="true"
-                                            aria-controls="collapsesix">
-                                            <div class="card-header bg-light p-3" id="headingsix">
-                                                <h6 class="title mb-0 faq-question">怎样发布一个岗位?</h6>
-                                            </div>
-                                        </a>
-                                        <div id="collapsesix" class="collapse" aria-labelledby="headingsix"
-                                            data-parent="#accordionExample2">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">注册一个账号成为本站会员，点击发布岗位。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- collapse one end -->
-
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapsesevan"
-                                            class="faq collapsed position-relative" aria-expanded="false"
-                                            aria-controls="collapsesevan">
-                                            <div class="card-header bg-light p-3" id="headingsevan">
-                                                <h6 class="title mb-0 faq-question">在启迪之星在线招聘应注意什么问题?</h6>
-                                            </div>
-                                        </a>
-                                        <div id="collapsesevan" class="collapse" aria-labelledby="headingsevan"
-                                            data-parent="#accordionExample2">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">要注意填写真实的企业信息，本站管理者会进行核实。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- collapse two end -->
-
-                                    <div class="card border rounded shadow mb-3">
-                                        <a data-toggle="collapse" href="#collapseeight"
-                                            class="faq collapsed position-relative" aria-expanded="false"
-                                            aria-controls="collapseeight">
-                                            <div class="card-header bg-light p-3" id="headingeight">
-                                                <h6 class="title mb-0 faq-question">怎样能找到更多的求职者?</h6>
-                                            </div>
-                                        </a>
-                                        <div id="collapseeight" class="collapse" aria-labelledby="headingeight"
-                                            data-parent="#accordionExample2">
-                                            <div class="card-body">
-                                                <p class="text-muted mb-0 faq-ans">将贵公司的福利待遇工作地点以及工作内容都写清楚哦。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- FAQ END -->
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
-                        方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
-                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
+        <!-- Tagline End -->
+
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button">
+                <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
                 </div>
             </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
+                                </ul>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
         </div>
         <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+    <!-- Start home -->
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">F.A.Q</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">常见问题</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <!-- FAQ START -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="faq-content">
+                        <h4 class="text-dark">求职者问题:</h4>
+                        <div class="faq-content mt-3">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapseOne" class="faq position-relative"
+                                       aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="card-header bg-light p-3" id="headingOne">
+                                            <h4 class="title mb-0 faq-question">怎样添加简历?</h4>
+                                        </div>
+                                    </a>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">首先注册一个账号，成为本站会员，然后在应聘者功能中新建一份属于自己的简历。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapseTwo"
+                                       class="faq position-relative collapsed" aria-expanded="false"
+                                       aria-controls="collapseTwo">
+                                        <div class="card-header bg-light p-3" id="headingTwo">
+                                            <h4 class="title mb-0 faq-question">怎样投递简历? </h4>
+                                        </div>
+                                    </a>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">在建立了属于自己的简历之后，在企业栏里面选择你心仪的公司投递就可以啦！
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-    <script src="js/jquery.nice-select.min.js"></script>
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapsethree"
+                                       class="faq position-relative collapsed" aria-expanded="false"
+                                       aria-controls="collapsethree">
+                                        <div class="card-header bg-light p-3" id="headingthree">
+                                            <h4 class="title mb-0 faq-question">怎样让自己的简历更容易被接受? </h4>
+                                        </div>
+                                    </a>
+                                    <div id="collapsethree" class="collapse" aria-labelledby="headingthree"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">将你的简历所有选填项都填满，同时在附加栏里面将你的获奖信息都写上。</p>
+                                        </div>
+                                    </div>
+                                </div>
 
-    <script src="js/app.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                name: "",
-                newlin: ""
-            },
-            mounted() {
-                var self = this
-                axios.post('/users', {
-                    code: "1005",
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapsefour"
+                                       class="faq position-relative collapsed" aria-expanded="false"
+                                       aria-controls="collapsefour">
+                                        <div class="card-header bg-light p-3" id="headingfour">
+                                            <h4 class="title mb-0 faq-question">接到面试通知后应该怎么办? </h4>
+                                        </div>
+                                    </a>
+                                    <div id="collapsefour" class="collapse" aria-labelledby="headingfour"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">认真准备应聘岗位需要用到的知识，并且复习简历上设计到的知识。</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card rounded shadow mb-0">
+                                    <a data-toggle="collapse" href="#collapsefive"
+                                       class="faq position-relative collapsed" aria-expanded="false"
+                                       aria-controls="collapsefive">
+                                        <div class="card-header bg-light p-3" id="headingfive">
+                                            <h4 class="title mb-0 faq-question">着重注意哪些问题? </h4>
+                                        </div>
+                                    </a>
+                                    <div id="collapsefive" class="collapse" aria-labelledby="headingfive"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">注意时间观念以及自己的言行举止！</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-content mt-5">
+                        <h4 class="text-dark">雇主企业问题:</h4>
+
+                        <div class="faq-content mt-3">
+                            <div class="accordion" id="accordionExample2">
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapsesix"
+                                       class="faq collapsed position-relative" aria-expanded="true"
+                                       aria-controls="collapsesix">
+                                        <div class="card-header bg-light p-3" id="headingsix">
+                                            <h6 class="title mb-0 faq-question">怎样发布一个岗位?</h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapsesix" class="collapse" aria-labelledby="headingsix"
+                                         data-parent="#accordionExample2">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">注册一个账号成为本站会员，点击发布岗位。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- collapse one end -->
+
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapsesevan"
+                                       class="faq collapsed position-relative" aria-expanded="false"
+                                       aria-controls="collapsesevan">
+                                        <div class="card-header bg-light p-3" id="headingsevan">
+                                            <h6 class="title mb-0 faq-question">在启迪之星在线招聘应注意什么问题?</h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapsesevan" class="collapse" aria-labelledby="headingsevan"
+                                         data-parent="#accordionExample2">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">要注意填写真实的企业信息，本站管理者会进行核实。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- collapse two end -->
+
+                                <div class="card border rounded shadow mb-3">
+                                    <a data-toggle="collapse" href="#collapseeight"
+                                       class="faq collapsed position-relative" aria-expanded="false"
+                                       aria-controls="collapseeight">
+                                        <div class="card-header bg-light p-3" id="headingeight">
+                                            <h6 class="title mb-0 faq-question">怎样能找到更多的求职者?</h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapseeight" class="collapse" aria-labelledby="headingeight"
+                                         data-parent="#accordionExample2">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0 faq-ans">将贵公司的福利待遇工作地点以及工作内容都写清楚哦。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- FAQ END -->
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
+
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
+
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
+
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
+
+<script src="js/jquery.nice-select.min.js"></script>
+
+<script src="js/app.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: "",
+            newlin: ""
+        },
+        mounted() {
+            var self = this
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
+                        }
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
+                        }
+                    }
                 })
-                    .then(function (response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                        }
-                        else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            },
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
 
-        })
-    </script>
+    })
+</script>
 
 </body>
 
