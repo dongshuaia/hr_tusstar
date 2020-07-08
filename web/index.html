@@ -955,13 +955,17 @@
                                 self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
                                 self.showtype = "发布一个岗位"
                                 self.turntype = "/post-a-job.html"
-                                console.log(self.newlin)
                             }
-                            if (self.isadmin == "0") {
+                            else if (self.isadmin == "0") {
                                 self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "完善简历"
-                                self.turntype = "create-resume.html"
-                                console.log(self.newlin)
+                                if (response.data.haveResume) {
+                                  self.showtype = "完善简历"
+                                  self.turntype = "update-resume.html"
+                                }
+                                else {
+                                  self.showtype = "新建简历"
+                                  self.turntype = "create-resume.html"
+                                }
                             }
                         }
                     })

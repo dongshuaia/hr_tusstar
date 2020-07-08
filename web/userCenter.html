@@ -96,8 +96,8 @@
                         <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
                     </a>
                 </div>
-                <div class="buy-button">
-                    <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
+                <div class="buy-button" v-if = "showtype!=''">
+                  <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
                 </div>
                 <!--end login button-->
                 <!-- End Logo container-->
@@ -360,12 +360,20 @@
                             self.isadmin = response.data.studentisadmin
                             self.phone = response.data.phone
                             if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
+                              self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                              self.showtype = "发布一个岗位"
+                              self.turntype = "/post-a-job.html"
                             }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
+                            else if (self.isadmin == "0") {
+                              self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                              if (response.data.haveResume) {
+                                self.showtype = "完善简历"
+                                self.turntype = "update-resume.html"
+                              }
+                              else {
+                                self.showtype = "新建简历"
+                                self.turntype = "create-resume.html"
+                              }
                             }
                         }
                     })
