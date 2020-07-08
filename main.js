@@ -455,7 +455,6 @@ app.use('/users', function (request, response) {
     else if (request.body.code == "1005") {//前端传送名字
         if (request.session.username == undefined || request.session.username == "") {
             response.end("nouser")
-            console.log("用户没有登录")
             return
         }
         else {
@@ -842,11 +841,11 @@ app.use('/bussiness', function (request, response) {
         })
     }
     else if (request.body.code == "1017"){  //企业搜索
-        console.log(request.body);
-        var selectCompany = "select * from companyusers where ";
+        // console.log(request.body);
+        var selectCompany = "select * from companyusers ";
         var flag = "";
         if (request.body.enterpriseKeyWord != "" && request.body.enterpriseKeyWord != undefined){
-            selectCompany = selectCompany + "phone like " + "'%" + request.body.enterpriseKeyWord +"%'";
+            selectCompany = selectCompany + "where phone like " + "'%" + request.body.enterpriseKeyWord +"%'";
             flag = "1";
         }
         if (request.body.companyAddress != "" && request.body.companyAddress != undefined){
@@ -854,18 +853,44 @@ app.use('/bussiness', function (request, response) {
                 selectCompany = selectCompany + "and place like " + "'%" + request.body.companyAddress + "%'";
                 flag = "2";
             }else {
-                selectCompany = selectCompany + "place like " + "'%" + request.body.companyAddress + "%'";
+                selectCompany = selectCompany + "where place like " + "'%" + request.body.companyAddress + "%'";
                 flag = "2";
             }
         }
         if (request.body.companyType != "" && request.body.companyType != undefined){
             if (flag == ""){
-                selectCompany = selectCompany + "companynature like " + "'%" + request.body.companyType + "%'";
-            }else {
+                selectCompany = selectCompany + "where companynature like " + "'%" + request.body.companyType + "%'";
+                flag = "3";
+            } else {
                 selectCompany = selectCompany + "and companynature like " + "'%" + request.body.companyType + "%'";
+                flag = "3";
             }
         }
-        console.log(selectCompany);
+
+        if (request.body.companySizeList !== undefined && request.body.companySizeList !== null) {
+            let companySizeList = request.body.companySizeList;
+            if (flag === "") {
+              selectCompany = selectCompany + "where (";
+              flag = "4";
+            } else {
+              selectCompany = selectCompany + " and (";
+              flag = "4";
+            }
+            for (let size in companySizeList) {
+              selectCompany = selectCompany + "companysize='" + companySizeList[size] + "' or ";
+            }
+            selectCompany = selectCompany.substring(0, selectCompany.length-4) + ")";
+        }
+
+        if (request.body.companyNature !== undefined && request.body.companyNature !== null) {
+          if (flag === "") {
+            selectCompany = selectCompany + "where companynature='" + request.body.companyNature + "'";
+          } else {
+            selectCompany = selectCompany + " and companynature='" + request.body.companyNature + "'";
+          }
+        }
+
+        console.log(selectCompany)
         query(selectCompany, function (err, results) {
             if (err){
                 response.end("error")
