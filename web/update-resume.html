@@ -578,43 +578,46 @@
                             alert("请输入自我介绍");
                             return
                         }
-                        axios.post('/center',
-                            {
-                                code: '1002',
-                                name: this.name,
-                                school: this.school,
-                                education: this.education,
-                                birthday: this.birthday,
-                                sex: this.sex,
-                                selfintro: this.selfintro,
-                                adress: this.adress,
-                                phone: this.phone,
-                                email: this.email,
-                                department: this.department,
-                                major: this.major,
-                                degree: this.degree,
-                                system1: this.system1,
-                                information: this.information,
-                                money: this.money,
-                                information2: this.information2,
-                            })
-                            .then(function (data) {
-                                if (data.data == 'error') {
-                                    alert('修改失败，请重试')
-                                    window.location.reload()
-                                }
-                                else{
-                                    var baocun=confirm('确定保存吗?');
-                                    if (baocun==true)
+                        var baocun=confirm('确定保存吗?');
+                        if (baocun==true)
+                        {
+                            axios.post('/center',
+                                {
+                                    code: '1002',
+                                    name: this.name,
+                                    school: this.school,
+                                    education: this.education,
+                                    birthday: this.birthday,
+                                    sex: this.sex,
+                                    selfintro: this.selfintro,
+                                    adress: this.adress,
+                                    phone: this.phone,
+                                    email: this.email,
+                                    department: this.department,
+                                    major: this.major,
+                                    degree: this.degree,
+                                    system1: this.system1,
+                                    information: this.information,
+                                    money: this.money,
+                                    information2: this.information2,
+                                })
+                                .then(function (data) {
+                                    if (data.data == 'error')
+                                    {
+                                        alert('修改失败，请重试')
+                                        window.location.reload()
+                                    }
+                                    else
                                     {
                                         alert('保存成功');
                                         window.location = "/userCenter.html"
                                     }
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            })
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                })
+                        }
+
                     }
                 },
                 mounted() {
