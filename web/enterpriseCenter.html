@@ -52,21 +52,21 @@
                         </div>
                     </div>
                     <div class="float-right">
-                      <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                        <li class="has-submenu">
-                          <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                          <ul class="submenu" v-if="name === '未登录'">
-                            <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                            <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                          </ul>
-                          <ul class="submenu" v-else>
-                            <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                          </ul>
-                        </li>
-                        <li class="list-inline-item">
-                          <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
-                        </li>
-                      </ul>
+                        <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                            <li class="has-submenu">
+                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
+                                <ul class="submenu" v-if="name === '未登录'">
+                                    <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                    <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                                </ul>
+                                <ul class="submenu" v-else>
+                                    <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                                </ul>
+                            </li>
+                            <li class="list-inline-item">
+                                <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -189,7 +189,7 @@
         <!-- end home -->
 
         <!-- EMPLOYERS DETAILS START -->
-        <section class="section" >
+        <section class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -212,9 +212,11 @@
                                 </li>
 
                                 <li class="list-inline-item">
-                                    <p class="text-success mb-0"><i
-                                            class="mdi mdi-bookmark-check mdi-18px mr-2"></i>通过验证
+                                    <p class="text-success mb-0"><i class="mdi mdi-bookmark-check mdi-18px mr-2"></i>通过验证
                                     </p>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="Change-company-information.html">修改信息</a>
                                 </li>
                             </ul>
 
@@ -225,8 +227,7 @@
                                 </li>
 
                                 <li class="list-inline-item">
-                                    <p class="text-muted"><i
-                                            class="mdi mdi-cellphone-iphone mr-2"></i>{{info.personphone}}</p>
+                                    <p class="text-muted"><i class="mdi mdi-cellphone-iphone mr-2"></i>{{info.personphone}}</p>
                                 </li>
                             </ul>
                         </div>
@@ -243,18 +244,15 @@
                 <div style="margin-top: 20px;">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                                role="tab" aria-controls="pills-home" aria-selected="true">待处理</a>
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">待处理</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-                                role="tab" aria-controls="pills-profile" aria-selected="false">历史记录</a>
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">历史记录</a>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                        aria-labelledby="pills-home-tab">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <table class="table table-borderless">
                             <thead class="thead-dark">
                                 <tr>
@@ -276,16 +274,13 @@
                                     <td>{{item.companyname}}</td>
                                     <td>***********</td>
                                     <td>
-                                        <button type="button" id="btn1" class="btn btn-sm  btn-primary"
-                                            v-on:click="notify(item)">{{item.restatus}}</button>
+                                        <button type="button" id="btn1" class="btn btn-sm  btn-primary" v-on:click="notify(item)">{{item.restatus}}</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-info"
-                                            v-on:click="resumeInfo(item)">查看简历</button>
+                                        <button type="button" class="btn btn-sm btn-info" v-on:click="resumeInfo(item)">查看简历</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm  btn-danger"
-                                            v-on:click="reject(item)">拒绝</button>
+                                        <button type="button" class="btn btn-sm  btn-danger" v-on:click="reject(item)">拒绝</button>
                                     </td>
                                 </tr>
                                 <tr v-for="item in infoList" v-if="item.restatus === '通知报到'">
@@ -295,16 +290,13 @@
                                     <td>{{item.companyname}}</td>
                                     <td>{{item.phone}}</td>
                                     <td>
-                                        <button type="button" id="btn2" class="btn btn-sm  btn-warning"
-                                            v-on:click="notify(item)">{{item.restatus}}</button>
+                                        <button type="button" id="btn2" class="btn btn-sm  btn-warning" v-on:click="notify(item)">{{item.restatus}}</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-info"
-                                            v-on:click="resumeInfo(item)">查看简历</button>
+                                        <button type="button" class="btn btn-sm btn-info" v-on:click="resumeInfo(item)">查看简历</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm  btn-danger"
-                                            v-on:click="reject(item)">拒绝</button>
+                                        <button type="button" class="btn btn-sm  btn-danger" v-on:click="reject(item)">拒绝</button>
                                     </td>
                                 </tr>
                                 <tr v-for="item in infoList" v-if="item.restatus === '确认已报到'">
@@ -314,12 +306,10 @@
                                     <td>{{item.companyname}}</td>
                                     <td>{{item.phone}}</td>
                                     <td>
-                                        <button type="button" id="btn3" class="btn btn-sm  btn-success"
-                                            v-on:click="notify(item)">{{item.restatus}}</button>
+                                        <button type="button" id="btn3" class="btn btn-sm  btn-success" v-on:click="notify(item)">{{item.restatus}}</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-info"
-                                            v-on:click="resumeInfo(item)">查看简历</button>
+                                        <button type="button" class="btn btn-sm btn-info" v-on:click="resumeInfo(item)">查看简历</button>
                                     </td>
                                     <td>
                                     </td>
@@ -363,8 +353,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                     <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
-                        方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地 方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                     <p class="text-white mb-4 footer-list-title">启迪导航</p>
@@ -435,7 +424,7 @@
     <script src="js/vue.min.js"></script>
     <script src="js/axios.min.js"></script>
     <script>
-        $(function () {
+        $(function() {
             $("[data-toggle='popover']").popover();
         });
     </script>
@@ -447,31 +436,30 @@
                 infoList: [],
                 name: '',
                 newlin: '',
-                photoAddress:"",
+                photoAddress: "",
             },
             created() {
                 document.getElementById("btn1").style.color = "black";
                 console.log('Requsting...')
                 var self = this
                 axios.post('/center', {
-                    code: "1003"
-                })
-                    .then(function (response) {
+                        code: "1003"
+                    })
+                    .then(function(response) {
                         //console.log(response.data)
                         self.info = response.data[0];
                         self.infoList = response.data[1]
                     })
-                    .catch(function (error) {
+                    .catch(function(error) {
                         console.log(error);
                     });
                 axios.post('/users', {
-                    code: "1005",
-                })
-                    .then(function (response) {
+                        code: "1005",
+                    })
+                    .then(function(response) {
                         if (response.data == "nouser") {
                             self.name = "未登录"
-                        }
-                        else {
+                        } else {
                             self.name = response.data.username
                             self.isadmin = response.data.studentisadmin
                             self.phone = response.data.phone
@@ -485,48 +473,48 @@
                             }
                         }
                     })
-                    .catch(function (error) {
+                    .catch(function(error) {
                         console.log(error);
                     });
             },
             methods: {
-                reject: function (item) {
+                reject: function(item) {
                     axios.post('/center', {
-                        code: "1003",
-                        stuphone: item.phone,
-                        jobtitle: item.companyname,
-                        action: "reject"
-                    })
-                        .then(function (response) {
+                            code: "1003",
+                            stuphone: item.phone,
+                            jobtitle: item.companyname,
+                            action: "reject"
+                        })
+                        .then(function(response) {
                             console.log(response.data)
                         })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                    location.reload();
-                }, notify: function (item) {
-                    console.log('haha')
-                    axios.post('/center', {
-                        code: "1003",
-                        stuphone: item.phone,
-                        status: item.restatus,
-                        jobtitle: item.companyname,
-                        action: "notify"
-                    })
-                        .then(function (response) {
-                            console.log(response.data)
-                        })
-                        .catch(function (error) {
+                        .catch(function(error) {
                             console.log(error);
                         });
                     location.reload();
                 },
-                resumeInfo: function (item) {
+                notify: function(item) {
+                    console.log('haha')
+                    axios.post('/center', {
+                            code: "1003",
+                            stuphone: item.phone,
+                            status: item.restatus,
+                            jobtitle: item.companyname,
+                            action: "notify"
+                        })
+                        .then(function(response) {
+                            console.log(response.data)
+                        })
+                        .catch(function(error) {
+                            console.log(error);
+                        });
+                    location.reload();
+                },
+                resumeInfo: function(item) {
                     window.location = "candidates-profile.html?phone=" + item.phone;
                 }
             },
-            mounted()
-            {
+            mounted() {
                 var self = this
                 axios
                     .post('/searchPhoto', {
