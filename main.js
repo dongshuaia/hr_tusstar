@@ -228,6 +228,35 @@ app.use('/emailValidate', function (request, response) {
     send(mail);
     response.send(code);
 })
+app.use('/update', function (request, response) {
+    console.log(request.body);
+    let phone = request.body.phone;
+    let username = request.body.username;
+    let companynature = request.body.companynature;
+    let companysize = request.body.companysize;
+    let place = request.body.place;
+    let fund = request.body.fund;
+    let companytype = request.body.companytype;
+    let personphone = request.body.personphone;
+    let email = request.body.email;
+    let simpletro = request.body.simpletro;
+    let introduce = request.body.introduce;
+    let listed = request.body.listed;
+    let website = request.body.website;
+    let headquarters = request.body. headquarters;
+    let updateSQL = "update companyusers set phone = ?, username = ?, companynature = ?, companysize = ?, place = ?, fund = ?, companytype = ?, personphone = ?, email = ?, simpletro = ?, introduce = ?, listed = ?, website = ?, headquarters= ? where phone = '" + request.session.phone +"'";
+    let updaeParam = [phone, username, companynature, companysize, place, fund, companytype, personphone, email, simpletro, introduce, listed, website, headquarters];
+    query(updateSQL, updaeParam, function (err, result) {
+        if (err){
+            console.log("error - " + err.message);
+            response.end("error");
+            return;
+        }else {
+            response.end("success");
+            return;
+        }
+    })
+})
 app.use('/users', function (request, response) {
     if (request.body.code == '1001') {//用户注册
         console.log("注册人员信息："+request.body);
@@ -664,6 +693,7 @@ app.use('/bussiness', function (request, response) {
     }
     else if (request.body.code == "1009") {//企业信息
         var selectjoblist = "select * from companyusers where phone = " + " '" + request.body.phone + "' "
+        console.log(selectjoblist)
         query(selectjoblist, function (err, result) {
             if (err) {
                 response.end("error")
@@ -821,6 +851,20 @@ app.use('/bussiness', function (request, response) {
                 console.log("error-" + err.message)
             }else {
                 response.end(JSON.stringify(results));
+            }
+        })
+    }else if(request.body.code == "1018"){  //修改企业个人中心时返回的数据
+        let select = "select * from companyusers where phone = " + "'" + request.session.phone + "'";
+        console.log(select);
+        query(select, function (err, result) {
+            if (err){
+                console.log('error - ' + err.message);
+                response.end('error');
+                return;
+            }else {
+                response.end(JSON.stringify(result));
+                console.log(JSON.stringify(result));
+                return;
             }
         })
     }
