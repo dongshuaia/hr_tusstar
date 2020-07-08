@@ -732,7 +732,7 @@ app.use('/bussiness', function (request, response) {
             response.end("errortypenouser")
             return
         } else if (request.session.studentisadmin != '0') {
-            response.end("notstudet")
+            response.end("notstudent")
             return
         }
     } else if (request.body.code == "1015") {//查询各类数值index页面
@@ -1052,9 +1052,7 @@ app.use('/logOut', function (request, response) {
     //console.log(request.body)
     response.setHeader('Content-type', 'application/json;charset=utf-8')
     // 重置session
-    if (request.session.studentisadmin === "0") {
-        request.session.haveResume = null;
-    }
+    request.session.haveResume = null;
     request.session.phone = ''
     request.session.username = ''
     request.session.studentisadmin = "3"

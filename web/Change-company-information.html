@@ -7,9 +7,10 @@
     <title>企业信息 - 启迪之星</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-
+    <script src="js/vue.min.js"></script>
     <!--topbar js-->
     <script src="js/topbar.js"></script>
+    <script src="js/NavigationBar.js"></script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -21,7 +22,7 @@
     <script src="js/jquery.nice-select.min.js"></script>
 
     <script src="js/app.js"></script>
-    <script src="js/vue.min.js"></script>
+
     <script src="js/axios.min.js"></script>
     <script src="js/form-validator.js"></script>
     <!-- Bootstrap core CSS -->
@@ -52,112 +53,7 @@
         </div>
     </div>
 
-    <header id="topnav" class="defaultscroll scroll-active">
-        <!-- Tagline STart -->
-        <div class="tagline">
-            <div class="container">
-                <div class="float-left">
-                    <div class="phone">
-                        启迪之星公司-在线人才招聘
-                    </div>
-                </div>
-                <div class="float-right">
-                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{phone}}</a><span
-                                class="menu-arrow"></span>
-                            <ul class="submenu" v-if="name === '未登录'">
-                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                            </ul>
-                            <ul class="submenu" v-else>
-                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <!-- Tagline End -->
-
-        <!-- Menu Start -->
-        <div class="container">
-            <!-- Logo container-->
-            <div>
-                <a href="index.html" class="logo">
-                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
-                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
-                </a>
-            </div>
-            <div class="buy-button">
-                <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个工作</a>
-            </div>
-            <!--end login button-->
-            <!-- End Logo container-->
-            <div class="menu-extras">
-                <div class="menu-item">
-                    <!-- Mobile menu toggle-->
-                    <a class="navbar-toggle">
-                        <div class="lines">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                    <!-- End mobile menu toggle-->
-                </div>
-            </div>
-
-            <div id="navigation">
-                <!-- Navigation Menu-->
-                <ul class="navigation-menu">
-                    <li><a href="index.html">主页</a></li>
-                    <li><a href="job-list.html">岗位列表</a></li>
-                    <li class="has-submenu">
-                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="signup.html">用户注册</a></li>
-                            <li><a href="login.html">用户登录</a></li>
-                            <li><a href="create-resume.html">新建简历</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-
-                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="companysignup.html">企业注册</a></li>
-                            <li><a href="signup.html">企业登录</a></li>
-                            <li><a href="post-a-job.html">发布职位</a></li>
-                            <li><a href="employers-list.html">企业列表</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="login.html">常见问题</a></li>
-                            <li><a href="signup.html">意见反馈</a></li>
-                            <li><a href="companysignup.html">发布职位</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="login.html">实习基地</a></li>
-                            <li><a href="signup.html">启迪之星</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </header>
+    <navigation-bar></navigation-bar>
 
     <section class="bg-half page-next-level">
         <div class="bg-overlay"></div>
@@ -226,12 +122,12 @@
                                                     <div class="form-button">
                                                         <select required class="nice-select rounded"
                                                                 v-model="companysize">
-                                                            <option value="2000以上">2000以上</option>
-                                                            <option value="500-2000">500-2000</option>
-                                                            <option value="200-500">200-500</option>
-                                                            <option value="50-200">50-200</option>
-                                                            <option value="15-50">15-50</option>
-                                                            <option value="1-15">1-15</option>
+                                                            <option value="2000人以上">2000人以上</option>
+                                                            <option value="500-2000人">500-2000人</option>
+                                                            <option value="200-500人">200-500人</option>
+                                                            <option value="50-200人">50-200人</option>
+                                                            <option value="15-50人">15-50人</option>
+                                                            <option value="1-15人">1-15人</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -577,9 +473,7 @@
                 code: "1018",
             })
                 .then(function (response) {
-                    console.log(response.data);
                     self.info = response.data[0];
-                    console.log(self.info);
                     self.phone = self.info.phone;
                     self.username = self.info.username;
                     self.companynature = self.info.companynature;
@@ -594,7 +488,6 @@
                     self.listed = self.info.listed;
                     self.website = self.info.website;
                     self.headquarters = self.info.headquarters;
-                    console.log(self.headquarters);
                 })
                 .catch(function (error) {
                     console.log(error);

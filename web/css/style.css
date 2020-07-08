@@ -2604,6 +2604,7 @@ hr {
 {
   margin: 10px auto;
   width:-webkit-fit-content;
+  text-align: center;
 }
 
 .file {

@@ -56,7 +56,7 @@
 </div>
 
 <!-- Hero Start -->
-<section class="vh-100" style="background: url('') center center;">
+<section class="vh-100">
     <div class="home-center">
         <div class="home-desc-center">
             <div class="container">
@@ -244,17 +244,6 @@
                                                        @blur="tip.repassword=checkPwdConfirm({password: password, repassword: repassword})">
                                             </div>
                                         </div>
-
-                                        <!--                                          <form action="/uploadlicense" method="post" enctype="multipart/form-data">-->
-                                        <!--                                            <img id="img" v-bind:src="photoAddress" class="img-fluid avatar avatar-zhizhao d-block mx-auto ">-->
-                                        <!--                                            <div class="shangchuan">-->
-                                        <!--                                                <a href="javascript:;" class="file">选择照片<input type="file" class="custom-file-input" id="inputGroupFile01" name = "image" aria-describedby="inputGroupFileAddon01"></a>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="shangchuan">-->
-                                        <!--                                                <input class="file" type="submit" value="上传" />-->
-                                        <!--                                            </div>-->
-                                        <!--                                          </form>-->
-
                                         <iframe name="myiframe" id="myiframe" src="/upload.html" frameborder="0"
                                                 scrolling="no" width="100%"
                                                 height="100%">
@@ -401,54 +390,11 @@
         },
         mounted() {
             var self = this
-            axios.post('/bussiness', {
-                code: "1014"
-            })
-                .then(function (response) {
-                    if (response.data == "errortypenouser") {
-                        alert("用户未登录")
-                        window.location = "login.html"
-                    } else if (response.data == "notcompany") {
-                        alert("登录用户非学生单位")
-                        window.location = "index.html"
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            axios.post('/users', {
-                code: "1005",
-            })
-                .then(function (response) {
-                    if (response.data == "nouser") {
-                        self.name = "未登录"
-                    } else {
-                        self.name = response.data.username
-                        self.isadmin = response.data.studentisadmin
-                        self.phone = response.data.phone
-                        if (self.isadmin == "2") {
-                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                            self.showtype = "发布一个岗位"
-                            self.turntype = "/post-a-job.html"
-                            console.log(self.newlin)
-                        }
-                        if (self.isadmin == "0") {
-                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                            self.showtype = "完善简历"
-                            self.turntype = "create-resume.html"
-                            console.log(self.newlin)
-                        }
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
             axios
                 .post('/searchPhoto', {
                     flag: "create-resume"
                 })
                 .then(function (response) {
-                    console.log("返回的头像地址：" + response.data[0].imgadress);
                     if (response.data == "error") {
                         console.log("头像查询时出现错误");
                     } else if (response.data == "noPhoto") {
@@ -456,7 +402,6 @@
                     } else {
                         self.photoAddress = response.data[0].imgadress;
                     }
-                    console.log(self.photoAddress);
                 })
                 .catch(function (error) {
                     console.log(error);
