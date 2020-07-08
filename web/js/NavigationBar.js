@@ -9,7 +9,6 @@ var NavigationBar = Vue.component('NavigationBar', {
                         启迪之星公司-在线人才招聘
                     </div>
                 </div>
-
                 <div class="float-right">
                     <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
                         <li class="has-submenu">
@@ -32,7 +31,7 @@ var NavigationBar = Vue.component('NavigationBar', {
             </div>
         </div>
         <!-- 顶部栏结束 -->
-
+        
         <!-- 主页导航栏区域 -->
         <div class="container">
             <!-- logo图标 -->
@@ -49,7 +48,6 @@ var NavigationBar = Vue.component('NavigationBar', {
 
             <div class="menu-extras">
                 <div class="menu-item">
-                    <!-- Mobile menu toggle-->
                     <a class="navbar-toggle">
                         <div class="lines">
                             <span></span>
@@ -57,42 +55,29 @@ var NavigationBar = Vue.component('NavigationBar', {
                             <span></span>
                         </div>
                     </a>
-                    <!-- End mobile menu toggle-->
                 </div>
             </div>
 
             <!-- 导航栏 -->
-            <!--                <iframe src="/topbar.html" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>-->
             <div id="navigation">
-                <!-- Navigation Menu-->
                 <ul class="navigation-menu">
                     <li><a href="../index.html">主页</a></li>
                     <li><a href="../job-list.html">岗位列表</a></li>
-                    <li class="has-submenu">
+                    <li><a href="../employers-list.html">企业列表</a></li>
+                    <li class="has-submenu" v-if="isadmin === '' || isadmin === 0">
                         <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li><a href="../signup.html">用户注册</a></li>
                             <li><a href="../login.html">用户登录</a></li>
-                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                    class="submenu-arrow"></span>
-                                <ul class="submenu">
-                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                    <li><a href="create-resume.html">新建简历</a></li>
-                                </ul>
-
-
-                            </li> -->
-                            <li><a :href="turntype">{{showtype}}</a></li>
+                            <li><a :href="turntype" v-if="showtype !== ''">{{showtype}}</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-
+                    <li class="has-submenu" v-if="isadmin === '' || isadmin === 2">
                         <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li><a href="../companysignup.html">企业注册</a></li>
-                            <li><a href="../signup.html">企业登录</a></li>
-                            <li><a href="../post-a-job.html">发布职位</a></li>
-                            <li><a href="../employers-list.html">企业列表</a></li>
+                            <li><a href="../login.html">企业登录</a></li>
+                            <li><a href="../post-a-job.html" v-if="showtype !== ''">{{showtype}}</a></li>
                         </ul>
                     </li>
 
@@ -112,18 +97,11 @@ var NavigationBar = Vue.component('NavigationBar', {
                             <li><a href="../contact.html">联系我们</a></li>
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a href="contact.html">联系我们</a>
-
-                    </li> -->
                 </ul>
-                <!--end navigation menu-->
             </div>
             <!--导航栏结束-->
-
         </div>
         <!--主页导航栏区域结束-->
-        <!--end end-->
     </header>
     `,
     data: function () {
@@ -140,10 +118,10 @@ var NavigationBar = Vue.component('NavigationBar', {
       hideButton: {type: Boolean, required: false, default: false}
     },
     mounted() {
-        console.log(this.hideButton)
-        axios.post('/users', {
-            code: "1005",
-        })
+        axios
+            .post('/users', {
+                code: "1005",
+            })
             .then(response => {
                 if (response.data == "nouser") {
                     this.name = "未登录"
