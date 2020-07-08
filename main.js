@@ -390,8 +390,28 @@ app.use('/users', function (request, response) {
                             response.end("company")
                         }
                         else {
-                            response.end("success")
-                            return
+                            // 普通用户
+                            // 检查是否已创建简历
+                            /*response.end("success")
+                            return*/
+                          var checkresumesql = "select count(*) from resume where phone = '" + request.session.phone + "'"
+                          query(checkresumesql, function (err, result) {
+                            var len = result[0]['count(*)']
+                            if (err) {
+                              log.err('[error]-' + error)
+                              response.end('error')
+                              return
+                            } else if (len !== 0) {
+                              request.session.haveResume = true;
+                              response.end("success")
+                              return
+                            }
+                            else {
+                              request.session.haveResume = false;
+                              response.end("success")
+                              return
+                            }
+                          })
                         }
                     }
                     else if (request.body.password != result[0].password) {
@@ -1022,9 +1042,13 @@ app.use('/logOut',function (request, response) {
     //console.log(request.body)
     response.setHeader('Content-type','application/json;charset=utf-8')
     // 重置session
+    if (request.session.studentisadmin === "0") {
+      request.session.haveResume=null;
+    }
     request.session.phone = ''
     request.session.username = ''
     request.session.studentisadmin = "3"
+
     response.end("注销成功");
 })
 
