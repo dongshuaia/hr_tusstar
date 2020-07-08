@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>应聘者列表 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <script src="js/vue.min.js"></script>
     <script src="js/axios.min.js"></script>
 
@@ -17,22 +17,22 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
+<div id="app">
     <!-- Loader -->
     <div id="preloader">
         <div id="status">
@@ -55,21 +55,22 @@
                     </div>
                 </div>
                 <div class="float-right">
-                  <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                    <li class="has-submenu">
-                      <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                      <ul class="submenu" v-if="name === '未登录'">
-                        <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                        <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                      </ul>
-                      <ul class="submenu" v-else>
-                        <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                      </ul>
-                    </li>
-                    <li class="list-inline-item">
-                      <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
-                    </li>
-                  </ul>
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -81,11 +82,11 @@
             <!-- Logo container-->
             <div>
                 <a href="index.html" class="logo">
-                    <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
                 </a>
             </div>
-            <div class="buy-button" v-if = "showtype!=''">
+            <div class="buy-button" v-if="showtype!=''">
                 <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
             </div>
             <!--end login button-->
@@ -194,7 +195,6 @@
     <!-- end home -->
 
 
-
     <!-- CANDIDATES LISTING START -->
     <section class="section pt-0">
         <div class="container">
@@ -214,7 +214,7 @@
                         <div class="accordion" id="accordionExample">
                             <div class="card rounded mt-4">
                                 <a data-toggle="collapse" href="#collapseOne" class="job-list" aria-expanded="true"
-                                    aria-controls="collapseOne">
+                                   aria-controls="collapseOne">
                                     <div class="card-header" id="headingOne">
                                         <h6 class="mb-0 text-dark">工作类型</h6>
                                     </div>
@@ -223,23 +223,23 @@
                                     <div class="card-body p-0">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input all-select"
-                                                id="customCheckAll">
+                                                   id="customCheckAll">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheckAll">全部</label>
+                                                   for="customCheckAll">全部</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input all-select"
-                                                id="customCheck22">
+                                                   id="customCheck22">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck22">全职</label>
+                                                   for="customCheck22">全职</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input all-select"
-                                                id="customCheck23">
+                                                   id="customCheck23">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck23">实习</label>
+                                                   for="customCheck23">实习</label>
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
 
                             <div class="card rounded mt-4">
                                 <a data-toggle="collapse" href="#collapsetwo" class="job-list" aria-expanded="true"
-                                    aria-controls="collapsetwo">
+                                   aria-controls="collapsetwo">
                                     <div class="card-header" id="headingtwo">
                                         <h6 class="mb-0 text-dark">选择指定岗位</h6>
                                     </div>
@@ -257,49 +257,49 @@
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck5">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck5">项目经理</label>
+                                                   for="customCheck5">项目经理</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck6">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck6">Web开发工程师</label>
+                                                   for="customCheck6">Web开发工程师</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck7">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck7">银行前台</label>
+                                                   for="customCheck7">银行前台</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck8">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck8">活动策划</label>
+                                                   for="customCheck8">活动策划</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck9">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck9">计算机运维工程师</label>
+                                                   for="customCheck9">计算机运维工程师</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck10">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck10">Java开发工程师</label>
+                                                   for="customCheck10">Java开发工程师</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck11">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck11">土木工程</label>
+                                                   for="customCheck11">土木工程</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck12">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck12">算法工程师</label>
+                                                   for="customCheck12">算法工程师</label>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +307,7 @@
 
                             <div class="card rounded mt-4">
                                 <a data-toggle="collapse" href="#collapsefour" class="job-list" aria-expanded="true"
-                                    aria-controls="collapsefour">
+                                   aria-controls="collapsefour">
                                     <div class="card-header" id="headingfour">
                                         <h6 class="mb-0 text-dark">工作经验</h6>
                                     </div>
@@ -316,44 +316,44 @@
                                     <div class="card-body p-0">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio1" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio1">无经验</label>
+                                                   for="customRadio1">无经验</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio1" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio1">1-2年</label>
+                                                   for="customRadio1">1-2年</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio2" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio2">2-3年</label>
+                                                   for="customRadio2">2-3年</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio3" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio3">3-4年</label>
+                                                   for="customRadio3">3-4年</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio4" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio4">4-5年</label>
+                                                   for="customRadio4">4-5年</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio5" name="customRadio"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio5">5年以上</label>
+                                                   for="customRadio5">5年以上</label>
                                         </div>
                                     </div>
                                 </div>
@@ -362,7 +362,7 @@
 
                             <div class="card rounded mt-4">
                                 <a data-toggle="collapse" href="#collapsesix" class="job-list collapsed"
-                                    aria-expanded="false" aria-controls="collapsesix">
+                                   aria-expanded="false" aria-controls="collapsesix">
                                     <div class="card-header" id="headingsix">
                                         <h6 class="mb-0 text-dark">工资要求</h6>
                                     </div>
@@ -371,41 +371,41 @@
                                     <div class="card-body p-0">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio9" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customRadio9">无要求</label>
+                                                   for="customRadio9">无要求</label>
                                         </div>
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio9" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted" for="customRadio9">1k -
                                                 20k</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio10" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted" for="customRadio10">21k
                                                 - 30k</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio11" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted" for="customRadio11">31k
                                                 - 40k</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio12" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted" for="customRadio12">41k
                                                 - 50k</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio13" name="customRadio2"
-                                                class="custom-control-input">
+                                                   class="custom-control-input">
                                             <label class="custom-control-label ml-1 text-muted" for="customRadio13">51k
                                                 - 60k</label>
                                         </div>
@@ -416,7 +416,7 @@
 
                             <div class="card rounded mt-4">
                                 <a data-toggle="collapse" href="#collapsesevan" class="job-list collapsed"
-                                    aria-expanded="false" aria-controls="collapsesevan">
+                                   aria-expanded="false" aria-controls="collapsesevan">
                                     <div class="card-header border-bottom-0" id="headingsevan">
                                         <h6 class="mb-0 text-dark">学历</h6>
                                     </div>
@@ -426,29 +426,29 @@
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck19">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck19">高中</label>
+                                                   for="customCheck19">高中</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck19">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck19">专科</label>
+                                                   for="customCheck19">专科</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck19">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck19">本科</label>
+                                                   for="customCheck19">本科</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck20">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck20">硕士</label>
+                                                   for="customCheck20">硕士</label>
                                         </div>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck21">
                                             <label class="custom-control-label ml-1 text-muted"
-                                                for="customCheck21">博士</label>
+                                                   for="customCheck21">博士</label>
                                         </div>
                                     </div>
                                 </div>
@@ -458,26 +458,29 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 col-md-8" >
+                <div class="col-lg-8 col-md-8">
                     <div class="candidates-listing-item">
                         <div class="border mt-4 rounded p-3" v-for="info in infos">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="float-left mr-4">
                                         <img src="images/employers/img-1.jpg" alt="" class="d-block rounded"
-                                            height="90">
+                                             height="90">
                                     </div>
                                     <div class="candidates-list-desc overflow-hidden job-single-meta  pt-2">
                                         <h5 class="mb-2"><a href="#" class="text-dark">{{info.name}}</a></h5>
                                         <ul class="list-unstyled">
                                             <li class="text-muted"><i
-                                                    class="mdi mdi-account mr-1"></i>{{info.companyname}}</li>
+                                                    class="mdi mdi-account mr-1"></i>{{info.companyname}}
+                                            </li>
                                             <li class="text-muted"><i
-                                                    class="mdi mdi-cellphone-iphone text-muted"></i>{{info.phone}}</li>
+                                                    class="mdi mdi-cellphone-iphone text-muted"></i>{{info.phone}}
+                                            </li>
                                             <li class="text-muted"><a href="" class="text-muted"><i
-                                                        class="mdi mdi-map-marker mr-1"></i>{{info.school}}</a></li>
+                                                    class="mdi mdi-map-marker mr-1"></i>{{info.school}}</a></li>
                                             <li class="text-muted"><i class="mdi mdi-currency-usd mr-1"></i>当前（预计）薪资
-                                                ：{{info.money}}</li>
+                                                ：{{info.money}}
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -489,7 +492,7 @@
                                         </div>
                                         <div class="candidates-listing-btn mt-4">
                                             <a :href="'/candidates-profile.html?phone=' + info.phone + '&companyname=' + info.companyname"
-                                                class="btn btn-primary-outline btn-sm">查看简历</a>
+                                               class="btn btn-primary-outline btn-sm">查看简历</a>
                                         </div>
                                     </div>
                                 </div>
@@ -519,141 +522,139 @@
                 </div>
             </div>
     </section>
-    </div>>
-    <!-- CANDIDATES LISTING END -->
+</div>
+>
+<!-- CANDIDATES LISTING END -->
 
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
-                        方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
 
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/app.js"></script>
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/app.js"></script>
 
-    <script type="text/javascript">
-        new Vue({
-            el: '#app',
-            data: {
-                infos: [],
-                name: "",
-                newlin: "",
-                showtype: ""
-            },
-            mounted() {
-                var self = this
-                axios.post('/bussiness', {
-                    code: "1005",
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            infos: [],
+            name: "",
+            newlin: "",
+            showtype: ""
+        },
+        mounted() {
+            var self = this
+            axios.post('/bussiness', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "errortypenouser") {
+                        alert("用户未登录")
+                    } else if (response.data == "errortypenocompany") {
+                        alert("登录用户非企业账号")
+                        window.location.href = "index.html";
+                    } else {
+                        self.infos = response.data
+                        console.log(response);
+                    }
                 })
-                    .then(function (response) {
-                        if (response.data == "errortypenouser") {
-                            alert("用户未登录")
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "发布一个岗位"
+                            self.turntype = "/post-a-job.html"
+                            console.log(newlin)
                         }
-                        else if (response.data == "errortypenocompany") {
-                            alert("登录用户非企业账号")
-                            window.location.href="index.html";
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "完善简历"
+                            self.turntype = "create-resume.html"
+                            console.log(newlin)
                         }
-                        else {
-                            self.infos = response.data
-                            console.log(response);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/users', {
-                    code: "1005",
+                    }
                 })
-                    .then(function (response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                        }
-                        else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "发布一个岗位"
-                                self.turntype = "/post-a-job.html"
-                                console.log(newlin)
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "完善简历"
-                                self.turntype = "create-resume.html"
-                                console.log(newlin)
-                            }
-                        }
-                    })
-            },
-        })
-    </script>
+        },
+    })
+</script>
 
 </body>
 

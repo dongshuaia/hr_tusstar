@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>人才招聘 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <script src="js/jquery.min.js"></script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -28,976 +28,985 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
     <!--Slider-->
-    <link rel="stylesheet" href="css/owl.carousel.css" />
-    <link rel="stylesheet" href="css/owl.theme.css" />
-    <link rel="stylesheet" href="css/owl.transitions.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <link rel="stylesheet" href="css/owl.theme.css"/>
+    <link rel="stylesheet" href="css/owl.transitions.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
-        <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<div id="app">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <!-- Loader -->
-
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- 顶部栏 -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
-                    </div>
-
-                    <div class="float-right">
-                        <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                            <li class="has-submenu">
-                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                                <ul class="submenu" v-if="name === '未登录'">
-                                    <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                                    <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-                                </ul>
-                                <ul class="submenu" v-else>
-                                  <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                                </ul>
-                            </li>
-                            <li class="list-inline-item">
-                                <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- 顶部栏结束 -->
-
-            <!-- 主页导航栏区域 -->
-            <div class="container">
-                <!-- logo图标 -->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button" v-if = "showtype!=''">
-                    <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
-                </div>
-                <!-- logo图标结束 -->
-
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <!-- 导航栏 -->
-<!--                <iframe src="/topbar.html" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>-->
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                        class="submenu-arrow"></span>
-                                    <ul class="submenu">
-                                        <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                        <li><a href="create-resume.html">新建简历</a></li>
-                                    </ul>
-
-
-                                </li> -->
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a href="contact.html">联系我们</a>
-
-                        </li> -->
-                    </ul>
-                    <!--end navigation menu-->
-                </div>
-                <!--导航栏结束-->
-
-            </div>
-            <!--主页导航栏区域结束-->
-            <!--end end-->
-        </header>
-        <!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Start Home -->
-        <section class="bg-home" style="background: url('images/bg-home.jpg') center center;">
-            <div class="bg-overlay"></div>
-            <div class="home-center">
-                <div class="home-desc-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-12">
-                                <div class="title-heading text-center text-white">
-                                    <h6 class="small-title text-uppercase text-light mb-3"></h6>
-                                    <h1 class="heading font-weight-bold mb-4">快速寻找一个适合自己的工作岗位</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="home-form-position">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="home-registration-form p-4 mb-3">
-                                        <form method="GET" action="job-list.html" class="registration-form">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-6">
-                                                    <div class="registration-form-box">
-                                                        <i class="fa fa-briefcase"></i>
-                                                        <input type="text" id="mingcheng" name="mingcheng"
-                                                            class="form-control rounded registration-input-box" placeholder="工作名称">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6">
-                                                    <div class="registration-form-box">
-                                                        <i class="fa fa-location-arrow"></i>
-                                                        <input type="text" id="didian" name="didian"
-                                                               class="form-control rounded registration-input-box" placeholder="工作地点"
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6">
-                                                    <div class="registration-form-box">
-                                                        <i class="fa fa-list-alt"></i>
-                                                        <input type="text" id="fenlei" name="fenlei"
-                                                               class="form-control rounded registration-input-box" placeholder="职位分类"
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6">
-                                                    <div class="registration-form-box">
-                                                        <input type="submit" id="submit"
-                                                            class="submitBnt btn btn-primary btn-block" value="立即查询">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end home -->
-
-        <!-- popular category start -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title title-line pb-5">职位信息</h4>
-                            <p class="text-muted para-desc mx-auto mb-1">根据工作类型，快速选择一批符合您需求的工作岗位（暂未开放）</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-account d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">软件开发类</h5>
-                                    <p class="text-success mb-0 rounded">780个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-desktop-classic d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">技术类</h5>
-                                    <p class="text-success mb-0 rounded">1270个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-bank d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">政府、事业单位类</h5>
-                                    <p class="text-success mb-0 rounded">2024个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-auto-fix d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">金融类</h5>
-                                    <p class="text-success mb-0 rounded">786个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-office-building d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">建筑实施类</h5>
-                                    <p class="text-success mb-0 rounded">2156个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-telegram d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">通信类</h5>
-                                    <p class="text-success mb-0 rounded">256个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i
-                                        class="mdi mdi-television-classic d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">多媒体设计类</h5>
-                                    <p class="text-success mb-0 rounded">585个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                        <a href="javascript:void(0)">
-                            <div class="popu-category-box bg-light rounded text-center p-4">
-                                <div class="popu-category-icon mb-3">
-                                    <i class="mdi mdi-human d-inline-block rounded-pill h3 text-primary"></i>
-                                </div>
-                                <div class="popu-category-content">
-                                    <h5 class="mb-2 text-dark title">人力资源类</h5>
-                                    <p class="text-success mb-0 rounded">548个岗位</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center mt-4 pt-2">
-                        <a href="job-list.html" class="btn btn-primary-outline">浏览所有职位 <i
-                                class="mdi mdi-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- popular category end -->
-
-        <!-- all jobs start -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title title-line pb-5">推荐的职位</h4>
-                            <p class="text-muted para-desc mx-auto mb-1">启迪之星精心为各位求职者推荐的优质企业</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-9 text-center mt-4 pt-2">
-                        <ul class="nav nav-pills nav nav-pills bg-white rounded nav-justified flex-column flex-sm-row"
-                            id="pills-tab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link rounded active" id="recent-job-tab" data-toggle="pill"
-                                    href="#recent-job" role="tab" aria-controls="recent-job"
-                                    aria-selected="true">最近发布的职位</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link rounded" id="featured-job-tab" data-toggle="pill"
-                                    href="#featured-job" role="tab" aria-controls="featured-job"
-                                    aria-selected="false">最受欢迎的职位</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link rounded" id="part-job-tab" data-toggle="pill" href="#part-job"
-                                    role="tab" aria-controls="part-job" aria-selected="false">实习岗位</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link rounded" id="full-job-tab" data-toggle="pill" href="#full-job"
-                                    role="tab" aria-controls="full-job" aria-selected="false">全职岗位</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="tab-content mt-2" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="recent-job" role="tabpanel"
-                                aria-labelledby="recent-job-tab" v-for="info in infos">
-                                <div class="row">
-                                    <div class="col-lg-12">
-
-                                        <div
-                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
-                                            <div class="lable text-center pt-2 pb-2">
-                                                <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                    <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-4">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-2">
-                                                        <div class="mo-mb-2">
-                                                            <img src="images/featured-job/img-1.png" alt=""
-                                                                class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <h5 class="f-18"><a href="#"
-                                                                    class="text-dark">{{info.companyname}}</a></h5>
-                                                            <p class="text-muted mb-0">{{info.company}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <p class="text-muted mb-0"><i
-                                                                    class="mdi mdi-map-marker text-primary mr-2"></i>{{info.place}}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-primary">￥</span>{{info.money}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0">{{info.worktype}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 bg-light">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-dark">工作经验
-                                                                    :</span> {{info.workyear}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <a :href="'/job-details.html?name=' + info.companyname" class="text-primary">立即查看 <i
-                                                                    class="mdi mdi-chevron-double-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="featured-job" role="tabpanel"
-                                aria-labelledby="featured-job-tab">
-                                <div class="row">
-                                    <div class="col-lg-12">
-
-                                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden"
-                                            v-for="info1 in infos1">
-                                            <div class="lable text-center pt-2 pb-2">
-                                                <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                    <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-4">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-2">
-                                                        <div class="mo-mb-2">
-                                                            <img src="images/featured-job/img-1.png" alt=""
-                                                                class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <h5 class="f-18"><a href="#"
-                                                                    class="text-dark">{{info1.companyname}}</a></h5>
-                                                            <p class="text-muted mb-0">{{info1.company}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <p class="text-muted mb-0"><i
-                                                                    class="mdi mdi-map-marker text-primary mr-2"></i>{{info1.place}}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-primary">￥</span>{{info1.money}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0">{{info1.worktype}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 bg-light">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-dark">工作经验
-                                                                    :</span> {{info1.workyear}}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <a :href="'/job-details.html?name=' + info1.companyname" class="text-primary">立即申请 <i
-                                                                    class="mdi mdi-chevron-double-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="part-job" role="tabpanel" aria-labelledby="part-job-tab"
-                                v-for="info2 in infos2">
-                                <div class="row">
-                                    <div class="col-lg-12">
-
-                                        <div
-                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
-                                            <div class="lable text-center pt-2 pb-2">
-                                                <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                    <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-4">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-2">
-                                                        <div class="mo-mb-2">
-                                                            <img src="images/featured-job/img-1.png" alt=""
-                                                                class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <h5 class="f-18"><a href="#"
-                                                                    class="text-dark">{{info2.companyname}}</a></h5>
-                                                            <p class="text-muted mb-0">{{info2.company}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <p class="text-muted mb-0"><i
-                                                                    class="mdi mdi-map-marker text-primary mr-2"></i>{{info2.place}}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-primary">￥</span>{{info2.money}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0">{{info2.worktype}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 bg-light">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-dark">工作经验
-                                                                    :</span> {{info2.workyear}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <a :href="'/job-details.html?name=' + info2.companyname" class="text-primary">立即申请 <i
-                                                                    class="mdi mdi-chevron-double-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="full-job" role="tabpanel" aria-labelledby="full-job-tab"
-                                v-for="info3 in infos3">
-                                <div class="row">
-                                    <div class="col-lg-12">
-
-                                        <div
-                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
-                                            <div class="lable text-center pt-2 pb-2">
-                                                <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                    <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-4">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-2">
-                                                        <div class="mo-mb-2">
-                                                            <img src="images/featured-job/img-1.png" alt=""
-                                                                class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <h5 class="f-18"><a href="#"
-                                                                    class="text-dark">{{info3.companyname}}</a></h5>
-                                                            <p class="text-muted mb-0">{{info3.company}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <p class="text-muted mb-0"><i
-                                                                    class="mdi mdi-map-marker text-primary mr-2"></i>{{info3.workplace}}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-primary">￥</span>{{info3.money}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0">{{info3.worktype}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 bg-light">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span
-                                                                    class="text-dark">工作经验
-                                                                    :</span> {{info3.workyear}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div>
-                                                            <a :href="'/job-details.html?name=' + info3.companyname" class="text-primary">立即申请 <i
-                                                                    class="mdi mdi-chevron-double-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end containar -->
-        </section>
-        <!-- all jobs end -->
-
-        <!-- How it Work start -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title title-line pb-5">怎样找到一个好工作</h4>
-                            <p class="text-muted para-desc mx-auto mb-1">快速完善您的简历，然后找到一个适合自己的好工作.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mt-4 pt-2">
-                        <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
-                            <div class="how-it-work-img position-relative rounded-pill mb-3">
-                                <img src="images/how-it-work/img-1.png" alt="" class="mx-auto d-block" height="50">
-                            </div>
-                            <div>
-                                <h5>注册一个账号</h5>
-                                <p class="text-muted">注册一个账号，然后认真填写并完善您的简历...</p>
-                                <a href="/signup.html" class="text-primary">Read more <i class="mdi mdi-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-4 pt-2">
-                        <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
-                            <div class="how-it-work-img position-relative rounded-pill mb-3">
-                                <img src="images/how-it-work/img-2.png" alt="" class="mx-auto d-block" height="50">
-                            </div>
-                            <div>
-                                <h5>寻找一个工作</h5>
-                                <p class="text-muted">根据您的兴趣爱好和所学专业，筛选出一个适合自己的工作...</p>
-                                <a href="/job-list.html" class="text-primary">Read more <i class="mdi mdi-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-4 pt-2">
-                        <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
-                            <div class="how-it-work-img position-relative rounded-pill mb-3">
-                                <img src="images/how-it-work/img-3.png" alt="" class="mx-auto d-block" height="50">
-                            </div>
-                            <div>
-                                <h5>投递简历</h5>
-                                <p class="text-muted">将自己的简历发给中意的企业，耐心等待企业的回复，如果没有简历，新建一个吧...</p>
-                                <a href="/create-resume.html" class="text-primary">Read more <i class="mdi mdi-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- How it Work end -->
-
-        <!-- counter start -->
-        <section class="section bg-counter position-relative"
-            style="background: url('images/bg-counters.jpg') center center;">
-            <div class="bg-overlay bg-overlay-gradient"></div>
-            <div class="container">
-                <div class="row" id="counter">
-                    <div class="col-md-3 col-6">
-                        <div class="home-counter pt-4 pb-4">
-                            <div class="float-left counter-icon mr-3">
-                                <i class="mdi mdi-bank h1 text-white"></i>
-                            </div>
-                            <div class="counter-content overflow-hidden">
-                                <h1 class="counter-value text-white mb-1">{{companynum}}</h1>
-                                <p class="counter-name text-white text-uppercase mb-0">入驻公司</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6">
-                        <div class="home-counter pt-4 pb-4">
-                            <div class="float-left counter-icon mr-3">
-                                <i class="mdi mdi-file-document-box h1 text-white"></i>
-                            </div>
-                            <div class="counter-content overflow-hidden">
-                                <h1 class="counter-value text-white mb-1" >{{jobnum}}</h1>
-                                <p class="counter-name text-white text-uppercase mb-0">岗位总计</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6">
-                        <div class="home-counter pt-4 pb-4">
-                            <div class="float-left counter-icon mr-3">
-                                <i class="mdi mdi-calendar-multiple-check h1 text-white"></i>
-                            </div>
-                            <div class="counter-content overflow-hidden">
-                                <h1 class="counter-value text-white mb-1" >{{applicationnum}}</h1>
-                                <p class="counter-name text-white text-uppercase mb-0">累计申请</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="home-counter pt-4 pb-4">
-                            <div class="float-left counter-icon mr-3">
-                                <i class="mdi mdi-account-multiple-plus h1 text-white"></i>
-                            </div>
-                            <div class="counter-content overflow-hidden">
-                                <h1 class="counter-value text-white mb-1" >{{registernum}}</h1>
-                                <p class="counter-name text-white text-uppercase mb-0">注册用户</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
     </div>
-    <!-- counter end -->
+    <!-- Loader -->
 
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
-                        方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- 顶部栏 -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- 顶部栏结束 -->
 
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
+        <!-- 主页导航栏区域 -->
+        <div class="container">
+            <!-- logo图标 -->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button" v-if="showtype!=''">
+                <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
+            </div>
+            <!-- logo图标结束 -->
+
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <!-- 导航栏 -->
+            <!--                <iframe src="/topbar.html" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>-->
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
+                                </ul>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--导航栏结束-->
+
+        </div>
+        <!--主页导航栏区域结束-->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
+
+    <!-- Start Home -->
+    <section class="bg-home" style="background: url('images/bg-home.jpg') center center;">
+        <div class="bg-overlay"></div>
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="title-heading text-center text-white">
+                                <h6 class="small-title text-uppercase text-light mb-3"></h6>
+                                <h1 class="heading font-weight-bold mb-4">快速寻找一个适合自己的工作岗位</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-form-position">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="home-registration-form p-4 mb-3">
+                                    <form method="GET" action="job-list.html" class="registration-form">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6">
+                                                <div class="registration-form-box">
+                                                    <i class="fa fa-briefcase"></i>
+                                                    <input type="text" id="mingcheng" name="mingcheng"
+                                                           class="form-control rounded registration-input-box"
+                                                           placeholder="工作名称">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                <div class="registration-form-box">
+                                                    <i class="fa fa-location-arrow"></i>
+                                                    <input type="text" id="didian" name="didian"
+                                                           class="form-control rounded registration-input-box"
+                                                           placeholder="工作地点"
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                <div class="registration-form-box">
+                                                    <i class="fa fa-list-alt"></i>
+                                                    <input type="text" id="fenlei" name="fenlei"
+                                                           class="form-control rounded registration-input-box"
+                                                           placeholder="职位分类"
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                <div class="registration-form-box">
+                                                    <input type="submit" id="submit"
+                                                           class="submitBnt btn btn-primary btn-block" value="立即查询">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
+    </section>
+    <!-- end home -->
+
+    <!-- popular category start -->
+    <section class="section">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+                    <div class="section-title text-center mb-4 pb-2">
+                        <h4 class="title title-line pb-5">职位信息</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">根据工作类型，快速选择一批符合您需求的工作岗位（暂未开放）</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-account d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">软件开发类</h5>
+                                <p class="text-success mb-0 rounded">780个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-desktop-classic d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">技术类</h5>
+                                <p class="text-success mb-0 rounded">1270个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-bank d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">政府、事业单位类</h5>
+                                <p class="text-success mb-0 rounded">2024个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-auto-fix d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">金融类</h5>
+                                <p class="text-success mb-0 rounded">786个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-office-building d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">建筑实施类</h5>
+                                <p class="text-success mb-0 rounded">2156个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-telegram d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">通信类</h5>
+                                <p class="text-success mb-0 rounded">256个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i
+                                        class="mdi mdi-television-classic d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">多媒体设计类</h5>
+                                <p class="text-success mb-0 rounded">585个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-human d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">人力资源类</h5>
+                                <p class="text-success mb-0 rounded">548个岗位</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mt-4 pt-2">
+                    <a href="job-list.html" class="btn btn-primary-outline">浏览所有职位 <i
+                            class="mdi mdi-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- popular category end -->
+
+    <!-- all jobs start -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title text-center mb-4 pb-2">
+                        <h4 class="title title-line pb-5">推荐的职位</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">启迪之星精心为各位求职者推荐的优质企业</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9 text-center mt-4 pt-2">
+                    <ul class="nav nav-pills nav nav-pills bg-white rounded nav-justified flex-column flex-sm-row"
+                        id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link rounded active" id="recent-job-tab" data-toggle="pill"
+                               href="#recent-job" role="tab" aria-controls="recent-job"
+                               aria-selected="true">最近发布的职位</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" id="featured-job-tab" data-toggle="pill"
+                               href="#featured-job" role="tab" aria-controls="featured-job"
+                               aria-selected="false">最受欢迎的职位</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" id="part-job-tab" data-toggle="pill" href="#part-job"
+                               role="tab" aria-controls="part-job" aria-selected="false">实习岗位</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" id="full-job-tab" data-toggle="pill" href="#full-job"
+                               role="tab" aria-controls="full-job" aria-selected="false">全职岗位</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content mt-2" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="recent-job" role="tabpanel"
+                             aria-labelledby="recent-job-tab" v-for="info in infos">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div
+                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                        <div class="lable text-center pt-2 pb-2">
+                                            <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2">
+                                                    <div class="mo-mb-2">
+                                                        <img src="images/featured-job/img-1.png" alt=""
+                                                             class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <h5 class="f-18"><a href="#"
+                                                                            class="text-dark">{{info.companyname}}</a>
+                                                        </h5>
+                                                        <p class="text-muted mb-0">{{info.company}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <p class="text-muted mb-0"><i
+                                                                class="mdi mdi-map-marker text-primary mr-2"></i>{{info.place}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-primary">￥</span>{{info.money}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0">{{info.worktype}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-dark">工作经验
+                                                                    :</span> {{info.workyear}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <a :href="'/job-details.html?name=' + info.companyname"
+                                                           class="text-primary">立即查看 <i
+                                                                class="mdi mdi-chevron-double-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="featured-job" role="tabpanel"
+                             aria-labelledby="featured-job-tab">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden"
+                                         v-for="info1 in infos1">
+                                        <div class="lable text-center pt-2 pb-2">
+                                            <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2">
+                                                    <div class="mo-mb-2">
+                                                        <img src="images/featured-job/img-1.png" alt=""
+                                                             class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <h5 class="f-18"><a href="#"
+                                                                            class="text-dark">{{info1.companyname}}</a>
+                                                        </h5>
+                                                        <p class="text-muted mb-0">{{info1.company}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <p class="text-muted mb-0"><i
+                                                                class="mdi mdi-map-marker text-primary mr-2"></i>{{info1.place}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-primary">￥</span>{{info1.money}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0">{{info1.worktype}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-dark">工作经验
+                                                                    :</span> {{info1.workyear}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <a :href="'/job-details.html?name=' + info1.companyname"
+                                                           class="text-primary">立即申请 <i
+                                                                class="mdi mdi-chevron-double-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="part-job" role="tabpanel" aria-labelledby="part-job-tab"
+                             v-for="info2 in infos2">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div
+                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                        <div class="lable text-center pt-2 pb-2">
+                                            <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2">
+                                                    <div class="mo-mb-2">
+                                                        <img src="images/featured-job/img-1.png" alt=""
+                                                             class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <h5 class="f-18"><a href="#"
+                                                                            class="text-dark">{{info2.companyname}}</a>
+                                                        </h5>
+                                                        <p class="text-muted mb-0">{{info2.company}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <p class="text-muted mb-0"><i
+                                                                class="mdi mdi-map-marker text-primary mr-2"></i>{{info2.place}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-primary">￥</span>{{info2.money}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0">{{info2.worktype}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-dark">工作经验
+                                                                    :</span> {{info2.workyear}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <a :href="'/job-details.html?name=' + info2.companyname"
+                                                           class="text-primary">立即申请 <i
+                                                                class="mdi mdi-chevron-double-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="full-job" role="tabpanel" aria-labelledby="full-job-tab"
+                             v-for="info3 in infos3">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div
+                                            class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                        <div class="lable text-center pt-2 pb-2">
+                                            <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2">
+                                                    <div class="mo-mb-2">
+                                                        <img src="images/featured-job/img-1.png" alt=""
+                                                             class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <h5 class="f-18"><a href="#"
+                                                                            class="text-dark">{{info3.companyname}}</a>
+                                                        </h5>
+                                                        <p class="text-muted mb-0">{{info3.company}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <p class="text-muted mb-0"><i
+                                                                class="mdi mdi-map-marker text-primary mr-2"></i>{{info3.workplace}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-primary">￥</span>{{info3.money}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <p class="text-muted mb-0">{{info3.worktype}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span
+                                                                class="text-dark">工作经验
+                                                                    :</span> {{info3.workyear}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <a :href="'/job-details.html?name=' + info3.companyname"
+                                                           class="text-primary">立即申请 <i
+                                                                class="mdi mdi-chevron-double-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end containar -->
+    </section>
+    <!-- all jobs end -->
+
+    <!-- How it Work start -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title text-center mb-4 pb-2">
+                        <h4 class="title title-line pb-5">怎样找到一个好工作</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">快速完善您的简历，然后找到一个适合自己的好工作.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mt-4 pt-2">
+                    <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
+                        <div class="how-it-work-img position-relative rounded-pill mb-3">
+                            <img src="images/how-it-work/img-1.png" alt="" class="mx-auto d-block" height="50">
+                        </div>
+                        <div>
+                            <h5>注册一个账号</h5>
+                            <p class="text-muted">注册一个账号，然后认真填写并完善您的简历...</p>
+                            <a href="/signup.html" class="text-primary">Read more <i class="mdi mdi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4 pt-2">
+                    <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
+                        <div class="how-it-work-img position-relative rounded-pill mb-3">
+                            <img src="images/how-it-work/img-2.png" alt="" class="mx-auto d-block" height="50">
+                        </div>
+                        <div>
+                            <h5>寻找一个工作</h5>
+                            <p class="text-muted">根据您的兴趣爱好和所学专业，筛选出一个适合自己的工作...</p>
+                            <a href="/job-list.html" class="text-primary">Read more <i
+                                    class="mdi mdi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4 pt-2">
+                    <div class="how-it-work-box bg-light p-4 text-center rounded shadow">
+                        <div class="how-it-work-img position-relative rounded-pill mb-3">
+                            <img src="images/how-it-work/img-3.png" alt="" class="mx-auto d-block" height="50">
+                        </div>
+                        <div>
+                            <h5>投递简历</h5>
+                            <p class="text-muted">将自己的简历发给中意的企业，耐心等待企业的回复，如果没有简历，新建一个吧...</p>
+                            <a href="/create-resume.html" class="text-primary">Read more <i
+                                    class="mdi mdi-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+    </section>
+    <!-- How it Work end -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+    <!-- counter start -->
+    <section class="section bg-counter position-relative"
+             style="background: url('images/bg-counters.jpg') center center;">
+        <div class="bg-overlay bg-overlay-gradient"></div>
+        <div class="container">
+            <div class="row" id="counter">
+                <div class="col-md-3 col-6">
+                    <div class="home-counter pt-4 pb-4">
+                        <div class="float-left counter-icon mr-3">
+                            <i class="mdi mdi-bank h1 text-white"></i>
+                        </div>
+                        <div class="counter-content overflow-hidden">
+                            <h1 class="counter-value text-white mb-1">{{companynum}}</h1>
+                            <p class="counter-name text-white text-uppercase mb-0">入驻公司</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+                <div class="col-md-3 col-6">
+                    <div class="home-counter pt-4 pb-4">
+                        <div class="float-left counter-icon mr-3">
+                            <i class="mdi mdi-file-document-box h1 text-white"></i>
+                        </div>
+                        <div class="counter-content overflow-hidden">
+                            <h1 class="counter-value text-white mb-1">{{jobnum}}</h1>
+                            <p class="counter-name text-white text-uppercase mb-0">岗位总计</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+                <div class="col-md-3 col-6">
+                    <div class="home-counter pt-4 pb-4">
+                        <div class="float-left counter-icon mr-3">
+                            <i class="mdi mdi-calendar-multiple-check h1 text-white"></i>
+                        </div>
+                        <div class="counter-content overflow-hidden">
+                            <h1 class="counter-value text-white mb-1">{{applicationnum}}</h1>
+                            <p class="counter-name text-white text-uppercase mb-0">累计申请</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="home-counter pt-4 pb-4">
+                        <div class="float-left counter-icon mr-3">
+                            <i class="mdi mdi-account-multiple-plus h1 text-white"></i>
+                        </div>
+                        <div class="counter-content overflow-hidden">
+                            <h1 class="counter-value text-white mb-1">{{registernum}}</h1>
+                            <p class="counter-name text-white text-uppercase mb-0">注册用户</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/counter.int.js"></script>
+        </div>
+    </section>
+</div>
+<!-- counter end -->
 
-    <script src="js/app.js"></script>
-    <script src="js/home.js"></script>
-    <script type="text/javascript">
-        new Vue({
-            el: '#app',
-            data: {
-                infos: [],
-                infos1: [],
-                infos2: [],
-                infos3: [],
-                name: "",
-                newlin:"",
-                companynum:0,
-                jobnum: 0,
-                applicationnum: 0,
-                registernum: 0,
-                iflogin:"",
-                showtype:"",
-                turntype:""
-            },
-            mounted() {
-                var self = this
-                console.log(self)
-                axios.post('/bussiness', {
-                    code: "1004"
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
+
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
+
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
+
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/counter.int.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            infos: [],
+            infos1: [],
+            infos2: [],
+            infos3: [],
+            name: "",
+            newlin: "",
+            companynum: 0,
+            jobnum: 0,
+            applicationnum: 0,
+            registernum: 0,
+            iflogin: "",
+            showtype: "",
+            turntype: ""
+        },
+        mounted() {
+            var self = this
+            console.log(self)
+            axios.post('/bussiness', {
+                code: "1004"
+            })
+                .then(function (response) { //返回的是所有的岗位信息
+                    self.infos = response.data
+                    console.log(response);
+                    self.infos1 = response.data
+                    self.infos2 = response.data
+                    self.infos3 = response.data
+                    self.jobnum = response.data.length
+                    console.log("岗位的个数：" + self.jobnum)
                 })
-                    .then(function (response) { //返回的是所有的岗位信息
-                        self.infos = response.data
-                        console.log(response);
-                        self.infos1 = response.data
-                        self.infos2 = response.data
-                        self.infos3 = response.data
-                        self.jobnum = response.data.length
-                        console.log("岗位的个数："+self.jobnum)
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/bussiness', {
-                    code: "1015"
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/bussiness', {
+                code: "1015"
+            })
+                .then(function (response) {
+                    self.companynum = response.data
+                    console.log("公司的数目是" + self.companynum)
                 })
-                    .then(function (response) {
-                        self.companynum = response.data
-                        console.log("公司的数目是"+self.companynum)
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios.post('/users', {
-                    code: "1005",
-                })
-                    .then(function (response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                            self.iflogin = "/login.html"
-                            window.alert("用户未登录")
-                        }
-                        else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "发布一个岗位"
-                                self.turntype = "/post-a-job.html"
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                        self.iflogin = "/login.html"
+                        window.alert("用户未登录")
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "发布一个岗位"
+                            self.turntype = "/post-a-job.html"
+                        } else if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            if (response.data.haveResume) {
+                                self.showtype = "完善简历"
+                                self.turntype = "update-resume.html"
+                            } else {
+                                self.showtype = "新建简历"
+                                self.turntype = "create-resume.html"
                             }
-                            else if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                if (response.data.haveResume) {
-                                  self.showtype = "完善简历"
-                                  self.turntype = "update-resume.html"
-                                }
-                                else {
-                                  self.showtype = "新建简历"
-                                  self.turntype = "create-resume.html"
-                                }
-                            }
                         }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                axios
-                    .post("/users", {
-                        code : "1007"
-                    })
-                    .then(function (response) {
-                        self.registernum = response.data
-                        console.log("注册用户的数目："+self.registernum)
-                    })
-                    .catch(error=>{
-                        console.log(error)
-                    });
-                axios
-                    .post("/users", {
-                        code : "1008"
-                    })
-                    .then(function (response) {
-                        self.applicationnum = response.data
-                        console.log("累计申请数目："+self.applicationnum)
-                    })
-            },
-            methods:
-            {
-
-            }
-        })
-    </script>
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios
+                .post("/users", {
+                    code: "1007"
+                })
+                .then(function (response) {
+                    self.registernum = response.data
+                    console.log("注册用户的数目：" + self.registernum)
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios
+                .post("/users", {
+                    code: "1008"
+                })
+                .then(function (response) {
+                    self.applicationnum = response.data
+                    console.log("累计申请数目：" + self.applicationnum)
+                })
+        },
+        methods:
+            {}
+    })
+</script>
 </body>
 
 </html>

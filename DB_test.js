@@ -17,22 +17,20 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-if(0){
-    var  addSql = 'INSERT INTO testTable VALUES(10,\'测试\')';
+if (0) {
+    var addSql = 'INSERT INTO testTable VALUES(10,\'测试\')';
     //增
-    connection.query(addSql,function (err, result) {
-            if(err){
-            console.log('[INSERT ERROR] - ',err.message);
+    connection.query(addSql, function (err, result) {
+        if (err) {
+            console.log('[INSERT ERROR] - ', err.message);
             return;
-            }        
-    
-        console.log('--------------------------INSERT----------------------------');      
-        console.log('INSERT ID:',result);        
-        console.log('-----------------------------------------------------------------\n\n');  
+        }
+
+        console.log('--------------------------INSERT----------------------------');
+        console.log('INSERT ID:', result);
+        console.log('-----------------------------------------------------------------\n\n');
     });
-}
-else
-{
+} else {
     connection.query('SELECT * FROM testTable', function (error, results, fields) {
         if (error) throw error;
         console.log('The id is: ', results);

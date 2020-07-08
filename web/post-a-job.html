@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>发布职位 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
 
     <script src="js/jquery.min.js"></script>
@@ -28,351 +28,359 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <!-- Loader -->
-    <div id="app">
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<!-- Loader -->
+<div id="app">
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <!-- Loader -->
+    </div>
+    <!-- Loader -->
 
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- Tagline STart -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
                     </div>
-                    <div class="float-right">
-                        <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                            <li class="has-submenu">
-                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                                <ul class="submenu" v-if="name === '未登录'">
-                                    <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                                    <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                </div>
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Tagline End -->
+
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button">
+                <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个岗位</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
                                 </ul>
-                                <ul class="submenu" v-else>
-                                    <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                                </ul>
-                            </li>
-                            <li class="list-inline-item">
-                                <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
+        </div>
+        <!--end container-->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
+
+    <!-- Start home -->
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">发布职位</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">发布职位</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- Tagline End -->
+        </div>
+    </section>
+    <!-- end home -->
 
-            <!-- Menu Start -->
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button">
-                    <a href="post-a-job.html" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>发布一个岗位</a>
-                </div>
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
+    <!-- POST A JOB START -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rounded shadow bg-white p-4">
+                        <div class="custom-form">
+                            <div id="message3"></div>
+                            <div>
+                                <h4 class="text-dark mb-3">发布一个新职位 :</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">职位名称</label>
+                                            <input id="company-name" type="text" class="form-control resume"
+                                                   placeholder="" v-model="companyname">
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                        class="submenu-arrow"></span>
-                                    <ul class="submenu">
-                                        <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                        <li><a href="create-resume.html">新建简历</a></li>
-                                    </ul>
-
-
-                                </li> -->
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a href="contact.html">联系我们</a>
-
-                        </li> -->
-                    </ul>
-                    <!--end navigation menu-->
-                </div>
-                <!--end navigation-->
-            </div>
-            <!--end container-->
-            <!--end end-->
-        </header>
-        <!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Start home -->
-        <section class="bg-half page-next-level">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-white">
-                            <h4 class="text-uppercase title mb-4">发布职位</h4>
-                            <ul class="page-next d-inline-block mb-0">
-                                <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-                                <li>
-                                    <span class="text-uppercase text-white font-weight-bold">发布职位</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end home -->
-
-        <!-- POST A JOB START -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="rounded shadow bg-white p-4">
-                            <div class="custom-form">
-                                <div id="message3"></div>
-                                <div>
-                                    <h4 class="text-dark mb-3">发布一个新职位 :</h4>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">职位名称</label>
-                                                <input id="company-name" type="text" class="form-control resume" placeholder="" v-model="companyname">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">职位性质</label>
+                                            <div class="form-button">
+                                                <select class="nice-select rounded" v-model="worktype">
+                                                    <option data-display="职位性质">职位性质</option>
+                                                    <option value="全职">全职</option>
+                                                    <option value="实习">实习</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">职位性质</label>
-                                                <div class="form-button">
-                                                    <select class="nice-select rounded" v-model="worktype">
-                                                        <option data-display="职位性质">职位性质</option>
-                                                        <option value="全职">全职</option>
-                                                        <option value="实习">实习</option>
-                                                    </select>
-                                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">职位类型</label>
+                                            <div class="form-button">
+                                                <select class="nice-select rounded" v-model="type">
+                                                    <option data-display="职位性质">职位性质</option>
+                                                    <option value="技术">技术</option>
+                                                    <option value="产品">产品</option>
+                                                    <option value="设计">设计</option>
+                                                    <option value="运营">运营</option>
+                                                    <option value="销售">销售</option>
+                                                    <option value="媒体">媒体</option>
+                                                    <option value="金融">金融</option>
+                                                    <option value="教育">教育</option>
+                                                    <option value="服务业">服务业</option>
+                                                </select>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">职位类型</label>
-                                                <div class="form-button">
-                                                    <select class="nice-select rounded" v-model="type">
-                                                        <option data-display="职位性质">职位性质</option>
-                                                        <option value="技术">技术</option>
-                                                        <option value="产品">产品</option>
-                                                        <option value="设计">设计</option>
-                                                        <option value="运营">运营</option>
-                                                        <option value="销售">销售</option>
-                                                        <option value="媒体">媒体</option>
-                                                        <option value="金融">金融</option>
-                                                        <option value="教育">教育</option>
-                                                        <option value="服务业">服务业</option>
-                                                    </select>
-                                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">工作地点</label>
+                                            <div class="form-button">
+                                                <input id="city" type="text" class="form-control resume" placeholder=""
+                                                       v-model="place">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">薪资</label>
+                                            <input id="maximum-salary" type="text" class="form-control resume"
+                                                   placeholder="" v-model="money">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">要求学历</label>
+                                            <div class="form-button">
+                                                <select class="nice-select rounded" v-model="edubackground">
+                                                    <option data-display="学历" value="高中以上">高中</option>
+                                                    <option value="专科以上">专科</option>
+                                                    <option value="本科以上">本科</option>
+                                                    <option value="硕士以上">硕士</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">工作地点</label>
-                                                <div class="form-button">
-                                                    <input id="city" type="text" class="form-control resume" placeholder="" v-model="place">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">薪资</label>
-                                                <input id="maximum-salary" type="text" class="form-control resume" placeholder="" v-model="money">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">要求学历</label>
-                                                <div class="form-button">
-                                                    <select class="nice-select rounded" v-model="edubackground">
-                                                        <option data-display="学历" value="高中以上">高中</option>
-                                                        <option value="专科以上">专科</option>
-                                                        <option value="本科以上">本科</option>
-                                                        <option value="硕士以上">硕士</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">工作经验</label>
-                                                <div class="form-button">
-                                                    <select class="nice-select rounded" v-model="workyear">
-                                                        <option data-display="工作经验" value="无要求">无要求</option>
-                                                        <option value="1年以上工作经验">1年</option>
-                                                        <option value="2年以上工作经验">2年</option>
-                                                        <option value="3年以上工作经验">3年</option>
-                                                        <option value="4年以上工作经验">4年</option>
-                                                        <option value="5年以上工作经验">5年以上</option>
-                                                    </select>
-                                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">工作经验</label>
+                                            <div class="form-button">
+                                                <select class="nice-select rounded" v-model="workyear">
+                                                    <option data-display="工作经验" value="无要求">无要求</option>
+                                                    <option value="1年以上工作经验">1年</option>
+                                                    <option value="2年以上工作经验">2年</option>
+                                                    <option value="3年以上工作经验">3年</option>
+                                                    <option value="4年以上工作经验">4年</option>
+                                                    <option value="5年以上工作经验">5年以上</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">邮箱地址</label>
-                                                <input id="email-address" type="text" class="form-control resume" placeholder="" v-model="email">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">联系电话</label>
-                                                <input id="number" type="text" class="form-control resume" placeholder="" v-model="phone">
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">邮箱地址</label>
+                                            <input id="email-address" type="text" class="form-control resume"
+                                                   placeholder="" v-model="email">
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">联系人</label>
-                                                <input id="number2" type="text" class="form-control resume" placeholder="" v-model="contact">
-                                            </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">联系电话</label>
+                                            <input id="number" type="text" class="form-control resume" placeholder=""
+                                                   v-model="phone">
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">招聘人数</label>
-                                                <input id="recruitment" type="text" class="form-control resume" placeholder="" v-model="numberOfRecruitment" oninput="value=value.replace(/[^\d]/g,'')">
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">联系人</label>
+                                            <input id="number2" type="text" class="form-control resume" placeholder=""
+                                                   v-model="contact">
                                         </div>
                                     </div>
 
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">岗位福利</label>
-                                                <textarea id="description" rows="6" class="form-control resume" placeholder="" v-model="welfare"></textarea>
-                                            </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">招聘人数</label>
+                                            <input id="recruitment" type="text" class="form-control resume"
+                                                   placeholder="" v-model="numberOfRecruitment"
+                                                   oninput="value=value.replace(/[^\d]/g,'')">
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">岗位描述</label>
-                                                <textarea id="description2" rows="6" class="form-control resume" placeholder="" v-model="detail3"></textarea>
-                                            </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">岗位福利</label>
+                                            <textarea id="description" rows="6" class="form-control resume"
+                                                      placeholder="" v-model="welfare"></textarea>
                                         </div>
                                     </div>
+                                </div>
 
-
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group app-label mt-2">
-                                                <label class="text-muted">工作内容</label>
-                                                <textarea id="description3" rows="6" class="form-control resume" placeholder="" v-model="detail2"></textarea>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">岗位描述</label>
+                                            <textarea id="description2" rows="6" class="form-control resume"
+                                                      placeholder="" v-model="detail3"></textarea>
                                         </div>
                                     </div>
+                                </div>
 
 
-
-
-                                    <div class="row">
-                                        <div class="col-lg-12 mt-2">
-                                            <a href="#" class="btn btn-primary" v-on:click='insert'>发布工作</a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group app-label mt-2">
+                                            <label class="text-muted">工作内容</label>
+                                            <textarea id="description3" rows="6" class="form-control resume"
+                                                      placeholder="" v-model="detail2"></textarea>
                                         </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-12 mt-2">
+                                        <a href="#" class="btn btn-primary" v-on:click='insert'>发布工作</a>
                                     </div>
                                 </div>
                             </div>
@@ -380,233 +388,232 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+</div>
+<!-- POST A JOB END -->
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <!-- POST A JOB END -->
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地 方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
 
 
-
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                companyname: "",
-                worktype: "",
-                type: "",
-                place: "",
-                company: "",
-                money: "",
-                edubackground: "",
-                workyear: "",
-                email: "",
-                phone: "",
-                detail2: "",
-                detail3: "",
-                name: "",
-                newlin: "",
-                welfare: "",
-                contact: "",
-                numberOfRecruitment: "",
-            },
-            mounted() {
-                self = this
-                axios.post('/bussiness', {
-                        code: "1007"
-                    })
-                    .then(function(response) {
-                        if (response.data == "errortypenouser") {
-                            alert("用户未登录")
-                            window.location = "login.html"
-                        } else if (response.data == "notcompany") {
-                            alert("登录用户非企业单位")
-                            window.location = "index.html"
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            companyname: "",
+            worktype: "",
+            type: "",
+            place: "",
+            company: "",
+            money: "",
+            edubackground: "",
+            workyear: "",
+            email: "",
+            phone: "",
+            detail2: "",
+            detail3: "",
+            name: "",
+            newlin: "",
+            welfare: "",
+            contact: "",
+            numberOfRecruitment: "",
+        },
+        mounted() {
+            self = this
+            axios.post('/bussiness', {
+                code: "1007"
+            })
+                .then(function (response) {
+                    if (response.data == "errortypenouser") {
+                        alert("用户未登录")
+                        window.location = "login.html"
+                    } else if (response.data == "notcompany") {
+                        alert("登录用户非企业单位")
+                        window.location = "index.html"
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
+                            console.log(name)
                         }
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
-                axios.post('/users', {
-                        code: "1005",
-                    })
-                    .then(function(response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                        } else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                                console.log(name)
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                console.log(newlin)
-                            }
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            console.log(newlin)
                         }
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
-            },
-            methods: {
-                insert: function(response) {
-                    if (this.companyname == '') {
-                        alert('请输入工作名称');
-                        return
                     }
-                    if (this.worktype == '') {
-                        alert('请输入职位性质');
-                        return
-                    }
-                    if (this.type == "") {
-                        alert("请输入职位类型");
-                        return
-                    }
-                    if (this.place == "") {
-                        alert("请输入工作地点");
-                        return
-                    }
-                    if (this.money == "") {
-                        alert("请输入薪资");
-                        return
-                    }
-                    if (this.edubackground == "") {
-                        alert("请输入要求学历");
-                        return
-                    }
-                    if (this.workyear == "") {
-                        alert("请输入工作经验");
-                        return
-                    }
-                    if (this.email == "") {
-                        alert("请输入邮箱地址");
-                        return
-                    }
-                    if (this.phone == "") {
-                        alert("请输入联系电话");
-                        return
-                    }
-                    if (this.numberOfRecruitment == "") {
-                        alert("请输入招聘人数");
-                        return
-                    }
-                    if (this.welfare == "") {
-                        alert("请输入岗位福利");
-                        return
-                    }
-                    if (this.detail2 == "") {
-                        alert("请输入工作内容");
-                        return
-                    }
-                    if (this.detail3 == "") {
-                        alert("请输入岗位描述");
-                        return
-                    }
-
-                    axios.post('/bussiness', {
-                            code: '1001',
-                            companyname: this.companyname,
-                            worktype: this.worktype,
-                            type: this.type,
-                            place: this.place,
-                            company: this.company,
-                            money: this.money,
-                            edubackground: this.edubackground,
-                            workyear: this.workyear,
-                            email: this.email,
-                            phone: this.phone,
-                            detail2: this.detail2,
-                            detail3: this.detail3,
-                            welfare: this.welfare,
-                            contact: this.contact,
-                            numberOfRecruitment: this.numberOfRecruitment
-                        })
-                        .then(function(data) {
-                            if (data.data == 'success')
-                            {
-                                var fabu=confirm('确定发布吗?');
-                                if (fabu==true)
-                                {
-                                    alert('发布成功');
-                                    window.location = "/index.html"
-                                }
-
-                            } else if (data.data == 'error') {
-                                alert('注册失败，请重试')
-                            }
-                        })
-                        .catch(function(error) {
-                            console.log(error);
-                        })
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+        methods: {
+            insert: function (response) {
+                if (this.companyname == '') {
+                    alert('请输入工作名称');
+                    return
                 }
-            }
+                if (this.worktype == '') {
+                    alert('请输入职位性质');
+                    return
+                }
+                if (this.type == "") {
+                    alert("请输入职位类型");
+                    return
+                }
+                if (this.place == "") {
+                    alert("请输入工作地点");
+                    return
+                }
+                if (this.money == "") {
+                    alert("请输入薪资");
+                    return
+                }
+                if (this.edubackground == "") {
+                    alert("请输入要求学历");
+                    return
+                }
+                if (this.workyear == "") {
+                    alert("请输入工作经验");
+                    return
+                }
+                if (this.email == "") {
+                    alert("请输入邮箱地址");
+                    return
+                }
+                if (this.phone == "") {
+                    alert("请输入联系电话");
+                    return
+                }
+                if (this.numberOfRecruitment == "") {
+                    alert("请输入招聘人数");
+                    return
+                }
+                if (this.welfare == "") {
+                    alert("请输入岗位福利");
+                    return
+                }
+                if (this.detail2 == "") {
+                    alert("请输入工作内容");
+                    return
+                }
+                if (this.detail3 == "") {
+                    alert("请输入岗位描述");
+                    return
+                }
 
-        })
-    </script>
+                axios.post('/bussiness', {
+                    code: '1001',
+                    companyname: this.companyname,
+                    worktype: this.worktype,
+                    type: this.type,
+                    place: this.place,
+                    company: this.company,
+                    money: this.money,
+                    edubackground: this.edubackground,
+                    workyear: this.workyear,
+                    email: this.email,
+                    phone: this.phone,
+                    detail2: this.detail2,
+                    detail3: this.detail3,
+                    welfare: this.welfare,
+                    contact: this.contact,
+                    numberOfRecruitment: this.numberOfRecruitment
+                })
+                    .then(function (data) {
+                        if (data.data == 'success') {
+                            var fabu = confirm('确定发布吗?');
+                            if (fabu == true) {
+                                alert('发布成功');
+                                window.location = "/index.html"
+                            }
+
+                        } else if (data.data == 'error') {
+                            alert('注册失败，请重试')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            }
+        }
+
+    })
+</script>
 </body>
 
 </html>

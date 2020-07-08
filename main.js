@@ -28,7 +28,7 @@ var pool = mysql.createPool({
     password: '123456',
     port: '3306',
     database: 'tusstar',
-    timezone : "08:00"
+    timezone: "08:00"
 });
 
 var query = function (sql, options, callback) {
@@ -46,13 +46,13 @@ var query = function (sql, options, callback) {
         }
     });
 };
-app.use(multer({ dest: '/tmp/' }).array('image'));  //在系统盘创建一个tmp文件加，上传的文件是图片类型
+app.use(multer({dest: '/tmp/'}).array('image'));  //在系统盘创建一个tmp文件加，上传的文件是图片类型
 /**
  * 模块会处理application/x-www-form-urlencoded、application/json两种内容格式的请求体。
  * 经过这个中间件处理后，就可以在所有路由处理器的req.body中访问请求参数
  **/
 app.use(bodyparser.json())  //解析json数据格式
-app.use(bodyparser.urlencoded({ extended: true }))  //解析通常的form表单提交的数据
+app.use(bodyparser.urlencoded({extended: true}))  //解析通常的form表单提交的数据
 //上传营业执照和头像的地方
 var USERFLAG = "";
 var distinguish_Create_Update = "";
@@ -153,7 +153,7 @@ app.use('/uploadPhoto1', function (request, response) {
                 })
             }
         });
-    }else {
+    } else {
         fs.readFile("./web/index.html", function (err, data) {
             response.writeHead(200, {"Content-type": "text/html"});
             response.end(data);
@@ -162,23 +162,23 @@ app.use('/uploadPhoto1', function (request, response) {
 })
 
 app.use('/searchPhoto', function (request, response) {
-    if (request.body.flag == "update-resume"){
+    if (request.body.flag == "update-resume") {
         distinguish_Create_Update = "update-resume";
-    }else if (request.body.flag == "create-resume"){
+    } else if (request.body.flag == "create-resume") {
         distinguish_Create_Update = "create-resume";
     }
     let phone = request.session.phone;
     let searchPhotoAddress = "select * from img where phone = " + "'" + phone + "'";
     query(searchPhotoAddress, function (error, results) {
-        if (error){
+        if (error) {
             response.end("error");
             return;
         }
-        if (results.length == 0){
+        if (results.length == 0) {
             response.end("noPhoto");
             return;
         }
-        if (results.length != 0){
+        if (results.length != 0) {
             USERFLAG = "havePhoto";
             console.log(JSON.stringify(results[0].imgadress));
             response.end(JSON.stringify(results));
@@ -190,25 +190,25 @@ app.use('/uploadlicense', function (request, response) {
     response.writeHead(200, {"Content-type": "text/html"});
     var des_file = __dirname + path.sep + "web" + path.sep + "businesslicense" + path.sep + request.files[0].originalname;
     fs.readFile(request.files[0].path, function (err, data) {
-        if (err){
+        if (err) {
             console.log(err);
-        }else {
+        } else {
             fs.writeFile(des_file, data, function (err) {
-                if (err){
+                if (err) {
                     console.log(err);
-                }else {
+                } else {
                     let insertLicense = "insert into img (phone, imgadress) value (?,?)";
                     des_file = "businesslicense" + path.sep + request.files[0].originalname;
                     let insertParam = [request.session.phone, des_file];
                     query(insertLicense, insertParam, function (err, result) {
-                        if (err){
+                        if (err) {
                             console.log(err);
                             return;
                         }
                         console.log("上传了营业执照");
                         let a = "businesslicense/" + request.files[0].originalname;
                         console.log(a);
-                        let html = '<img src="'+a+'" style="height: 150px; width: 220px;margin: 8px -0 0 137px;">';
+                        let html = '<img src="' + a + '" style="height: 150px; width: 220px;margin: 8px -0 0 137px;">';
                         response.end(html);
                     })
                 }
@@ -243,15 +243,15 @@ app.use('/update', function (request, response) {
     let introduce = request.body.introduce;
     let listed = request.body.listed;
     let website = request.body.website;
-    let headquarters = request.body. headquarters;
-    let updateSQL = "update companyusers set phone = ?, username = ?, companynature = ?, companysize = ?, place = ?, fund = ?, companytype = ?, personphone = ?, email = ?, simpletro = ?, introduce = ?, listed = ?, website = ?, headquarters= ? where phone = '" + request.session.phone +"'";
+    let headquarters = request.body.headquarters;
+    let updateSQL = "update companyusers set phone = ?, username = ?, companynature = ?, companysize = ?, place = ?, fund = ?, companytype = ?, personphone = ?, email = ?, simpletro = ?, introduce = ?, listed = ?, website = ?, headquarters= ? where phone = '" + request.session.phone + "'";
     let updaeParam = [phone, username, companynature, companysize, place, fund, companytype, personphone, email, simpletro, introduce, listed, website, headquarters];
     query(updateSQL, updaeParam, function (err, result) {
-        if (err){
+        if (err) {
             console.log("error - " + err.message);
             response.end("error");
             return;
-        }else {
+        } else {
             response.end("success");
             return;
         }
@@ -259,10 +259,10 @@ app.use('/update', function (request, response) {
 })
 app.use('/users', function (request, response) {
     if (request.body.code == '1001') {//用户注册
-        console.log("注册人员信息："+request.body);
+        console.log("注册人员信息：" + request.body);
         var CheckAddSql = "select * from users where phone = " + " '" + request.body.phone + "' "
         query(CheckAddSql, function (err, result) {
-            console.log("用户注册时查询相应账号数据返回的长度是"+result.length)
+            console.log("用户注册时查询相应账号数据返回的长度是" + result.length)
             if (err) {
                 console.log('[select-error] - ' + err.message);
                 response.end('error');
@@ -281,16 +281,14 @@ app.use('/users', function (request, response) {
                         console.log(' error- ' + err.message)
                         response.end('error')
                         return
-                    }
-                    else {
+                    } else {
                         response.end('success')
                         return
                     }
                 })
             }
         })
-    }
-    else if (request.body.code == "1002") {//用户申请职位
+    } else if (request.body.code == "1002") {//用户申请职位
         console.log(request.body)
         let phone = request.session.phone
         let flag = request.body.flag;
@@ -302,12 +300,10 @@ app.use('/users', function (request, response) {
                     console.log(' error- ' + err.message)
                     response.end('error')
                     return
-                }
-                else if (result == 0) {
+                } else if (result == 0) {
                     response.end("noresume")
                     return
-                }
-                else {
+                } else {
                     if (flag == "1") {
                         let select = "select * from joblist where phone = " + "'" + phone + "'" + "and companyname = " + "'" + request.body.companyname + "'";
                         query(select, function (err, result) {
@@ -315,24 +311,22 @@ app.use('/users', function (request, response) {
                                 console.log('error  - ' + err.message);
                                 response.end('error');
                                 return;
-                            }else if(result.length != 0){
+                            } else if (result.length != 0) {
                                 response.end('noagain');
                                 return;
                             }
                         })
-                    }else {
+                    } else {
                         var selectjoblist = "select * from joblist where phone = " + "'" + phone + "'" + "and companyname = " + "'" + request.body.companyname + "'"
                         query(selectjoblist, function (err, result) {
                             if (err) {
                                 console.log(' error- ' + err.message)
                                 response.end('error')
                                 return
-                            }
-                            else if (result != 0) {
+                            } else if (result != 0) {
                                 response.end('noagain')
                                 return
-                            }
-                            else {
+                            } else {
                                 var insertjoblist = "insert into joblist (phone,name,company,companyname, restatus,Date) value (?,?,?,?,?,sysdate())"
                                 var insertjoblistParams = [phone, name, request.body.company, request.body.companyname, 0]
                                 query(insertjoblist, insertjoblistParams, function (err, result) {
@@ -340,8 +334,7 @@ app.use('/users', function (request, response) {
                                         console.log(' error- ' + err.message)
                                         response.end('error')
                                         return
-                                    }
-                                    else {
+                                    } else {
                                         response.end("success")
                                         return
                                     }
@@ -351,12 +344,10 @@ app.use('/users', function (request, response) {
                     }
                 }
             })
-        }
-        else {
+        } else {
             response.end("notstudent")
         }
-    }
-    else if (request.body.code == "1003") {//新建个人简历信息
+    } else if (request.body.code == "1003") {//新建个人简历信息
         console.log(request.body);
         var checkresumesql = "select * from resume where phone = '" + request.body.phone + "'"
         query(checkresumesql, function (err, result) {
@@ -365,12 +356,10 @@ app.use('/users', function (request, response) {
                 log.err('[error]-' + error)
                 response.end('error')
                 return
-            }
-            else if (result.length != 0) {
+            } else if (result.length != 0) {
                 response.end('errortypeone')
                 return
-            }
-            else if (result.length == 0) {
+            } else if (result.length == 0) {
                 var addResumesql = "insert into resume (name,school,education,birthday,sex,selfintro,adress,phone,email,department,major,degree,system1,information,money,information2,nationality,entrance1) value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
                 var addResumeParam = [request.body.name, request.body.school, request.body.education, request.body.birthday, request.body.sex, request.body.selfintro, request.body.adress, request.body.phone, request.body.email, request.body.department, request.body.major, request.body.degree, request.body.system, request.body.information, request.body.money, request.body.information2, request.body.nationality, request.body.entrance]
                 query(addResumesql, addResumeParam, function (err, result) {
@@ -378,72 +367,63 @@ app.use('/users', function (request, response) {
                         response.end("error")
                         console.log("error-" + err.message)
                         return
-                    }
-                    else {
+                    } else {
                         response.end("success")
                         return
                     }
                 })
             }
         })
-    }
-    else if (request.body.code == "1004") {//判断登录，重置session
+    } else if (request.body.code == "1004") {//判断登录，重置session
         var checkuser = "select * from users where phone = '" + request.body.phone + "'"
         query(checkuser, function (err, result) {
             if (err) {
                 log.err('[error]-' + error)
                 response.end('error')
                 return
-            }
-            else if (result == 0) {
+            } else if (result == 0) {
                 response.end('errortypeone')
                 return
-            }
-            else if (result != 0) {
+            } else if (result != 0) {
                 var selectpasswd = "select * from users where phone = '" + request.body.phone + "'"
                 query(selectpasswd, function (err, result) {
                     if (err) {
                         log.err('[error]-' + error)
                         response.end('error')
                         return
-                    }
-                    else if (request.body.password == result[0].password) {
+                    } else if (request.body.password == result[0].password) {
                         request.session.phone = result[0].phone//手机号
                         request.session.username = result[0].name//姓名
                         request.session.studentisadmin = result[0].isadmin//身份，0为用户，1位管理员，2为企业
                         if (request.session.studentisadmin == 1) {
                             response.end("admin")
                             return
-                        }
-                        else if (request.session.studentisadmin == 2) {
+                        } else if (request.session.studentisadmin == 2) {
                             response.end("company")
-                        }
-                        else {
+                        } else {
                             // 普通用户
                             // 检查是否已创建简历
                             /*response.end("success")
                             return*/
-                          var checkresumesql = "select count(*) from resume where phone = '" + request.session.phone + "'"
-                          query(checkresumesql, function (err, result) {
-                            var len = result[0]['count(*)']
-                            if (err) {
-                              log.err('[error]-' + error)
-                              response.end('error')
-                              return
-                            } else if (len !== 0) {
-                              request.session.haveResume = true;
-                              response.end("success")
-                              return
-                            }
-                            else {
-                              request.session.haveResume = false;
-                              response.end("success")
-                              return
-                            }
-                          })
+                            var checkresumesql = "select count(*) from resume where phone = '" + request.session.phone + "'"
+                            query(checkresumesql, function (err, result) {
+                                var len = result[0]['count(*)']
+                                if (err) {
+                                    log.err('[error]-' + error)
+                                    response.end('error')
+                                    return
+                                } else if (len !== 0) {
+                                    request.session.haveResume = true;
+                                    response.end("success")
+                                    return
+                                } else {
+                                    request.session.haveResume = false;
+                                    response.end("success")
+                                    return
+                                }
+                            })
                         }
-                    }
-                    else if (request.body.password != result[0].password) {
+                    } else if (request.body.password != result[0].password) {
                         response.end("errortypetwo")
                         return
                     }
@@ -451,48 +431,43 @@ app.use('/users', function (request, response) {
             }
         })
 
-    }
-    else if (request.body.code == "1005") {//前端传送名字
+    } else if (request.body.code == "1005") {//前端传送名字
         if (request.session.username == undefined || request.session.username == "") {
             response.end("nouser")
             return
-        }
-        else {
+        } else {
             response.end(JSON.stringify(request.session))
         }
-    }
-    else if (request.body.code == "1006") {//前端传送名字
+    } else if (request.body.code == "1006") {//前端传送名字
         if (request.session.username == undefined || request.session.username == "") {
             response.end("nouser")
             console.log("no")
             return
-        }
-        else {
+        } else {
             response.end(JSON.stringify(request.session))
         }
-    }
-    else if (request.body.code == "1007"){ //得到注册用户的数目
+    } else if (request.body.code == "1007") { //得到注册用户的数目
         var selectRegisters = "select * from users"
         query(selectRegisters, function (err, results) {
             if (err) {
                 log.err('[error]-' + error)
                 response.end('error')
                 return
-            }else {
+            } else {
                 response.end(JSON.stringify(results.length))
-                console.log("注册用户数目："+results.length)
+                console.log("注册用户数目：" + results.length)
             }
         })
-    }else if (request.body.code == "1008"){ //得到申请数目
+    } else if (request.body.code == "1008") { //得到申请数目
         var selectApplications = "select * from joblist"
         query(selectApplications, function (err, results) {
             if (err) {
                 log.err('[error]-' + error)
                 response.end('error')
                 return
-            }else {
+            } else {
                 response.end(JSON.stringify(results.length))
-                console.log("累计申请数目："+results.length)
+                console.log("累计申请数目：" + results.length)
             }
         })
     }
@@ -507,8 +482,7 @@ app.use('/bussiness', function (request, response) {
                 response.end("error")
                 console.log("error-" + err.message)
                 return
-            }
-            else {
+            } else {
                 response.end("success")
                 return
             }
@@ -522,8 +496,7 @@ app.use('/bussiness', function (request, response) {
                 response.end("error")
                 console.log("error-" + err.message)
                 return
-            }
-            else {
+            } else {
                 response.end("success")
             }
         })
@@ -539,8 +512,7 @@ app.use('/bussiness', function (request, response) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 console.log(JSON.stringify(result));
             }
@@ -553,8 +525,7 @@ app.use('/bussiness', function (request, response) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 return
             }
@@ -564,8 +535,7 @@ app.use('/bussiness', function (request, response) {
         if (request.session.username == undefined || request.session.username == "") {
             response.send("errortypenouser")
             return
-        }
-        else if (request.session.studentisadmin != 2) {
+        } else if (request.session.studentisadmin != 2) {
             response.send("errortypenocompany")
             return
         }
@@ -575,12 +545,10 @@ app.use('/bussiness', function (request, response) {
                 response.send("error")
                 console.log("error-" + err.message)
                 return
-            }
-            else if (result == 0) {
+            } else if (result == 0) {
                 response.end(JSON.stringify(result))
                 return
-            }
-            else {
+            } else {
                 var infores = result
                 var selectuserinfo = "select * from resume where phone ="
                 for (var i = 0; i < result.length - 1; i++) {
@@ -592,8 +560,7 @@ app.use('/bussiness', function (request, response) {
                         console.log("error" + err.message)
                         response.send("error")
                         return
-                    }
-                    else {
+                    } else {
                         var finalinfo = new Array
                         for (var i = 0; i < result.length; i++) {
                             var temp = {
@@ -623,8 +590,7 @@ app.use('/bussiness', function (request, response) {
                 })
             }
         })
-    }
-    else if (request.body.code == "1006") {//应聘者信息
+    } else if (request.body.code == "1006") {//应聘者信息
         console.log(request.body)
         var selectuserinfo = "select * from resume where phone = " + " '" + request.body.phone + "'"
         console.log(selectuserinfo)
@@ -632,24 +598,20 @@ app.use('/bussiness', function (request, response) {
             if (err) {
                 response.send("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 console.log(result)
                 response.send(JSON.stringify(result))
             }
         })
-    }
-    else if (request.body.code == "1007") {//发布简历判定
+    } else if (request.body.code == "1007") {//发布简历判定
         if (request.session.username == undefined || request.session.username == "") {
             response.end("errortypenouser")
             return
-        }
-        else if (request.session.studentisadmin != '2') {
+        } else if (request.session.studentisadmin != '2') {
             response.end("notcompany")
             return
         }
-    }
-    else if (request.body.code == "1008") {//企业注册
+    } else if (request.body.code == "1008") {//企业注册
         console.log(request.body);
         var CheckAddSql = "select * from companyusers where phone = " + " '" + request.body.phone + "' "
         query(CheckAddSql, function (err, result) {
@@ -686,8 +648,7 @@ app.use('/bussiness', function (request, response) {
                                 console.log(' error- ' + err.message)
                                 response.end('error')
                                 return
-                            }
-                            else {
+                            } else {
                                 response.end('success')
                                 var adduserssql = "insert into users (phone,name,email,sex,password,isadmin) value (?,?,?,?,?,?)"
                                 adduserssqlParams = [request.body.phone, request.body.username, request.body.email, "无", request.body.password, "2"]
@@ -696,8 +657,7 @@ app.use('/bussiness', function (request, response) {
                                         console.log(' error- ' + err.message)
                                         response.end('error')
                                         return
-                                    }
-                                    else {
+                                    } else {
                                         console.log('insert sucess')
                                         return
                                     }
@@ -709,100 +669,85 @@ app.use('/bussiness', function (request, response) {
                 })
             }
         })
-    }
-    else if (request.body.code == "1009") {//企业信息
+    } else if (request.body.code == "1009") {//企业信息
         var selectjoblist = "select * from companyusers where phone = " + " '" + request.body.phone + "' "
         console.log(selectjoblist)
         query(selectjoblist, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 return
             }
         })
 
-    }
-    else if (request.body.code == "1010") {//企业列表
+    } else if (request.body.code == "1010") {//企业列表
         var selectjoblist = "select * from companyusers"
         query(selectjoblist, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 return
             }
         })
-    }
-    else if (request.body.code == "1011") {//job-detil中的企业列表
+    } else if (request.body.code == "1011") {//job-detil中的企业列表
         console.log("hhhh: " + request.body.phone)
         var selectjoblist = "select * from job where company = " + " '" + request.body.phone + "' "
         query(selectjoblist, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 return
             }
         })
-    }
-    else if (request.body.code == "1012") {//job-detil中的发布岗位数
+    } else if (request.body.code == "1012") {//job-detil中的发布岗位数
         var selectjobnum = "select * from job where company = " + " '" + request.body.phone + "' "
         query(selectjobnum, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result.length))
                 return
             }
         })
-    }
-    else if (request.body.code == "1013") {//job-detil中的简历投递数
+    } else if (request.body.code == "1013") {//job-detil中的简历投递数
         var selectjobnum = "select * from joblist where company = " + " '" + request.body.phone + "' "
         query(selectjobnum, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result.length))
                 return
             }
         })
-    }
-    else if (request.body.code == "1014") {//完善简历信息判定
+    } else if (request.body.code == "1014") {//完善简历信息判定
         if (request.session.username == undefined || request.session.username == "") {
             response.end("errortypenouser")
             return
-        }
-        else if (request.session.studentisadmin != '0') {
+        } else if (request.session.studentisadmin != '0') {
             response.end("notstudet")
             return
         }
-    }
-    else if (request.body.code == "1015") {//查询各类数值index页面
+    } else if (request.body.code == "1015") {//查询各类数值index页面
         var selectcompanynum = "select * from users where isadmin = '2'"
         query(selectcompanynum, function (err, result) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
-                console.log("企业的个数："+JSON.stringify(result.length))
+            } else {
+                console.log("企业的个数：" + JSON.stringify(result.length))
                 response.end(JSON.stringify(result.length))
                 return
             }
         })
-    }
-    else if (request.body.code == "1016") {//岗位搜索
+    } else if (request.body.code == "1016") {//岗位搜索
         console.log(request.body)
         var selectcompanynum = "select * from job where "
         var mid = ""
@@ -814,8 +759,7 @@ app.use('/bussiness', function (request, response) {
             if (mid == "1") {
                 selectcompanynum = selectcompanynum + " and place like " + "'%" + request.body.didian + "%'"
                 mid = "2"
-            }
-            else if (mid == "") {
+            } else if (mid == "") {
                 selectcompanynum = selectcompanynum + "place like " + "'%" + request.body.didian + "%'"
                 mid = "2"
             }
@@ -823,8 +767,7 @@ app.use('/bussiness', function (request, response) {
         if (request.body.fenlei != "" && request.body.fenlei != undefined) {
             if (mid != "") {
                 selectcompanynum = selectcompanynum + " and type like " + "'%" + request.body.fenlei + "%'"
-            }
-            else if (mid == "") {
+            } else if (mid == "") {
                 selectcompanynum = selectcompanynum + "type like " + "'%" + request.body.fenlei + "%'"
             }
         }
@@ -833,32 +776,30 @@ app.use('/bussiness', function (request, response) {
             if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }
-            else {
+            } else {
                 response.end(JSON.stringify(result))
                 return
             }
         })
-    }
-    else if (request.body.code == "1017"){  //企业搜索
+    } else if (request.body.code == "1017") {  //企业搜索
         // console.log(request.body);
         var selectCompany = "select * from companyusers ";
         var flag = "";
-        if (request.body.enterpriseKeyWord != "" && request.body.enterpriseKeyWord != undefined){
-            selectCompany = selectCompany + "where phone like " + "'%" + request.body.enterpriseKeyWord +"%'";
+        if (request.body.enterpriseKeyWord != "" && request.body.enterpriseKeyWord != undefined) {
+            selectCompany = selectCompany + "where phone like " + "'%" + request.body.enterpriseKeyWord + "%'";
             flag = "1";
         }
-        if (request.body.companyAddress != "" && request.body.companyAddress != undefined){
-            if (flag == "1"){
+        if (request.body.companyAddress != "" && request.body.companyAddress != undefined) {
+            if (flag == "1") {
                 selectCompany = selectCompany + "and place like " + "'%" + request.body.companyAddress + "%'";
                 flag = "2";
-            }else {
+            } else {
                 selectCompany = selectCompany + "where place like " + "'%" + request.body.companyAddress + "%'";
                 flag = "2";
             }
         }
-        if (request.body.companyType != "" && request.body.companyType != undefined){
-            if (flag == ""){
+        if (request.body.companyType != "" && request.body.companyType != undefined) {
+            if (flag == "") {
                 selectCompany = selectCompany + "where companynature like " + "'%" + request.body.companyType + "%'";
                 flag = "3";
             } else {
@@ -870,44 +811,44 @@ app.use('/bussiness', function (request, response) {
         if (request.body.companySizeList !== undefined && request.body.companySizeList !== null) {
             let companySizeList = request.body.companySizeList;
             if (flag === "") {
-              selectCompany = selectCompany + "where (";
-              flag = "4";
+                selectCompany = selectCompany + "where (";
+                flag = "4";
             } else {
-              selectCompany = selectCompany + " and (";
-              flag = "4";
+                selectCompany = selectCompany + " and (";
+                flag = "4";
             }
             for (let size in companySizeList) {
-              selectCompany = selectCompany + "companysize='" + companySizeList[size] + "' or ";
+                selectCompany = selectCompany + "companysize='" + companySizeList[size] + "' or ";
             }
-            selectCompany = selectCompany.substring(0, selectCompany.length-4) + ")";
+            selectCompany = selectCompany.substring(0, selectCompany.length - 4) + ")";
         }
 
         if (request.body.companyNature !== undefined && request.body.companyNature !== null) {
-          if (flag === "") {
-            selectCompany = selectCompany + "where companynature='" + request.body.companyNature + "'";
-          } else {
-            selectCompany = selectCompany + " and companynature='" + request.body.companyNature + "'";
-          }
+            if (flag === "") {
+                selectCompany = selectCompany + "where companynature='" + request.body.companyNature + "'";
+            } else {
+                selectCompany = selectCompany + " and companynature='" + request.body.companyNature + "'";
+            }
         }
 
         console.log(selectCompany)
         query(selectCompany, function (err, results) {
-            if (err){
+            if (err) {
                 response.end("error")
                 console.log("error-" + err.message)
-            }else {
+            } else {
                 response.end(JSON.stringify(results));
             }
         })
-    }else if(request.body.code == "1018"){  //修改企业个人中心时返回的数据
+    } else if (request.body.code == "1018") {  //修改企业个人中心时返回的数据
         let select = "select * from companyusers where phone = " + "'" + request.session.phone + "'";
         console.log(select);
         query(select, function (err, result) {
-            if (err){
+            if (err) {
                 console.log('error - ' + err.message);
                 response.end('error');
                 return;
-            }else {
+            } else {
                 response.end(JSON.stringify(result));
                 console.log(JSON.stringify(result));
                 return;
@@ -915,7 +856,6 @@ app.use('/bussiness', function (request, response) {
         })
     }
 })
-
 
 
 app.use('/center', function (request, response) {
@@ -1105,15 +1045,15 @@ app.use('/center', function (request, response) {
 
 app.use('/', express.static(Config.WebDir))
 
-app.use('/logOut',function (request, response) {
+app.use('/logOut', function (request, response) {
     // 打印session中保存的信息
     //console.log(request.session)
     // 打印前端传来的数据
     //console.log(request.body)
-    response.setHeader('Content-type','application/json;charset=utf-8')
+    response.setHeader('Content-type', 'application/json;charset=utf-8')
     // 重置session
     if (request.session.studentisadmin === "0") {
-      request.session.haveResume=null;
+        request.session.haveResume = null;
     }
     request.session.phone = ''
     request.session.username = ''

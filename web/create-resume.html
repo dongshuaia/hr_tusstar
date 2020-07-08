@@ -2,715 +2,736 @@
 <html lang="en" class="no-js">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>新建简历 - 启迪之星</title>
-  <meta name="description" content=""/>
-  <meta name="keywords" content=""/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新建简历 - 启迪之星</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
-  <!-- javascript -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/axios.min.js"></script>
-  <!-- selectize js -->
-  <script src="js/selectize.min.js"></script>
-  <script src="js/vue.min.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
+    <!-- javascript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/axios.min.js"></script>
+    <!-- selectize js -->
+    <script src="js/selectize.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
 
-  <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 
-  <!--topbar js-->
-  <script src="js/topbar.js"></script>
+    <!--topbar js-->
+    <script src="js/topbar.js"></script>
 
-  <!--表单验证 js-->
-  <script src="js/form-validator.js"></script>
+    <!--表单验证 js-->
+    <script src="js/form-validator.js"></script>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-  <!--Material Icon -->
-  <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-  <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
-  <!-- selectize css -->
-  <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
+    <!-- selectize css -->
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-  <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
-  <!-- Custom  Css -->
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
 <div id="app">
-  <!-- Loader -->
-  <div id="preloader">
-    <div id="status">
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Loader -->
-
-  <!-- Navigation Bar-->
-  <header id="topnav" class="defaultscroll scroll-active">
-    <!-- Tagline STart -->
-    <div class="tagline">
-      <div class="container">
-        <div class="float-left">
-          <div class="phone">
-            启迪之星公司-在线人才招聘
-          </div>
-        </div>
-        <div class="float-right">
-          <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-            <li class="has-submenu">
-              <a href="javascript:void(0);" style="font-size: 15px;"><i
-                      class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-              <ul class="submenu" v-if="name === '未登录'">
-                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
-              </ul>
-              <ul class="submenu" v-else>
-                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-              </ul>
-            </li>
-            <li class="list-inline-item">
-              <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    <!-- Tagline End -->
-
-    <!-- Menu Start -->
-    <div class="container">
-      <!-- Logo container-->
-      <div>
-        <a href="index.html" class="logo">
-          <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
-          <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
-        </a>
-      </div>
-      <div class="buy-button" v-if="showtype!=''">
-        <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
-      </div>
-      <!--end login button-->
-      <!-- End Logo container-->
-      <div class="menu-extras">
-        <div class="menu-item">
-          <!-- Mobile menu toggle-->
-          <a class="navbar-toggle">
-            <div class="lines">
-              <span></span>
-              <span></span>
-              <span></span>
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
-          </a>
-          <!-- End mobile menu toggle-->
         </div>
-      </div>
-
-      <div id="navigation">
-        <!-- Navigation Menu-->
-        <ul class="navigation-menu">
-          <li><a href="index.html">主页</a></li>
-          <li><a href="job-list.html">岗位列表</a></li>
-          <li class="has-submenu">
-            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-            <ul class="submenu">
-              <li><a href="signup.html">用户注册</a></li>
-              <li><a href="login.html">用户登录</a></li>
-              <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                      class="submenu-arrow"></span>
-                  <ul class="submenu">
-                      <li><a href="candidates-listing.html">应聘者列表</a></li>
-                      <li><a href="create-resume.html">新建简历</a></li>
-                  </ul>
-
-
-              </li> -->
-              <li><a href="create-resume.html">新建简历</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-
-            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-            <ul class="submenu">
-              <li><a href="companysignup.html">企业注册</a></li>
-              <li><a href="signup.html">企业登录</a></li>
-              <li><a href="post-a-job.html">发布职位</a></li>
-              <li><a href="employers-list.html">企业列表</a></li>
-            </ul>
-          </li>
-
-          <li class="has-submenu">
-            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-            <ul class="submenu">
-              <li><a href="login.html">常见问题</a></li>
-              <li><a href="signup.html">意见反馈</a></li>
-              <li><a href="companysignup.html">发布职位</a></li>
-            </ul>
-          </li>
-
-          <li class="has-submenu">
-            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-            <ul class="submenu">
-              <li><a href="login.html">实习基地</a></li>
-              <li><a href="signup.html">启迪之星</a></li>
-              <li><a href="contact.html">联系我们</a></li>
-            </ul>
-          </li>
-          <!-- <li>
-              <a href="contact.html">联系我们</a>
-
-          </li> -->
-        </ul>
-        <!--end navigation menu-->
-      </div>
-      <!--end navigation-->
     </div>
-    <!--end container-->
-    <!--end end-->
-  </header>
-  <!--end header-->
-  <!-- Navbar End -->
+    <!-- Loader -->
 
-  <!-- Start home -->
-  <section class="bg-half page-next-level">
-    <div class="bg-overlay"></div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="text-center text-white">
-            <h4 class="text-uppercase title mb-4">新建简历</h4>
-            <ul class="page-next d-inline-block mb-0">
-              <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-              <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
-              <li>
-                <span class="text-uppercase text-white font-weight-bold">新建简历</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end home -->
-
-  <!-- 简历信息 -->
-  <section class="section">
-    <!--<form action="javascript:app.insert()" method="post">-->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h5 class="text-dark">基本信息:</h5>
-        </div>
-
-        <div class="col-12 mt-3">
-          <div class="custom-form p-4 border rounded">
-
-            <form action="/uploadPhoto1" method="post" enctype="multipart/form-data">
-              <img id="img" v-bind:src="photoAddress"
-                   class="img-fluid avatar avatar-medium d-block mx-auto rounded-pill">
-              <div class="shangchuan">
-                <a href="javascript:;" class="file">选择照片
-                  <input type="file" class="custom-file-input"
-                         id="inputGroupFile01" name="image"
-                         aria-describedby="inputGroupFileAddon01">
-                </a>
-              </div>
-              <div class="shangchuan">
-                <input class="file" type="submit" value="上传"/>
-              </div>
-            </form>
-
-            <div class="row mt-4">
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">姓名<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.name}}</span></b>
-                  <input required id="first-name" type="text" name="name" class="form-control resume" placeholder=""
-                         v-model.lazy="name" @blur="tip.name=checkUserName(name,{minlength: 2, maxlength: 5})"
-                         minlength="2" maxlength="5">
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">毕业院校<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.school}}</span></b>
-                  <input required id="middle-name" type="text" class="form-control resume" placeholder=""
-                         v-model.lazy="school" @blur="tip.school=routineCheck(school,{minlength: 1, maxlength: 40})"
-                         minlength="1" maxlength="40">
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i
+                                    class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">最高学历<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.education}}</span></b>
-                  <input required id="surname-name" type="text" class="form-control resume" placeholder=""
-                         v-model.lazy="education"
-                         @blur="tip.education=checkChinese(education,{minlength: 1, maxlength: 40})"
-                         minlength="1" maxlength="40">
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">出生年月日<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.birthday}}</span></b>
-                  <input required type="date" class="form-control resume" placeholder="" v-model.lazy="birthday"
-                         @blur="tip.birthday=emptyCheck(birthday)">
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">性别<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.sex}}</span></b>
-                  <div class="form-button">
-                    <select required class="nice-select rounded" v-model="sex" value="" @blur="tip.sex=emptyCheck(sex)">
-                      <option value="男">男</option>
-                      <option value="女">女</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group app-label">
-                  <label class="text-muted">民族<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.nationality}}</span></b>
-                  <input required type="text" class="form-control resume" placeholder="" v-model.lazy="nationality"
-                         @blur="tip.nationality=checkChinese(nationality,{minlength: 1, maxlength: 50})"
-                         minlength="1" maxlength="50">
-                </div>
-              </div>
-
-              <div class="col-md-12">
-                <div class="form-group app-label">
-                  <label class="text-muted">自我介绍<span class="text-danger"> *</span> :</label>
-                  <b><span style="color:red;font-size: 13px">{{tip.selfintro}}</span></b>
-                  <textarea required type="text" name="name" class="form-control resume" placeholder=""
-                            v-model.lazy="selfintro" @blur="tip.selfintro=emptyCheck(selfintro)"></textarea>
-                </div>
-              </div>
+                <div class="clearfix"></div>
             </div>
-          </div>
         </div>
-      </div>
+        <!-- Tagline End -->
 
-      <div class="row mt-5">
-        <div class="col-12">
-          <h5 class="text-dark">联系方式 :</h5>
-        </div>
-
-        <div class="col-12 mt-3">
-          <div class="custom-form p-4 border rounded">
-            <form>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group app-label">
-                    <label class="text-muted">家庭住址</label>
-                    <input id="date-of-birth" type="text" class="form-control resume" placeholder="" v-model="adress">
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">手机电话</label>
-                    <input id="phone" type="number" class="form-control resume" placeholder="" v-model="phone">
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">电子邮箱</label>
-                    <input id="e-mail" type="email" name="email" class="form-control resume" placeholder=""
-                           v-model="email">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <h5 class="text-dark mt-5">教育经历:</h5>
-        </div>
-
-        <div class="col-12 mt-3">
-          <div class="custom-form p-4 border rounded">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">院系<span class="text-danger"> *</span></label>
-                    <b><span style="color:red;font-size: 13px">{{tip.department}}</span></b>
-                    <input required id="university/college" type="text" class="form-control resume" placeholder=""
-                           v-model.lazy="department"
-                           @blur="tip.department=routineCheck(department,{minlength: 1, maxlength: 50})"
-                           minlength="1" maxlength="50">
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">专业<span class="text-danger"> *</span></label>
-                    <b><span style="color:red;font-size: 13px">{{tip.major}}</span></b>
-                    <input required type="text" class="form-control resume" placeholder="" v-model.lazy="major"
-                           @blur="tip.major=routineCheck(major,{minlength: 1, maxlength: 50})"
-                           minlength="1" maxlength="50">
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group app-label">
-                        <label class="text-muted">在读年级<span class="text-danger"> *</span></label>
-                        <b><span style="color:red;font-size: 13px">{{tip.degree}}</span></b>
-                        <div class="form-button">
-                          <select required class="nice-select rounded" v-model.lazy="degree"
-                                  @blur="tip.degree=emptyCheck(degree)">
-                            <option value="高中">高中</option>
-                            <option value="本科">本科</option>
-                            <option value="硕士">硕士</option>
-                            <option value="博士">博士</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group app-label">
-                        <label class="text-muted">学制</label>
-                        <div class="form-button">
-                          <select class="nice-select rounded" v-model="system">
-                            <option value="全日制">全日制</option>
-                            <option value="成人教育">成人教育</option>
-                            <option value="非全日制">非全日制</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">入学时间<span class="text-danger"> *</span></label>
-                    <b><span style="color:red;font-size: 13px">{{tip.entrance}}</span></b>
-                    <input required id="degree/certification" type="date" class="form-control resume"
-                           placeholder="例：2016-9-1" v-model.lazy="entrance" @blur="tip.entrance=emptyCheck(entrance)">
-                  </div>
-                </div>
-
-                <div class="col-lg-12">
-                  <div class="form-group app-label">
-                    <label class="text-muted">附加信息(奖惩情况等) :</label>
-                    <textarea id="addition-information" rows="4" class="form-control resume" placeholder=""
-                              v-model="information"></textarea>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 mt-5">
-          <h5 class="text-dark">工作/项目/实习经验 :</h5>
-        </div>
-
-        <div class="col-12 mt-3">
-          <div class="custom-form p-4 border rounded">
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
             <div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group app-label">
-                    <label class="text-muted">当前（预期）薪资（可填无要求）:</label>
-                    <input type="text" class="form-control resume" placeholder="" v-model="money">
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="form-group app-label">
-                    <label class="text-muted">实习信息(描述主要工作、成果等) :</label>
-                    <textarea id="addition-information-1" rows="4" class="form-control resume" placeholder=""
-                              v-model="information2"></textarea>
-                  </div>
-                </div>
-              </div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
             </div>
-          </div>
+            <div class="buy-button" v-if="showtype!=''">
+                <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
+                                </ul>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
         </div>
-      </div>
+        <!--end container-->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
 
-      <div class="col-12 mt-4">
-        <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="保存简历" @click="insert()">
-      </div>
-    </div>
-    <!--</form>-->
+    <!-- Start home -->
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">新建简历</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">新建简历</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
 
-  </section>
+    <!-- 简历信息 -->
+    <section class="section">
+        <!--<form action="javascript:app.insert()" method="post">-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5 class="text-dark">基本信息:</h5>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <div class="custom-form p-4 border rounded">
+
+                        <form action="/uploadPhoto1" method="post" enctype="multipart/form-data">
+                            <img id="img" v-bind:src="photoAddress"
+                                 class="img-fluid avatar avatar-medium d-block mx-auto rounded-pill">
+                            <div class="shangchuan">
+                                <a href="javascript:;" class="file">选择照片
+                                    <input type="file" class="custom-file-input"
+                                           id="inputGroupFile01" name="image"
+                                           aria-describedby="inputGroupFileAddon01">
+                                </a>
+                            </div>
+                            <div class="shangchuan">
+                                <input class="file" type="submit" value="上传"/>
+                            </div>
+                        </form>
+
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">姓名<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.name}}</span></b>
+                                    <input required id="first-name" type="text" name="name" class="form-control resume"
+                                           placeholder=""
+                                           v-model.lazy="name"
+                                           @blur="tip.name=checkUserName(name,{minlength: 2, maxlength: 5})"
+                                           minlength="2" maxlength="5">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">毕业院校<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.school}}</span></b>
+                                    <input required id="middle-name" type="text" class="form-control resume"
+                                           placeholder=""
+                                           v-model.lazy="school"
+                                           @blur="tip.school=routineCheck(school,{minlength: 1, maxlength: 40})"
+                                           minlength="1" maxlength="40">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">最高学历<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.education}}</span></b>
+                                    <input required id="surname-name" type="text" class="form-control resume"
+                                           placeholder=""
+                                           v-model.lazy="education"
+                                           @blur="tip.education=checkChinese(education,{minlength: 1, maxlength: 40})"
+                                           minlength="1" maxlength="40">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">出生年月日<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.birthday}}</span></b>
+                                    <input required type="date" class="form-control resume" placeholder=""
+                                           v-model.lazy="birthday"
+                                           @blur="tip.birthday=emptyCheck(birthday)">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">性别<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.sex}}</span></b>
+                                    <div class="form-button">
+                                        <select required class="nice-select rounded" v-model="sex" value=""
+                                                @blur="tip.sex=emptyCheck(sex)">
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">民族<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.nationality}}</span></b>
+                                    <input required type="text" class="form-control resume" placeholder=""
+                                           v-model.lazy="nationality"
+                                           @blur="tip.nationality=checkChinese(nationality,{minlength: 1, maxlength: 50})"
+                                           minlength="1" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">自我介绍<span class="text-danger"> *</span> :</label>
+                                    <b><span style="color:red;font-size: 13px">{{tip.selfintro}}</span></b>
+                                    <textarea required type="text" name="name" class="form-control resume"
+                                              placeholder=""
+                                              v-model.lazy="selfintro"
+                                              @blur="tip.selfintro=emptyCheck(selfintro)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h5 class="text-dark">联系方式 :</h5>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <div class="custom-form p-4 border rounded">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">家庭住址</label>
+                                        <input id="date-of-birth" type="text" class="form-control resume" placeholder=""
+                                               v-model="adress">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">手机电话</label>
+                                        <input id="phone" type="number" class="form-control resume" placeholder=""
+                                               v-model="phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">电子邮箱</label>
+                                        <input id="e-mail" type="email" name="email" class="form-control resume"
+                                               placeholder=""
+                                               v-model="email">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5 class="text-dark mt-5">教育经历:</h5>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <div class="custom-form p-4 border rounded">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">院系<span class="text-danger"> *</span></label>
+                                        <b><span style="color:red;font-size: 13px">{{tip.department}}</span></b>
+                                        <input required id="university/college" type="text" class="form-control resume"
+                                               placeholder=""
+                                               v-model.lazy="department"
+                                               @blur="tip.department=routineCheck(department,{minlength: 1, maxlength: 50})"
+                                               minlength="1" maxlength="50">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">专业<span class="text-danger"> *</span></label>
+                                        <b><span style="color:red;font-size: 13px">{{tip.major}}</span></b>
+                                        <input required type="text" class="form-control resume" placeholder=""
+                                               v-model.lazy="major"
+                                               @blur="tip.major=routineCheck(major,{minlength: 1, maxlength: 50})"
+                                               minlength="1" maxlength="50">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group app-label">
+                                                <label class="text-muted">在读年级<span
+                                                        class="text-danger"> *</span></label>
+                                                <b><span style="color:red;font-size: 13px">{{tip.degree}}</span></b>
+                                                <div class="form-button">
+                                                    <select required class="nice-select rounded" v-model.lazy="degree"
+                                                            @blur="tip.degree=emptyCheck(degree)">
+                                                        <option value="高中">高中</option>
+                                                        <option value="本科">本科</option>
+                                                        <option value="硕士">硕士</option>
+                                                        <option value="博士">博士</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group app-label">
+                                                <label class="text-muted">学制</label>
+                                                <div class="form-button">
+                                                    <select class="nice-select rounded" v-model="system">
+                                                        <option value="全日制">全日制</option>
+                                                        <option value="成人教育">成人教育</option>
+                                                        <option value="非全日制">非全日制</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">入学时间<span class="text-danger"> *</span></label>
+                                        <b><span style="color:red;font-size: 13px">{{tip.entrance}}</span></b>
+                                        <input required id="degree/certification" type="date"
+                                               class="form-control resume"
+                                               placeholder="例：2016-9-1" v-model.lazy="entrance"
+                                               @blur="tip.entrance=emptyCheck(entrance)">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">附加信息(奖惩情况等) :</label>
+                                        <textarea id="addition-information" rows="4" class="form-control resume"
+                                                  placeholder=""
+                                                  v-model="information"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <h5 class="text-dark">工作/项目/实习经验 :</h5>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <div class="custom-form p-4 border rounded">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">当前（预期）薪资（可填无要求）:</label>
+                                        <input type="text" class="form-control resume" placeholder="" v-model="money">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">实习信息(描述主要工作、成果等) :</label>
+                                        <textarea id="addition-information-1" rows="4" class="form-control resume"
+                                                  placeholder=""
+                                                  v-model="information2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="保存简历"
+                       @click="insert()">
+            </div>
+        </div>
+        <!--</form>-->
+
+    </section>
 </div>
 <!-- CREATE RESUME END -->
 
 <!-- footer start -->
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-        <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-        <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地 方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、
-          节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-      </div>
-      <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-        <p class="text-white mb-4 footer-list-title">启迪导航</p>
-        <ul class="list-unstyled footer-list">
-          <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-            启迪之星</a></li>
-          <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-            启迪天使投资</a></li>
-          <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-        <p class="text-white mb-4 footer-list-title">功能</p>
-        <ul class="list-unstyled footer-list">
-          <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-          <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-          <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-        </ul>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、
+                    节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
 
-      <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-        <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-        <ul class="list-unstyled text-foot mt-4 mb-0">
-          <li>启迪之星(青海)分公司</li>
-          <li class="mt-2">青海省西宁市城北区</li>
-          <li class="mt-2">test@test.com</li>
-        </ul>
-      </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
 <!-- footer end -->
 <hr>
 <footer class="footer footer-bar">
-  <div class="container text-center">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="">
-          <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design </i> by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!--end container-->
+    <!--end container-->
 </footer>
 <!--end footer-->
 <!-- Footer End -->
 
 <!-- Back to top -->
 <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-  <i class="mdi mdi-chevron-up d-block"> </i>
+    <i class="mdi mdi-chevron-up d-block"> </i>
 </a>
 <!-- Back to top -->
 </div>
 
 <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      name: "",
-      school: "",
-      education: "",
-      birthday: "",
-      sex: "",
-      nationality: "",
-      selfintro: "",
-      adress: "",
-      phone: "",
-      email: "",
-      department: "",
-      major: "",
-      degree: "",
-      system: "",
-      information: "",
-      money: "",
-      entrance: "",
-      information2: "",
-      newlin: "",
-      showtype: "",
-      photoAddress: "",
-      tip: {
-        name: "",
-        school: "",
-        education: "",
-        birthday: "",
-        sex: "",
-        nationality: "",
-        selfintro: "",
-        department: "",
-        major: "",
-        degree: "",
-        entrance: ""
-      }
-    },
-    methods: {
-      insert: function (response) {
-        // 表单验证
-        var flag = true;
-        for (let i in this.tip) {
-          if (this.tip[i] !== "") {
-            flag = false;
-            break;
-          }
-        }
-        if (flag === true) {
-          // 检查无误,执行下面的逻辑
-          var baocun=confirm('确定保存吗?');
-          if (baocun==true)
-          {
-            axios
-              .post('/users', {
-                code: '1003',
-                name: this.name,
-                school: this.school,
-                education: this.education,
-                birthday: this.birthday,
-                sex: this.sex,
-                nationality: this.nationality,
-                selfintro: this.selfintro,
-                adress: this.adress,
-                phone: this.phone,
-                email: this.email,
-                department: this.department,
-                major: this.major,
-                degree: this.degree,
-                system: this.system,
-                entrance: this.entrance,
-                information: this.information,
-                money: this.money,
-                information2: this.information2,
-              })
-              .then(function (data) {
-                if (data.data == 'success') {
-                  alert('简历新建完成');
-                  window.location = "/index.html"
-                } else if (data.data == 'error') {
-                  alert('简历新建失败，请重试')
-                  window.location.reload()
-                } else if (data.data === 'errortypeone') {
-                  alert('该用户的简历已存在，请勿重复新建')
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: "",
+            school: "",
+            education: "",
+            birthday: "",
+            sex: "",
+            nationality: "",
+            selfintro: "",
+            adress: "",
+            phone: "",
+            email: "",
+            department: "",
+            major: "",
+            degree: "",
+            system: "",
+            information: "",
+            money: "",
+            entrance: "",
+            information2: "",
+            newlin: "",
+            showtype: "",
+            photoAddress: "",
+            tip: {
+                name: "",
+                school: "",
+                education: "",
+                birthday: "",
+                sex: "",
+                nationality: "",
+                selfintro: "",
+                department: "",
+                major: "",
+                degree: "",
+                entrance: ""
+            }
+        },
+        methods: {
+            insert: function (response) {
+                // 表单验证
+                var flag = true;
+                for (let i in this.tip) {
+                    if (this.tip[i] !== "") {
+                        flag = false;
+                        break;
+                    }
                 }
-              })
-              .catch(function (error) {
-                console.log(error);
-              })
-          }
-        } else {
-          alert("表单验证有误,请检查所有表单是否都符合要求!")
-        }
-      },
-    },
-    mounted() {
-      var self = this
-      axios.post('/bussiness', {
-        code: "1014"
-      })
-        .then(function (response) {
-          if (response.data == "errortypenouser") {
-            alert("用户未登录")
-            window.location = "login.html"
-          } else if (response.data == "notcompany") {
-            alert("登录用户非学生单位")
-            window.location = "index.html"
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      axios.post('/users', {
-        code: "1005",
-      })
-        .then(function (response) {
-          if (response.data == "nouser") {
-            self.name = "未登录"
-          } else {
-            self.name = response.data.username
-            self.isadmin = response.data.studentisadmin
-            self.phone = response.data.phone
-            if (self.isadmin == "2") {
-              self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-              self.showtype = "发布一个岗位"
-              self.turntype = "/post-a-job.html"
-              console.log(self.newlin)
-            }
-            if (self.isadmin == "0") {
-              self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-              self.showtype = "完善简历"
-              self.turntype = "create-resume.html"
-              console.log(self.newlin)
-            }
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      axios
-        .post('/searchPhoto', {
-          flag: "create-resume"
-        })
-        .then(function (response) {
-          console.log("返回的头像地址：" + response.data[0].imgadress);
-          if (response.data == "error") {
-            console.log("头像查询时出现错误");
-          } else if (response.data == "noPhoto") {
-            self.photoAddress = "images/employers/img-1.jpg";
-          } else {
-            self.photoAddress = response.data[0].imgadress;
-          }
-          console.log(self.photoAddress);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    },
-  })
+                if (flag === true) {
+                    // 检查无误,执行下面的逻辑
+                    var baocun = confirm('确定保存吗?');
+                    if (baocun == true) {
+                        axios
+                            .post('/users', {
+                                code: '1003',
+                                name: this.name,
+                                school: this.school,
+                                education: this.education,
+                                birthday: this.birthday,
+                                sex: this.sex,
+                                nationality: this.nationality,
+                                selfintro: this.selfintro,
+                                adress: this.adress,
+                                phone: this.phone,
+                                email: this.email,
+                                department: this.department,
+                                major: this.major,
+                                degree: this.degree,
+                                system: this.system,
+                                entrance: this.entrance,
+                                information: this.information,
+                                money: this.money,
+                                information2: this.information2,
+                            })
+                            .then(function (data) {
+                                if (data.data == 'success') {
+                                    alert('简历新建完成');
+                                    window.location = "/index.html"
+                                } else if (data.data == 'error') {
+                                    alert('简历新建失败，请重试')
+                                    window.location.reload()
+                                } else if (data.data === 'errortypeone') {
+                                    alert('该用户的简历已存在，请勿重复新建')
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
+                } else {
+                    alert("表单验证有误,请检查所有表单是否都符合要求!")
+                }
+            },
+        },
+        mounted() {
+            var self = this
+            axios.post('/bussiness', {
+                code: "1014"
+            })
+                .then(function (response) {
+                    if (response.data == "errortypenouser") {
+                        alert("用户未登录")
+                        window.location = "login.html"
+                    } else if (response.data == "notcompany") {
+                        alert("登录用户非学生单位")
+                        window.location = "index.html"
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "发布一个岗位"
+                            self.turntype = "/post-a-job.html"
+                            console.log(self.newlin)
+                        }
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "完善简历"
+                            self.turntype = "create-resume.html"
+                            console.log(self.newlin)
+                        }
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios
+                .post('/searchPhoto', {
+                    flag: "create-resume"
+                })
+                .then(function (response) {
+                    console.log("返回的头像地址：" + response.data[0].imgadress);
+                    if (response.data == "error") {
+                        console.log("头像查询时出现错误");
+                    } else if (response.data == "noPhoto") {
+                        self.photoAddress = "images/employers/img-1.jpg";
+                    } else {
+                        self.photoAddress = response.data[0].imgadress;
+                    }
+                    console.log(self.photoAddress);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        },
+    })
 </script>
 
 <script type="text/javascript">
-  var img = document.querySelector('input[name=image]');
-  imgs = document.querySelector('#img');
-  if (img) {
-    img.addEventListener('change', function () {
-      var file = this.files[0];
-      var reader = new FileReader();
-      // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
-      reader.addEventListener("load", function () {
-        imgs.src = reader.result;
-      }, false);
-      // 调用reader.readAsDataURL()方法，把图片转成base64
-      reader.readAsDataURL(file);
-      $("img").eq(1).css("display", "block");
-    }, false);
-  }
+    var img = document.querySelector('input[name=image]');
+    imgs = document.querySelector('#img');
+    if (img) {
+        img.addEventListener('change', function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+            reader.addEventListener("load", function () {
+                imgs.src = reader.result;
+            }, false);
+            // 调用reader.readAsDataURL()方法，把图片转成base64
+            reader.readAsDataURL(file);
+            $("img").eq(1).css("display", "block");
+        }, false);
+    }
 </script>
 </body>
 

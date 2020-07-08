@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
 
     <script src="js/jquery.min.js"></script>
@@ -24,87 +24,89 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
+<div id="app">
     <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <div class="home-center">
-    <!--        <form action="/uploadlicense" method="post" enctype="multipart/form-data">-->
-    <!--            <div class="col-md-12">-->
-    <!--                <ul class="list-inline mb-0">-->
-    <!--                    <li class="list-inline-item">-->
-    <!--                        <div class="input-group mt-2 mb-2">-->
-    <!--                            <div class="custom-file">-->
-    <!--                                <input type="file" class="custom-file-input" id="inputGroupFile01" name = "image"-->
-    <!--                                    aria-describedby="inputGroupFileAddon01">-->
-    <!--                                <label class="custom-file-label rounded"><i class="mdi mdi-cloud-upload mr-1"></i>-->
-    <!--                                    上传营业执照-->
-    <!--                                </label>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </li>-->
-
-    <!--                    <li class="list-inline-item">-->
-    <!--                        <input type="submit" value="上传" />-->
-    <!--                    </li>-->
-    <!--                </ul>-->
-    <!--            </div>-->
-    <!--        </form>-->
-            <form action="/uploadlicense" method="post" enctype="multipart/form-data">
-                <img id="img" v-bind:src="photoAddress" class="img-fluid avatar avatar-zhizhao d-block mx-auto ">
-                <div class="shangchuan">
-                    <a href="javascript:;" class="file">选择照片<input type="file" class="custom-file-input" id="inputGroupFile01" name = "image" aria-describedby="inputGroupFileAddon01"></a>
-                </div>
-                <div class="shangchuan">
-                    <input class="file" type="submit" value="上传" />
-                </div>
-            </form>
-        </div>
     </div>
-    <script>
-        var app=new Vue
-        ({
-            el:"#app",
-            data:
-                {
-                    photoAddress: "images/zhizhao.jpg",
-                }
-        })
-        
-        var img = document.querySelector('input[name=image]');
-        imgs = document.querySelector('#img');
-        if (img) {
-            img.addEventListener('change', function() {
-                var file = this.files[0];
-                var reader = new FileReader();
-                // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
-                reader.addEventListener("load", function() {
-                    imgs.src = reader.result;
-                }, false);
-                // 调用reader.readAsDataURL()方法，把图片转成base64
-                reader.readAsDataURL(file);
-                $("img").eq(1).css("display", "block");
+    <div class="home-center">
+        <!--        <form action="/uploadlicense" method="post" enctype="multipart/form-data">-->
+        <!--            <div class="col-md-12">-->
+        <!--                <ul class="list-inline mb-0">-->
+        <!--                    <li class="list-inline-item">-->
+        <!--                        <div class="input-group mt-2 mb-2">-->
+        <!--                            <div class="custom-file">-->
+        <!--                                <input type="file" class="custom-file-input" id="inputGroupFile01" name = "image"-->
+        <!--                                    aria-describedby="inputGroupFileAddon01">-->
+        <!--                                <label class="custom-file-label rounded"><i class="mdi mdi-cloud-upload mr-1"></i>-->
+        <!--                                    上传营业执照-->
+        <!--                                </label>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </li>-->
+
+        <!--                    <li class="list-inline-item">-->
+        <!--                        <input type="submit" value="上传" />-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--        </form>-->
+        <form action="/uploadlicense" method="post" enctype="multipart/form-data">
+            <img id="img" v-bind:src="photoAddress" class="img-fluid avatar avatar-zhizhao d-block mx-auto ">
+            <div class="shangchuan">
+                <a href="javascript:;" class="file">选择照片<input type="file" class="custom-file-input"
+                                                               id="inputGroupFile01" name="image"
+                                                               aria-describedby="inputGroupFileAddon01"></a>
+            </div>
+            <div class="shangchuan">
+                <input class="file" type="submit" value="上传"/>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var app = new Vue
+    ({
+        el: "#app",
+        data:
+            {
+                photoAddress: "images/zhizhao.jpg",
+            }
+    })
+
+    var img = document.querySelector('input[name=image]');
+    imgs = document.querySelector('#img');
+    if (img) {
+        img.addEventListener('change', function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+            reader.addEventListener("load", function () {
+                imgs.src = reader.result;
             }, false);
-        }
-    </script>
+            // 调用reader.readAsDataURL()方法，把图片转成base64
+            reader.readAsDataURL(file);
+            $("img").eq(1).css("display", "block");
+        }, false);
+    }
+</script>
 </body>
 
 </html>

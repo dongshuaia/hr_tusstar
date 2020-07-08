@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>企业列表 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
     <script src="js/vue.min.js"></script>
     <!-- selectize js -->
@@ -25,617 +25,657 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css"/>
 
     <!-- selectize css -->
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <div id="app">
-        <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<div id="app">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
-        <!-- Loader -->
+    </div>
+    <!-- Loader -->
 
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll scroll-active">
-            <!-- Tagline STart -->
-            <div class="tagline">
-                <div class="container">
-                    <div class="float-left">
-                        <div class="phone">
-                            启迪之星公司-在线人才招聘
-                        </div>
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll scroll-active">
+        <!-- Tagline STart -->
+        <div class="tagline">
+            <div class="container">
+                <div class="float-left">
+                    <div class="phone">
+                        启迪之星公司-在线人才招聘
                     </div>
-                    <div class="float-right">
-                        <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                            <li class="has-submenu">
-                                <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span class="menu-arrow"></span>
-                                <ul class="submenu" v-if="name === '未登录'">
-                                    <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
-                                    <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                </div>
+                <div class="float-right">
+                    <ul class="navigation-menu topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                        <li class="has-submenu">
+                            <a href="javascript:void(0);" style="font-size: 15px;"><i class="mdi mdi-account mr-2"></i>{{name}}</a><span
+                                class="menu-arrow"></span>
+                            <ul class="submenu" v-if="name === '未登录'">
+                                <li><a href="/login.html" style="font-size: 15px;">登录</a></li>
+                                <li><a href="/signup.html" style="font-size: 15px;">注册</a></li>
+                            </ul>
+                            <ul class="submenu" v-else>
+                                <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2"></i>个人中心</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Tagline End -->
+
+        <!-- Menu Start -->
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo-light.png" alt="" class="logo-light" height="18"/>
+                    <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
+                </a>
+            </div>
+            <div class="buy-button" v-if="showtype!=''">
+                <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
+            </div>
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="job-list.html">岗位列表</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="signup.html">用户注册</a></li>
+                            <li><a href="login.html">用户登录</a></li>
+                            <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
+                                    class="submenu-arrow"></span>
+                                <ul class="submenu">
+                                    <li><a href="candidates-listing.html">应聘者列表</a></li>
+                                    <li><a href="create-resume.html">新建简历</a></li>
                                 </ul>
-                                <ul class="submenu" v-else>
-                                    <li><a href="javascript:logOut();" style="font-size: 15px;">注销</a></li>
-                                </ul>
-                            </li>
-                            <li class="list-inline-item">
-                                <a :href="newlin" style="font-size: 15px;"><i class="mdi mdi-account-box mr-2" ></i>个人中心</a>
+
+
+                            </li> -->
+                            <li><a href="create-resume.html">新建简历</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+
+                        <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="companysignup.html">企业注册</a></li>
+                            <li><a href="signup.html">企业登录</a></li>
+                            <li><a href="post-a-job.html">发布职位</a></li>
+                            <li><a href="employers-list.html">企业列表</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">常见问题</a></li>
+                            <li><a href="signup.html">意见反馈</a></li>
+                            <li><a href="companysignup.html">发布职位</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="login.html">实习基地</a></li>
+                            <li><a href="signup.html">启迪之星</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="contact.html">联系我们</a>
+
+                    </li> -->
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
+        </div>
+        <!--end container-->
+        <!--end end-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
+
+    <!-- Start home -->
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">企业列表</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
+                            <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">企业列表</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- Tagline End -->
+        </div>
+    </section>
+    <!-- end home -->
 
-            <!-- Menu Start -->
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/logo-light.png" alt="" class="logo-light" height="18" />
-                        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-                    </a>
-                </div>
-                <div class="buy-button" v-if="showtype!=''">
-                    <a :href="turntype" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i>{{showtype}}</a>
-                </div>
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="job-list.html">岗位列表</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">求职者相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="signup.html">用户注册</a></li>
-                                <li><a href="login.html">用户登录</a></li>
-                                <!-- <li class="has-submenu"><a href="javascript:void(0)">应聘者</a><span
-                                        class="submenu-arrow"></span>
-                                    <ul class="submenu">
-                                        <li><a href="candidates-listing.html">应聘者列表</a></li>
-                                        <li><a href="create-resume.html">新建简历</a></li>
-                                    </ul>
-
-
-                                </li> -->
-                                <li><a href="create-resume.html">新建简历</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-
-                            <a href="javascript:void(0)">企业相关</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="companysignup.html">企业注册</a></li>
-                                <li><a href="signup.html">企业登录</a></li>
-                                <li><a href="post-a-job.html">发布职位</a></li>
-                                <li><a href="employers-list.html">企业列表</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于系统</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">常见问题</a></li>
-                                <li><a href="signup.html">意见反馈</a></li>
-                                <li><a href="companysignup.html">发布职位</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="javascript:void(0)">关于我们</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="login.html">实习基地</a></li>
-                                <li><a href="signup.html">启迪之星</a></li>
-                                <li><a href="contact.html">联系我们</a></li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a href="contact.html">联系我们</a>
-
-                        </li> -->
-                    </ul>
-                    <!--end navigation menu-->
-                </div>
-                <!--end navigation-->
-            </div>
-            <!--end container-->
-            <!--end end-->
-        </header>
-        <!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Start home -->
-        <section class="bg-half page-next-level">
-            <div class="bg-overlay"></div>
-            <div class="container">
+    <section class="section">
+        <!-- REGISTRATION-FORM START -->
+        <div class="container">
+            <div class="home-form-position">
                 <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-white">
-                            <h4 class="text-uppercase title mb-4">企业列表</h4>
-                            <ul class="page-next d-inline-block mb-0">
-                                <li><a href="index.html" class="text-uppercase font-weight-bold">主页</a></li>
-                                <li><a href="#" class="text-uppercase font-weight-bold">功能</a></li>
-                                <li>
-                                    <span class="text-uppercase text-white font-weight-bold">企业列表</span>
-                                </li>
-                            </ul>
+                    <div class="col-lg-12">
+                        <div class="home-registration-form bg-white job-list-grid-reg-form p-4 mb-3">
+                            <form class="registration-form" method="GET">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="registration-form-box">
+                                            <i class="fa fa-briefcase"></i>
+                                            <input type="text" id="enterpriseKeyWord" name="enterpriseKeyWord"
+                                                   class="form-control rounded registration-input-box"
+                                                   placeholder="企业关键字..." v-model="enterpriseKeyWord">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="registration-form-box">
+                                            <i class="fa fa-location-arrow"></i>
+                                            <input type="text" id="companyAddress" name="companyAddress"
+                                                   class="form-control rounded registration-input-box"
+                                                   placeholder="企业地址" v-model="companyAddress">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="registration-form-box">
+                                            <i class="fa fa-list-alt"></i>
+                                            <input type="text" id="companyType" name="companyType"
+                                                   class="form-control rounded registration-input-box"
+                                                   placeholder="企业类型" v-model="companyType">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="registration-form-box">
+                                            <input type="submit" id="submit" class="submitBnt btn btn-primary btn-block"
+                                                   value="立即查询" @click="query1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end home -->
+        </div>
+        <!-- REGISTRATION-FORM END -->
 
-        <section class="section">
-            <!-- REGISTRATION-FORM START -->
-            <div class="container">
-                <div class="home-form-position">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12">
-                            <div class="home-registration-form bg-white job-list-grid-reg-form p-4 mb-3">
-                                <form class="registration-form" method="GET">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="registration-form-box">
-                                                <i class="fa fa-briefcase"></i>
-                                                <input type="text" id="enterpriseKeyWord" name="enterpriseKeyWord" class="form-control rounded registration-input-box" placeholder="企业关键字..." v-model="enterpriseKeyWord">
-                                            </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 pt-2">
+                    <div class="left-sidebar">
+                        <div class="accordion" id="accordionExample">
+                            <!-- collapse one end -->
+                            <div class="card mt-4 rounded border-bottom-0">
+                                <a data-toggle="collapse" href="#collapsetwo" class="job-list" aria-expanded="true"
+                                   aria-controls="collapsetwo">
+                                    <div class="card-header" id="headingtwo">
+                                        <h6 class="mb-0 text-dark">企业规模</h6>
+                                    </div>
+                                </a>
+                                <div id="collapsetwo" class="collapse show" aria-labelledby="headingtwo">
+                                    <div class="card-body p-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1"
+                                                   value="2000人以上" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customCheck1">2000人以上</label>
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="registration-form-box">
-                                                <i class="fa fa-location-arrow"></i>
-                                                <input type="text" id="companyAddress" name="companyAddress" class="form-control rounded registration-input-box" placeholder="企业地址" v-model="companyAddress">
-                                            </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2"
+                                                   value="500-2000人" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customCheck2">500-2000人</label>
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="registration-form-box">
-                                                <i class="fa fa-list-alt"></i>
-                                                <input type="text" id="companyType" name="companyType" class="form-control rounded registration-input-box" placeholder="企业类型" v-model="companyType">
-                                            </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck3"
+                                                   value="200-500人" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customCheck3">200-500人</label>
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="registration-form-box">
-                                                <input type="submit" id="submit" class="submitBnt btn btn-primary btn-block" value="立即查询" @click="query1">
-                                            </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck4"
+                                                   value="50-200人" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customCheck4">50-200人</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck5"
+                                                   value="15-50人" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customCheck5">15-50人</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck6"
+                                                   value="1-15人" v-model="sizeTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted"
+                                                   for="customCheck6">1-15人</label>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
+                            <!-- collapse one end -->
+                            <div class="card mt-4 rounded border-bottom-0">
+                                <a data-toggle="collapse" href="#collapsethree" class="job-list" aria-expanded="true"
+                                   aria-controls="collapsethree">
+                                    <div class="card-header" id="headingthree">
+                                        <h6 class="mb-0 text-dark">所属行业</h6>
+                                    </div>
+                                </a>
+                                <div id="collapsethree" class="collapse show" aria-labelledby="headingthree">
+                                    <div class="card-body p-0">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio1"
+                                                   class="custom-control-input" value="全部" v-model="natureTicked"
+                                                   @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted"
+                                                   for="customRadio2">全部</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio3" name="customRadio1"
+                                                   class="custom-control-input" value="互联网/游戏/软件" v-model="natureTicked"
+                                                   @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customRadio3">互联网/游戏/软件</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio4" name="customRadio1"
+                                                   class="custom-control-input" value="广告/传媒/公关/展览"
+                                                   v-model="natureTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customRadio4">广告/传媒/公关/展览</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio5" name="customRadio1"
+                                                   class="custom-control-input" value="房产/家居/物业/建筑"
+                                                   v-model="natureTicked" @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted" for="customRadio5">房产/家居/物业/建筑</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio6" name="customRadio1"
+                                                   class="custom-control-input" value="教育/培训" v-model="natureTicked"
+                                                   @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted"
+                                                   for="customRadio6">教育/培训</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio7" name="customRadio1"
+                                                   class="custom-control-input" value="农林牧渔" v-model="natureTicked"
+                                                   @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted"
+                                                   for="customRadio7">农林牧渔</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio8" name="customRadio1"
+                                                   class="custom-control-input" value="其他" v-model="natureTicked"
+                                                   @change="criteriaQuery()">
+                                            <label class="custom-control-label ml-1 text-muted"
+                                                   for="customRadio8">其他</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- collapse one end -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- REGISTRATION-FORM END -->
 
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 pt-2">
-                        <div class="left-sidebar">
-                            <div class="accordion" id="accordionExample">
-                                <!-- collapse one end -->
-                                <div class="card mt-4 rounded border-bottom-0">
-                                    <a data-toggle="collapse" href="#collapsetwo" class="job-list" aria-expanded="true" aria-controls="collapsetwo">
-                                        <div class="card-header" id="headingtwo">
-                                            <h6 class="mb-0 text-dark">企业规模</h6>
-                                        </div>
-                                    </a>
-                                    <div id="collapsetwo" class="collapse show" aria-labelledby="headingtwo">
-                                        <div class="card-body p-0">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck1" value="2000人以上" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck1">2000人以上</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck2" value="500-2000人" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck2">500-2000人</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck3" value="200-500人" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck3">200-500人</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck4" value="50-200人" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck4">50-200人</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck5" value="15-50人" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck5">15-50人</label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck6" value="1-15人" v-model="sizeTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customCheck6">1-15人</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- collapse one end -->
-                                <div class="card mt-4 rounded border-bottom-0">
-                                    <a data-toggle="collapse" href="#collapsethree" class="job-list" aria-expanded="true" aria-controls="collapsethree">
-                                        <div class="card-header" id="headingthree">
-                                            <h6 class="mb-0 text-dark">所属行业</h6>
-                                        </div>
-                                    </a>
-                                    <div id="collapsethree" class="collapse show" aria-labelledby="headingthree">
-                                        <div class="card-body p-0">
-                                            <div class="custom-control custom-radio">
-                                              <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" value="全部" v-model="natureTicked" @change="criteriaQuery()">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio2">全部</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio3" name="customRadio1" class="custom-control-input" value="互联网/游戏/软件" v-model="natureTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio3">互联网/游戏/软件</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio4" name="customRadio1" class="custom-control-input" value="广告/传媒/公关/展览" v-model="natureTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio4">广告/传媒/公关/展览</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio5" name="customRadio1" class="custom-control-input" value="房产/家居/物业/建筑" v-model="natureTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio5">房产/家居/物业/建筑</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" value="教育/培训" v-model="natureTicked" @change="criteriaQuery()">
-                                                <label class="custom-control-label ml-1 text-muted" for="customRadio6">教育/培训</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                              <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input" value="农林牧渔" v-model="natureTicked" @change="criteriaQuery()">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio7">农林牧渔</label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio">
-                                              <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input" value="其他" v-model="natureTicked" @change="criteriaQuery()">
-                                              <label class="custom-control-label ml-1 text-muted" for="customRadio8">其他</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- collapse one end -->
-                            </div>
-                        </div>
-                    </div>
-
-                  <div class="col-lg-9 mt-4 pt-2">
+                <div class="col-lg-9 mt-4 pt-2">
                     <div class="row align-items-center">
-                      <div class="col-lg-12">
-                        <div class="show-results">
-                          <div class="float-left">
-                            <h5 class="text-dark mb-0 pt-2 f-18">企业列表</h5>
-                          </div>
+                        <div class="col-lg-12">
+                            <div class="show-results">
+                                <div class="float-left">
+                                    <h5 class="text-dark mb-0 pt-2 f-18">企业列表</h5>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
 
                     <div class="row">
-                      <div class="col-lg-4 col-md-6 mt-4 pt-2" v-for="info in infos.slice((currentPage-1)*pagesize,currentPage*pagesize)">
-                        <div class="employers-list position-relative pb-3 pt-3 pl-2 pr-2 border rounded" @click="Jump(info.phone)" style="cursor: pointer">
-                          <img src="images/employers/img-1.jpg" alt="" class="mx-auto d-block shadow border rounded-circle" height="90">
-                          <div class="grid-list-desc text-center mt-3">
-                            <h5 class="mb-2"><a href="#" class="text-dark name">{{info.phone}}</a></h5>
-                            <p class="text-muted mb-0">{{info.companynature}}</p>
-                            <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{info.place}}
-                            </p>
-                            <ul class="employers-icons list-inline mb-1">
-                              <li class="list-inline-item"><a href="#" class="text-success"><i
-                                      class="mdi mdi-star"></i></a></li>
-                              <li class="list-inline-item"><a href="#" class="text-success"><i
-                                      class="mdi mdi-star"></i></a></li>
-                              <li class="list-inline-item"><a href="#" class="text-success"><i
-                                      class="mdi mdi-star"></i></a></li>
-                              <li class="list-inline-item"><a href="#" class="text-success"><i
-                                      class="mdi mdi-star"></i></a></li>
-                              <li class="list-inline-item"><a href="#" class="text-success"><i
-                                      class="mdi mdi-star"></i></a></li>
-                              <li class="list-inline-item badge badge-success text-white">4.9</li>
-                            </ul>
-                            <p class="text-muted mb-0">{{info.companytype}}</p>
-                          </div>
-                          <div class="apply-button text-center mt-3">
-                            <a :href="'/company-detail.html?phone=' + info.phone" class="btn btn-primary btn-sm">查看企业</a>
-                          </div>
-                          <div class="fav-collection fav-icon">
-                            <i class="mdi mdi-heart" title="Collect Now"></i>
-                          </div>
+                        <div class="col-lg-4 col-md-6 mt-4 pt-2"
+                             v-for="info in infos.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+                            <div class="employers-list position-relative pb-3 pt-3 pl-2 pr-2 border rounded"
+                                 @click="Jump(info.phone)" style="cursor: pointer">
+                                <img src="images/employers/img-1.jpg" alt=""
+                                     class="mx-auto d-block shadow border rounded-circle" height="90">
+                                <div class="grid-list-desc text-center mt-3">
+                                    <h5 class="mb-2"><a href="#" class="text-dark name">{{info.phone}}</a></h5>
+                                    <p class="text-muted mb-0">{{info.companynature}}</p>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{info.place}}
+                                    </p>
+                                    <ul class="employers-icons list-inline mb-1">
+                                        <li class="list-inline-item"><a href="#" class="text-success"><i
+                                                class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-success"><i
+                                                class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-success"><i
+                                                class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-success"><i
+                                                class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-success"><i
+                                                class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item badge badge-success text-white">4.9</li>
+                                    </ul>
+                                    <p class="text-muted mb-0">{{info.companytype}}</p>
+                                </div>
+                                <div class="apply-button text-center mt-3">
+                                    <a :href="'/company-detail.html?phone=' + info.phone"
+                                       class="btn btn-primary btn-sm">查看企业</a>
+                                </div>
+                                <div class="fav-collection fav-icon">
+                                    <i class="mdi mdi-heart" title="Collect Now"></i>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
                     <div style="margin: 30px auto 0px">
-                      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                     :current-page="currentPage" :page-sizes="[9,27]" :page-size="9"
-                                     layout="prev, pager, next, jumper,sizes, total " :total="this.infos.length">
-                      </el-pagination>
+                        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                       :current-page="currentPage" :page-sizes="[9,27]" :page-size="9"
+                                       layout="prev, pager, next, jumper,sizes, total " :total="this.infos.length">
+                        </el-pagination>
                     </div>
-                  </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+</div>
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
+                <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地
+                    方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">启迪导航</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪之星</a></li>
+                    <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
+                        启迪天使投资</a></li>
+                    <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">功能</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
+                    <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
+                    <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>启迪之星(青海)分公司</li>
+                    <li class="mt-2">青海省西宁市城北区</li>
+                    <li class="mt-2">test@test.com</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                    <a href="javascript:void(0)"><img src="images/logo-light.png" height="20" alt=""></a>
-                    <p class="mt-4">启迪之星自1999年清华科技园孵化器成立起，累计投资100多个初创企业，投资总额超过1亿元 人民币，其中投资项目的地 方基金覆盖东北，华中，东部等地区，重点关注互联网+、TMT、 节能环保、新材料、生物医 药、先进制造、教育培训、 智能+、现代服务、大消费等 领域。</p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">启迪导航</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="http://www.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪之星</a></li>
-                        <li><a href="http://invest.tusstar.com/" class="text-foot"><i class="mdi mdi-chevron-right"></i>
-                                启迪天使投资</a></li>
-                        <li><a href="index.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 启迪之星(青海)</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title">功能</p>
-                    <ul class="list-unstyled footer-list">
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> 企业登录</a></li>
-                        <li><a href="about.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 关于我们</a></li>
-                        <li><a href="faq.html" class="text-foot"><i class="mdi mdi-chevron-right"></i> 常见问题</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <p class="text-white mb-4 footer-list-title f-17">关于我们</p>
-                    <ul class="list-unstyled text-foot mt-4 mb-0">
-                        <li>启迪之星(青海)分公司</li>
-                        <li class="mt-2">青海省西宁市城北区</li>
-                        <li class="mt-2">test@test.com</li>
-                    </ul>
+</footer>
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2019 启迪之星(青海). Design by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-    <hr>
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <p class="mb-0">© 2019 启迪之星(青海). Design by <a href="https://www.qhu.edu.cn/">青海大学</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end container-->
-    </footer>
-    <!--end footer-->
-    <!-- Footer End -->
+    </div>
+    <!--end container-->
+</footer>
+<!--end footer-->
+<!-- Footer End -->
 
-    <!-- Back to top -->
-    <a href="#" class="back-to-top rounded text-center" id="back-to-top">
-        <i class="mdi mdi-chevron-up d-block"> </i>
-    </a>
-    <!-- Back to top -->
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
 
-    <script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
 
-    <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 
-    <script type="text/javascript">
-        var app = new Vue({
-            el: '#app',
-            data: {
-                infos: [],
-                name: "",
-                newlin: "",
-                currentPage: 1, // 初始页
-                pagesize: 9, // 每页的数据
-                showtype: "",
-                turntype: "",
-                isadmin: "",
-                phone: "",
-                enterpriseKeyWord: "",
-                companyAddress: "",
-                companyType: "",
-                sizeTicked: [],
-                natureTicked: "全部"
-            },
-            mounted() {
-                var self = this
-                var enterpriseKeyWord = decodeURI(self.getQueryVariable("enterpriseKeyWord"));
-                var companyAddress = decodeURI(self.getQueryVariable("companyAddress"));
-                var companyType = decodeURI(self.getQueryVariable("companyType"));
-                var tmp = new Object();
-                if (enterpriseKeyWord != "") {
-                    tmp.enterpriseKeyWord = enterpriseKeyWord;
-                    self.enterpriseKeyWord = enterpriseKeyWord;
-                }
-                if (companyAddress != "") {
-                    tmp.companyAddress = companyAddress;
-                    self.companyAddress = companyAddress;
-                }
-                if (companyType != "") {
-                    tmp.companyType = companyType;
-                    self.companyType = companyType;
-                }
-                if (tmp.enterpriseKeyWord != undefined || tmp.companyAddress != undefined || tmp.companyType != undefined) {
-                    axios
-                        .post('/bussiness', {
-                            code: '1017',
-                            enterpriseKeyWord: tmp.enterpriseKeyWord,
-                            companyAddress: tmp.companyAddress,
-                            companyType: tmp.companyType
-                        })
-                        .then(function(response) {
-                            if (response.data == "error") {
-                                console.log("企业查询返回错误");
-                                return;
-                            }
-                            self.infos = response.data;
-                        })
-                        .catch(function(error) {
-                            console.log("企业查询发生错误" + error);
-                        })
-                } else {
-                    axios.post('/bussiness', {
-                            code: "1010"
-                        })
-                        .then(function(response) {
-                            self.infos = response.data
-                        })
-                        .catch(function(error) {
-                            console.log(error);
-                        });
-                }
-                axios.post('/users', {
-                        code: "1005",
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            infos: [],
+            name: "",
+            newlin: "",
+            currentPage: 1, // 初始页
+            pagesize: 9, // 每页的数据
+            showtype: "",
+            turntype: "",
+            isadmin: "",
+            phone: "",
+            enterpriseKeyWord: "",
+            companyAddress: "",
+            companyType: "",
+            sizeTicked: [],
+            natureTicked: "全部"
+        },
+        mounted() {
+            var self = this
+            var enterpriseKeyWord = decodeURI(self.getQueryVariable("enterpriseKeyWord"));
+            var companyAddress = decodeURI(self.getQueryVariable("companyAddress"));
+            var companyType = decodeURI(self.getQueryVariable("companyType"));
+            var tmp = new Object();
+            if (enterpriseKeyWord != "") {
+                tmp.enterpriseKeyWord = enterpriseKeyWord;
+                self.enterpriseKeyWord = enterpriseKeyWord;
+            }
+            if (companyAddress != "") {
+                tmp.companyAddress = companyAddress;
+                self.companyAddress = companyAddress;
+            }
+            if (companyType != "") {
+                tmp.companyType = companyType;
+                self.companyType = companyType;
+            }
+            if (tmp.enterpriseKeyWord != undefined || tmp.companyAddress != undefined || tmp.companyType != undefined) {
+                axios
+                    .post('/bussiness', {
+                        code: '1017',
+                        enterpriseKeyWord: tmp.enterpriseKeyWord,
+                        companyAddress: tmp.companyAddress,
+                        companyType: tmp.companyType
                     })
-                    .then(function(response) {
-                        if (response.data == "nouser") {
-                            self.name = "未登录"
-                        } else {
-                            self.name = response.data.username
-                            self.isadmin = response.data.studentisadmin
-                            self.phone = response.data.phone
-                            if (self.isadmin == "2") {
-                                self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "发布一个岗位"
-                                self.turntype = "/post-a-job.html"
-                                console.log("此用户是企业用户")
-                            }
-                            if (self.isadmin == "0") {
-                                self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
-                                self.showtype = "完善简历"
-                                self.turntype = "/create-resume.html"
-                                console.log("此用户是普通用户")
-                            }
+                    .then(function (response) {
+                        if (response.data == "error") {
+                            console.log("企业查询返回错误");
+                            return;
                         }
+                        self.infos = response.data;
                     })
-                    .catch(function(error) {
+                    .catch(function (error) {
+                        console.log("企业查询发生错误" + error);
+                    })
+            } else {
+                axios.post('/bussiness', {
+                    code: "1010"
+                })
+                    .then(function (response) {
+                        self.infos = response.data
+                    })
+                    .catch(function (error) {
                         console.log(error);
                     });
-
-            },
-            methods: {
-                Jump(phone) {
-                    var Herf = '/company-detail.html?phone=' + phone
-                    window.location.href = Herf
-                },
-                // 初始页currentPage、初始每页数据数pagesize和数据data
-                handleSizeChange(size) {
-                  this.pagesize = size; // 每页下拉显示数据
-                  //console.log(this.pagesize);
-                },
-                handleCurrentChange(currentPage) {
-                  this.currentPage = currentPage; //点击第几页
-                  //console.log(this.currentPage);
-                },
-                query1: function() {
-                    axios
-                        .post('/bussiness', {
-                            code: '1017',
-                            enterpriseKeyWord: this.enterpriseKeyWord,
-                            companyAddress: this.companyAddress,
-                            companyType: this.companyType
-                        })
-                        .then(function(response) {
-                            if (response.data == "error") {
-                                console.log("企业查询返回错误");
-                                return;
-                            }
-                            this.infos = response.data;
-                        })
-                        .catch(function(error) {
-                            console.log("企业查询发生错误" + error);
-                        })
-                },
-                getQueryVariable: function(variable) {
-                    var query = window.location.search.substring(1);
-                    var vars = query.split("&");
-                    for (var i = 0; i < vars.length; i++) {
-                        var pair = vars[i].split("=");
-                        if (pair[0] == variable) {
-                            return pair[1];
+            }
+            axios.post('/users', {
+                code: "1005",
+            })
+                .then(function (response) {
+                    if (response.data == "nouser") {
+                        self.name = "未登录"
+                    } else {
+                        self.name = response.data.username
+                        self.isadmin = response.data.studentisadmin
+                        self.phone = response.data.phone
+                        if (self.isadmin == "2") {
+                            self.newlin = "/enterpriseCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "发布一个岗位"
+                            self.turntype = "/post-a-job.html"
+                            console.log("此用户是企业用户")
+                        }
+                        if (self.isadmin == "0") {
+                            self.newlin = "/userCenter.html?phone=" + "'" + self.phone + "'"
+                            self.showtype = "完善简历"
+                            self.turntype = "/create-resume.html"
+                            console.log("此用户是普通用户")
                         }
                     }
-                    return "";
-                },
-                // 条件查询
-                criteriaQuery: function () {
-                    var companySizeList = (this.sizeTicked.length === 0 ? null: this.sizeTicked);
-                    var companyNature = (this.natureTicked === "全部" ? null : this.natureTicked);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
-                    axios
-                      .post('/bussiness', {
+        },
+        methods: {
+            Jump(phone) {
+                var Herf = '/company-detail.html?phone=' + phone
+                window.location.href = Herf
+            },
+            // 初始页currentPage、初始每页数据数pagesize和数据data
+            handleSizeChange(size) {
+                this.pagesize = size; // 每页下拉显示数据
+                //console.log(this.pagesize);
+            },
+            handleCurrentChange(currentPage) {
+                this.currentPage = currentPage; //点击第几页
+                //console.log(this.currentPage);
+            },
+            query1: function () {
+                axios
+                    .post('/bussiness', {
+                        code: '1017',
+                        enterpriseKeyWord: this.enterpriseKeyWord,
+                        companyAddress: this.companyAddress,
+                        companyType: this.companyType
+                    })
+                    .then(function (response) {
+                        if (response.data == "error") {
+                            console.log("企业查询返回错误");
+                            return;
+                        }
+                        this.infos = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log("企业查询发生错误" + error);
+                    })
+            },
+            getQueryVariable: function (variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return "";
+            },
+            // 条件查询
+            criteriaQuery: function () {
+                var companySizeList = (this.sizeTicked.length === 0 ? null : this.sizeTicked);
+                var companyNature = (this.natureTicked === "全部" ? null : this.natureTicked);
+
+                axios
+                    .post('/bussiness', {
                         code: '1017',
                         enterpriseKeyWord: this.enterpriseKeyWord,
                         companyAddress: this.companyAddress,
                         companyType: this.companyType,
                         companySizeList: companySizeList,
                         companyNature: companyNature
-                      })
-                      .then(function(response) {
+                    })
+                    .then(function (response) {
                         if (response.data == "error") {
-                          console.log("企业查询返回错误");
-                          return;
+                            console.log("企业查询返回错误");
+                            return;
                         }
                         app.infos = response.data;
-                      })
-                      .catch(function(error) {
+                    })
+                    .catch(function (error) {
                         console.log("企业查询发生错误" + error);
-                      })
-                }
+                    })
             }
-        })
-    </script>
+        }
+    })
+</script>
 </body>
 
 </html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录 - 启迪之星</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -26,164 +26,171 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!--Material Icon -->
-    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/selectize.css" />
+    <link rel="stylesheet" type="text/css" href="css/selectize.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
 
     <!-- Custom  Css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 </head>
 
 <body>
-    <!-- Loader -->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
+<!-- Loader -->
+<div id="preloader">
+    <div id="status">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
         </div>
     </div>
-    <!-- Loader -->
+</div>
+<!-- Loader -->
 
-    <div class="back-to-home rounded d-none d-sm-block">
-        <a href="index.html" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
-    </div>
+<div class="back-to-home rounded d-none d-sm-block">
+    <a href="index.html" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
+</div>
 
-    <!-- Hero Start -->
-    <section class="vh-100">
+<!-- Hero Start -->
+<section class="vh-100">
 
-        <div class="home-center">
-            <div class="home-desc-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="login-page bg-white shadow rounded p-4" id="app">
-                                <div class="text-center">
-                                    <h4 class="mb-4">登录</h4>
-                                </div>
-                                <div class="login-form">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group position-relative">
-                                                <label>账号 <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="学生手机号/企业名称" name="email" required="" v-model="phone">
+    <div class="home-center">
+        <div class="home-desc-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="login-page bg-white shadow rounded p-4" id="app">
+                            <div class="text-center">
+                                <h4 class="mb-4">登录</h4>
+                            </div>
+                            <div class="login-form">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group position-relative">
+                                            <label>账号 <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="学生手机号/企业名称"
+                                                   name="email" required="" v-model="phone">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group position-relative">
+                                            <label>密码 <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" placeholder="密码" required=""
+                                                   v-model="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="height: 60px;">
+                                        <input type="text" class="form-control phone-Captcha input-val"
+                                               placeholder="输入验证码" name="Captcha" style="width: 58%;">
+                                        <canvas id="canvas" width="100" height="30"
+                                                style="border: 1px solid rgb(100, 100, 248); margin: 0 0 -10px 0;"></canvas>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <p class="float-right forgot-pass"><a href="recovery_passward.html"
+                                                                              class="text-dark font-weight-bold">忘记密码?</a>
+                                        </p>
+                                        <div class="form-group">
+                                            <div class="custom-control m-0 custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">记住我</label>
                                             </div>
                                         </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group position-relative">
-                                                <label>密码 <span class="text-danger">*</span></label>
-                                                <input type="password" class="form-control" placeholder="密码" required="" v-model="password">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12" style="height: 60px;">
-                                            <input type="text" class="form-control phone-Captcha input-val" placeholder="输入验证码" name="Captcha" style="width: 58%;">
-                                            <canvas id="canvas" width="100" height="30" style="border: 1px solid rgb(100, 100, 248); margin: 0 0 -10px 0;"></canvas>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <p class="float-right forgot-pass"><a href="recovery_passward.html" class="text-dark font-weight-bold">忘记密码?</a></p>
-                                            <div class="form-group">
-                                                <div class="custom-control m-0 custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1">记住我</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mb-0">
-                                            <button class="btn btn-primary w-100" v-on:click='check'>登录</button>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">您还没有账户?</small> <a href="signup.html" class="text-dark font-weight-bold">注册</a></p>
-                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-0">
+                                        <button class="btn btn-primary w-100" v-on:click='check'>登录</button>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <p class="mb-0 mt-3"><small class="text-dark mr-2">您还没有账户?</small> <a
+                                                href="signup.html" class="text-dark font-weight-bold">注册</a></p>
                                     </div>
                                 </div>
                             </div>
-                            <!---->
                         </div>
-                        <!--end col-->
+                        <!---->
                     </div>
-                    <!--end row-->
+                    <!--end col-->
                 </div>
-                <!--end container-->
+                <!--end row-->
             </div>
+            <!--end container-->
         </div>
-    </section>
-    <!--end section-->
-    <!-- Hero End -->
+    </div>
+</section>
+<!--end section-->
+<!-- Hero End -->
 
-    <!-- javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins.js"></script>
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/plugins.js"></script>
 
-    <!-- selectize js -->
-    <script src="js/selectize.min.js"></script>
+<!-- selectize js -->
+<script src="js/selectize.min.js"></script>
 
-    <script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
 
-    <script src="js/app.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                phone: '',
-                password: "",
-                imshow: "flash",
-            },
-            methods: {
-                check: function(response) {
+<script src="js/app.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            phone: '',
+            password: "",
+            imshow: "flash",
+        },
+        methods: {
+            check: function (response) {
 
-                    if (this.phone == '') {
-                        alert('请输入用户名（手机号）');
-                        return
-                    }
-                    if (this.password == "") {
-                        alert("请输入密码");
-                        return
-                    }
-                    this.imshow = Compare_verification_codes()
-                    if (this.imshow === "flash") {
-                        alert('图形验证码错误');
-                        return
-                    }
-                    axios.post('/users', {
-                            code: '1004',
-                            phone: this.phone,
-                            password: this.password,
-                        })
-                        .then(function(data) {
-                            console.log(data)
-                            if (data.data == "success") {
-                                alert('登录成功')
-                                window.location = "index.html"
-                            } else if (data.data == "admin") {
-                                alert('管理员登录')
-                                window.location = "index.html"
-                            } else if (data.data == "company") {
-                                alert('企业登录')
-                                window.location = "index.html"
-                            } else if (data.data == "errortypeone") {
-                                alert('用户不存在')
-                            } else if (data.data == "error") {
-                                alert('登录失败')
-                            } else if (data.data == "errortypetwo") {
-                                alert('密码错误，请重试')
-                            }
-                        })
-                        .catch(function(error) {
-                            console.log('.....', error);
-                        })
+                if (this.phone == '') {
+                    alert('请输入用户名（手机号）');
+                    return
                 }
+                if (this.password == "") {
+                    alert("请输入密码");
+                    return
+                }
+                this.imshow = Compare_verification_codes()
+                if (this.imshow === "flash") {
+                    alert('图形验证码错误');
+                    return
+                }
+                axios.post('/users', {
+                    code: '1004',
+                    phone: this.phone,
+                    password: this.password,
+                })
+                    .then(function (data) {
+                        console.log(data)
+                        if (data.data == "success") {
+                            alert('登录成功')
+                            window.location = "index.html"
+                        } else if (data.data == "admin") {
+                            alert('管理员登录')
+                            window.location = "index.html"
+                        } else if (data.data == "company") {
+                            alert('企业登录')
+                            window.location = "index.html"
+                        } else if (data.data == "errortypeone") {
+                            alert('用户不存在')
+                        } else if (data.data == "error") {
+                            alert('登录失败')
+                        } else if (data.data == "errortypetwo") {
+                            alert('密码错误，请重试')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log('.....', error);
+                    })
             }
-        })
-    </script>
+        }
+    })
+</script>
 </body>
 
 </html>
