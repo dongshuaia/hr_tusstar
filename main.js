@@ -1066,6 +1066,7 @@ app.use('/logOut', function (request, response) {
     request.session.phone = ''
     request.session.username = ''
     request.session.studentisadmin = "3"
+    USERFLAG = ''
 
     response.end("注销成功");
 })
