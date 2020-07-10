@@ -393,21 +393,6 @@
             newlin: '',
             photoAddress: "",
         },
-        created() {
-            document.getElementById("btn1").style.color = "black";
-            var self = this
-            axios.post('/center', {
-                code: "1003"
-            })
-                .then(function (response) {
-                    //console.log(response.data)
-                    self.info = response.data[0];
-                    self.infoList = response.data[1]
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        },
         methods: {
             reject: function (item) {
                 axios.post('/center', {
@@ -445,6 +430,17 @@
         },
         async mounted() {
             var self = this
+            await axios.post('/center', {
+                code: "1003"
+            })
+                .then(function (response) {
+                    //console.log(response.data)
+                    self.info = response.data[0];
+                    self.infoList = response.data[1]
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             axios
                 .post('/searchPhoto', {})
                 .then(function (response) {
@@ -477,7 +473,7 @@
             axios
                 .post('/bussiness', {
                     code: "1011",
-                    phone: self.phone
+                    phone: this.info.phone
                 })
                 .then(function (response) {
                     self.joblist = response.data

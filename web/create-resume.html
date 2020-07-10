@@ -218,15 +218,15 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
-                                        <label class="text-muted">手机电话</label>
-                                        <input id="phone" type="number" class="form-control resume" placeholder=""
+                                        <label class="text-muted">手机电话</label><span class="text-danger"> *</span>
+                                        <input id="phone" type="tel" class="form-control resume" placeholder=""
                                                v-model="phone">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
-                                        <label class="text-muted">电子邮箱</label>
+                                        <label class="text-muted">电子邮箱</label><span class="text-danger"> *</span>
                                         <input id="e-mail" type="email" name="email" class="form-control resume"
                                                placeholder=""
                                                v-model="email">
@@ -530,6 +530,19 @@
         },
         mounted() {
             var self = this
+            axios.post('/users', {
+                code: "1009"
+            })
+                .then(function (response) {
+                    console.log(response.data[0])
+                    self.name = response.data[0].name
+                    self.sex = response.data[0].sex
+                    self.phone = response.data[0].phone
+                    self.email = response.data[0].email
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             axios.post('/bussiness', {
                 code: "1014"
             })

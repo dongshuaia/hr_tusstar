@@ -188,7 +188,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">手机电话</label>
-                                        <input id="phone" type="number" class="form-control resume" placeholder=""
+                                        <input id="phone" type="tel" class="form-control resume" placeholder=""
                                                v-model="phone">
                                     </div>
                                 </div>
@@ -406,13 +406,11 @@
                 newlin: "",
                 photoAddress: "",
             }, created() {
-                console.log('Requsting...')
                 var self = this
                 axios.post('/center', {
                     code: "1002"
                 })
                     .then(function (response) {
-                        console.log(response.data[0])
                         self.name = response.data[0].name
                         self.school = response.data[0].school
                         self.education = response.data[0].education

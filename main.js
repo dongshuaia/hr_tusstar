@@ -348,7 +348,6 @@ app.use('/users', function (request, response) {
             response.end("notstudent")
         }
     } else if (request.body.code == "1003") {//新建个人简历信息
-        console.log(request.body);
         var checkresumesql = "select * from resume where phone = '" + request.body.phone + "'"
         query(checkresumesql, function (err, result) {
             console.log(result.length)
@@ -368,6 +367,7 @@ app.use('/users', function (request, response) {
                         console.log("error-" + err.message)
                         return
                     } else {
+                        request.session.haveResume = true
                         response.end("success")
                         return
                     }
@@ -468,6 +468,17 @@ app.use('/users', function (request, response) {
             } else {
                 response.end(JSON.stringify(results.length))
                 console.log("累计申请数目：" + results.length)
+            }
+        })
+    } else if (request.body.code == "1009") { // 获取注册信息
+        var selectApplications = "select name, sex, phone, email from users where phone='" + request.session.phone + "'"
+        query(selectApplications, function (err, results) {
+            if (err) {
+                log.err('[error]-' + error)
+                response.end('error')
+                return
+            } else {
+                response.end(JSON.stringify(results))
             }
         })
     }
@@ -694,7 +705,6 @@ app.use('/bussiness', function (request, response) {
             }
         })
     } else if (request.body.code == "1011") {//job-detil中的企业列表
-        console.log("hhhh: " + request.body.phone)
         var selectjoblist = "select * from job where company = " + " '" + request.body.phone + "' "
         query(selectjoblist, function (err, result) {
             if (err) {
@@ -923,7 +933,7 @@ app.use('/center', function (request, response) {
                 return
             }
         })
-    } else if (request.body.code == "1002") {//完善简历
+    } else if (request.body.code == "1002") {//更新简历
         if (request.body.name == null) {
             var resumeInfo = "select * from resume where phone = " + "'" + request.session.phone + "'"
             query(resumeInfo, function (err, result) {
